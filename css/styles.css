@@ -1,0 +1,5105 @@
+/* ========================================================================== */
+
+
+/* Copyright (C) 2021 Michael Leggett, Made Simple LLC - All Rights Reserved
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential */
+html.simplify {
+  --color-black: #121212;
+  --color-gray-vdark: #202124;
+  --color-gray-dark: #282828;
+  --color-gray-light: #e8eaed;
+  --color-gray-lighter: #f7f7f7;
+  --color-white-gray: rgba(241, 243, 244, 0.24);
+  --color-gray-buttonBg: rgba(32, 33, 36, 0.059);
+  --color-gray: #5f6368;
+  --color-gray-vlight: #f5f5f5;
+  --color-red: #d93025;
+  --color-blue: #1364d8;
+  --color-paneBorder: #e5e5e5;
+  --color-themeBg: #ffffff;
+  --color-themeAccent: #ffffff;
+  --color-themeGray: var(--color-gray-light);
+  --color-scrollThumb: rgba(0, 0, 0, 0.36);
+  --color-searchBg: rgba(0, 0, 0, 0.06);
+  --color-navBg: transparent;
+  --color-navPeek: rgba(255, 255, 255, 0.9);
+  --color-itemBg: rgba(255, 255, 255, 0.95);
+  --color-itemFont: var(--color-gray-vdark);
+  --color-readItemBg: var(--color-itemBg);
+  --color-readItemFont: #444;
+  --color-groupFont: #999;
+  --color-focused: var(--color-gray-vlight);
+  --color-selected-focused: #9fc4ff;
+  --color-itemBorder: rgba(100, 121, 143, 0.122);
+  --border-item: none;
+  --padding-top: 40px;
+  --padding-bottom: 60px;
+  --width-list: 1100px;
+  --width-msg: 850px;
+  --width-search: 500px;
+  --width-nav: 0px;
+  --width-chat: 0px;
+  --width-settings: 0px;
+  --width-addOns: 0px;
+  --width-rightChat: 0px;
+  --width-tabMargin: 32px;
+  --width-rightPane: calc(
+    var(--width-settings) + var(--width-addOns) + var(--width-rightChat)
+  );
+  --system-fonts: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+html.simplify.vPane {
+  --color-navBg: #fff;
+  --color-navPeek: #fff;
+}
+
+html.simplify.mediumTheme {
+  --color-navBg: transparent;
+  --color-navPeek: rgba(32, 33, 36, 0.9);
+}
+
+html.simplify.mediumTheme.vPane {
+  --color-navBg: #fff;
+  --color-navPeek: #fff;
+}
+
+html.simplify.darkTheme {
+  --color-themeBg: #000;
+  --color-themeAccent: var(--color-black);
+  --color-themeGray: var(--color-gray-dark);
+  --color-scrollThumb: rgba(255, 255, 255, 0.4);
+  --color-searchBg: rgba(255, 255, 255, 0.12);
+  --color-selected-focused: var(--color-blue);
+  --color-navBg: #111;
+  --color-navPeek: rgba(17, 17, 17, 0.9);
+  --color-chatBg: #2c2c2c;
+  --color-paneBorder: transparent;
+  --color-active: rgb(19, 42, 77);
+  --color-itemBg: rgba(17, 17, 17, 0.9);
+  --color-itemBorder: rgba(100, 121, 143, 0.3);
+  --color-itemFont: #fff;
+  --color-readItemFont: #ddd;
+  --color-groupFont: rgba(255, 255, 255, 0.6);
+}
+
+html.simplify.darkTheme.vPane {
+  --color-themeAccent: #000;
+  --color-itemBg: #000;
+  --color-navBg: #000;
+  --color-navPeek: #000;
+}
+
+html.simplify.contrastTheme {
+  --color-itemBg: rgba(255, 255, 255, 1);
+  --color-itemFont: #000;
+  --color-readItemBg: rgba(242, 245, 245, 0.8);
+  --color-readItemFont: #222;
+  --color-groupFont: #aaa;
+  --color-itemBorder: rgba(100, 121, 143, 0.122);
+  --border-item: 1px solid #ccc;
+}
+
+html.simplify.textButtons:not(.vPane) {
+  --width-msg: 1100px;
+}
+
+html.simplify.defaultTheme {
+  --color-focused: var(--color-gray-lighter);
+}
+
+html.simplify.mediumTheme {
+  --color-focused: #f1f1f1;
+  --color-paneBorder: transparent;
+}
+
+html.simplify.darkTheme {
+  --color-focused: #171717;
+}
+
+html.simplify.grayTheme {
+  --color-focused: #fbfbfb;
+  --color-searchBg: var(--color-gray-light);
+}
+
+html.simplify.boldHighlight {
+  --color-focused: var(--color-gray-light);
+}
+
+html.simplify.boldHighlight.darkTheme {
+  --color-focused: #333;
+}
+
+html.simplify.showChat:not(.navOpen) {
+  --width-chat: 72px;
+}
+
+html.simplify.searchFocused {
+  --width-search: 500px !important;
+}
+
+html.simplify.navOpen {
+  --width-nav: 256px;
+  --width-tabMargin: 16px;
+}
+
+html.simplify.addOnsOpen {
+  --width-addOns: 300px;
+}
+
+html.simplify.quickSettings {
+  --width-settings: 300px;
+}
+
+html.simplify.rhsChat:not(.addOnsOpen) {
+  --width-rightChat: 200px;
+}
+
+html.simplify.rhsChat.newUI {
+  --width-rightChat: 256px;
+}
+
+html.simplify.listWidthMd {
+  --width-list: 960px;
+}
+
+html.simplify.listWidthLg {
+  --width-list: 1100px;
+}
+
+html.simplify.listWidthXLg {
+  --width-list: 1250px;
+}
+
+html.simplify.listWidthXXLg {
+  --width-list: 1400px;
+}
+
+html.simplify.listWidthFull {
+  --width-list: calc(100vw - 32px);
+}
+
+html.simplify.msgWidthSm {
+  --width-msg: 850px;
+}
+
+html.simplify.msgWidthMd {
+  --width-msg: 960px;
+}
+
+html.simplify.msgWidthLg {
+  --width-msg: 1100px;
+}
+
+html.simplify.msgWidthXLg {
+  --width-msg: 1250px;
+}
+
+html.simplify.msgWidthXXLg {
+  --width-msg: 1400px;
+}
+
+html.simplify.msgWidthFull {
+  --width-msg: calc(100vw - 64px);
+}
+
+@media only screen and (max-width: 1355.98px) {
+  html.simplify {
+    --width-search: 350px;
+  }
+  html.simplify.listWidthLg {
+    --width-list: 960px;
+  }
+  html.simplify.listWidthXLg {
+    --width-list: 1100px;
+  }
+}
+
+@media only screen and (max-width: 1499.98px) {
+  html.simplify.navOpen, html.simplify.addOnsOpen, html.simplify.quickSettings, html.simplify.rhsChat {
+    --width-search: 350px;
+  }
+  html.simplify.navOpen.listWidthLg, html.simplify.addOnsOpen.listWidthLg, html.simplify.quickSettings.listWidthLg, html.simplify.rhsChat.listWidthLg {
+    --width-list: 960px;
+  }
+  html.simplify.navOpen.listWidthXLg, html.simplify.addOnsOpen.listWidthXLg, html.simplify.quickSettings.listWidthXLg, html.simplify.rhsChat.listWidthXLg {
+    --width-list: 1100px;
+  }
+}
+
+html.simplify.inList {
+  --width-content: var(--width-list);
+}
+
+html.simplify.inMsg {
+  --width-content: var(--width-msg) !important;
+}
+
+html.simplify.hPane {
+  --width-content: var(--width-list) !important;
+  --width-msg: calc(var(--width-list) - 8px);
+}
+
+html.simplify.inSearch:not(.inMsg) {
+  --padding-top: 82px;
+}
+
+html.simplify.inSearch.vPane:not(.inMsg) {
+  --padding-top: 48px;
+}
+
+html.simplify.highDensity {
+  --padding-top: 20px;
+  --padding-bottom: 60px;
+}
+
+@media only screen and (max-width: 1049.98px) {
+  html.simplify {
+    --padding-top: 10px;
+  }
+}
+
+html.simplify.inSettings {
+  --width-nav: 0px;
+  --width-addOns: 0px;
+  --width-settings: 0px;
+  --width-rightChat: 0px;
+}
+
+html.simplify.oeCopper.addOnsOpen {
+  --width-addOns: 360px;
+}
+
+html.simplify.oeHubspot.addOnsOpen {
+  --width-addOns: 280px;
+}
+
+
+/* Copyright (C) 2021 Michael Leggett, Made Simple LLC - All Rights Reserved
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential */
+/* ========================================================================== */
+html.simplify.addOnsOpen.newUI.rhsChat .nH.a4O {
+  padding-right: var(--width-addOns);
+  box-sizing: border-box;
+}
+
+html.simplify .bkL .no .nH.nn[style*='width: 56px']:not(.bAw) {
+  width: 0px !important;
+  min-width: 0px !important;
+  overflow: visible;
+}
+
+html.simplify .bAw {
+  position: fixed;
+  right: calc(26px + var(--width-addOns)) !important;
+  top: 84px !important;
+  height: auto !important;
+  max-height: calc(100vh - 180px);
+  width: 54px;
+  min-width: 54px;
+  border-radius: 27px;
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3) !important;
+  background-color: #ffffff;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition: all 150ms ease-out;
+}
+
+html.simplify .bAw div {
+  pointer-events: none;
+}
+
+html.simplify .bAw > div:first-child {
+  display: flex;
+  border-left: 0px;
+}
+
+html.simplify .bAw > div:first-child > div {
+  margin: 0px;
+  opacity: 1;
+}
+
+html.simplify .bAw .bse-bvF-JX-axQ-avS {
+  background-color: transparent !important;
+}
+
+html.simplify .bAw .brC-aT5-aOt-Jw {
+  background: transparent;
+  display: flex !important;
+}
+
+html.simplify .bAw .brC-bsf-aT5-aOt {
+  height: auto !important;
+  max-height: calc(100vh - 180px);
+  overflow-y: auto;
+}
+
+html.simplify .bAw .brC-bsf-aT5-aOt > .bse-bvF-I:not(.brC-oH-M-I) {
+  display: block !important;
+}
+
+html.simplify .bAw .brC-bsf-aT5-aOt #qJTzr .aT5-aOt-I-JX-Jw {
+  opacity: 0.54;
+}
+
+html.simplify .bAw .brC-bsf-aT5-aOt .brC-aT5-aOt-axR,
+html.simplify .bAw .brC-bsf-aT5-aOt .brC-oH-M-I {
+  display: none !important;
+}
+
+html.simplify .bAw .brC-dA-I-Jw {
+  display: none;
+}
+
+html.simplify .bAw .brC-by0-P6-I {
+  display: none;
+}
+
+html.simplify.addOnsOpen .bq9 {
+  border-left: 1px solid var(--color-paneBorder);
+  box-shadow: none !important;
+}
+
+html.simplify.addOnsOpen #gb {
+  border-right: 1px solid var(--color-paneBorder);
+}
+
+html.simplify.defaultTheme .bAw {
+  box-shadow: none !important;
+  right: var(--width-rightPane) !important;
+  top: 64px !important;
+  padding-right: 6px;
+  border-radius: 0;
+}
+
+html.simplify.defaultTheme:not(.otherExtensions) .bAw {
+  background-color: transparent;
+}
+
+html.simplify.defaultTheme.vPane.otherExtensions .bAw {
+  background-color: var(--color-gray-vlight);
+}
+
+html.simplify.mediumTheme .bAw #qJTzr .aT5-aOt-I-JX-Jw {
+  background-image: url(https://www.gstatic.com/images/icons/material/system/2x/add_black_24dp.png) !important;
+}
+
+html.simplify.darkTheme .bAw {
+  background-color: #222;
+}
+
+html.simplify.appMenuOpen .bAw {
+  pointer-events: auto;
+  opacity: 1;
+  transform: translateY(0px);
+  z-index: 4;
+}
+
+html.simplify.appMenuOpen .bAw div {
+  pointer-events: auto;
+}
+
+html.simplify .brC-ays {
+  margin: -41px 0 0 -65px;
+  max-width: 54px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+html.simplify.inSettings .bq9 {
+  display: none;
+}
+
+html.simplify.inSettings .settingsWrapper {
+  width: 100% !important;
+}
+
+html.simplify.darkTheme.invertAddons .brB-brH[role='tabpanel'] {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+
+/* Copyright (C) 2021 Michael Leggett, Made Simple LLC - All Rights Reserved
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential */
+/* ========================================================================== */
+html.simplify {
+  --pos-bottom: 0px;
+}
+
+html.simplify.vPane {
+  --pos-bottom: 72px;
+}
+
+html.simplify .ata-asE {
+  right: auto;
+  left: 24px;
+  bottom: var(--pos-bottom);
+  font-size: 0.875rem;
+  color: #fff;
+  background-color: #202124;
+  padding: 18px;
+  margin-bottom: 24px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.302), 0 4px 8px 3px rgba(60, 64, 67, 0.149);
+}
+
+html.simplify .ata-asE > span:first-child:not(.ata-asJ) {
+  padding-right: 12px;
+}
+
+html.simplify .ata-asE .ata-asJ {
+  color: #8ab4f8;
+  padding-left: 12px;
+}
+
+html.simplify .vX .vh {
+  border: none;
+  border-radius: 0 0 4px 4px;
+  padding: 8px 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+html.simplify .b8 .vh {
+  bottom: var(--pos-bottom) !important;
+}
+
+html.simplify.loading .vX .vh {
+  opacity: 0;
+}
+
+html.simplify .w-MH,
+html.simplify .w-asV .aG,
+html.simplify .w-asV .aF,
+html.simplify .ZY,
+html.simplify .bir {
+  position: fixed;
+  width: auto;
+  max-width: 350px;
+  text-align: left;
+  padding: 18px 24px;
+  bottom: var(--pos-bottom);
+  left: calc(var(--width-nav) + var(--width-chat) + 24px);
+  font-size: 0.875rem;
+  border: none;
+  box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.302), 0 4px 8px 3px rgba(60, 64, 67, 0.149);
+  border-radius: 4px;
+  white-space: break-spaces;
+  line-height: 1.5em;
+  /* Override the black on yellow default theme */
+  color: #fff;
+  background-color: #202124;
+}
+
+html.simplify .w-MH .e,
+html.simplify .ZY .e,
+html.simplify .w-asV .aG a,
+html.simplify .w-asV .aF a,
+html.simplify .bir a {
+  display: inline-block;
+  margin-left: 16px;
+  color: #8ab4f8;
+}
+
+html.simplify .w-asV .aF a,
+html.simplify .w-asV .aG a {
+  margin-left: 0px;
+}
+
+html.simplify .w-asV .aF .bV {
+  vertical-align: top;
+  text-align: left;
+  width: 30px;
+}
+
+
+/* Copyright (C) 2021 Michael Leggett, Made Simple LLC - All Rights Reserved
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential */
+/* ========================================================================== */
+html.simplify #gb .topLeftButtons, html.simplify #gb div[style*='238px'] {
+  min-width: 58px !important;
+  max-width: 58px;
+  padding-right: 0px;
+}
+
+html.simplify #gb a[href='#inbox'] {
+  display: none;
+}
+
+html.simplify #gb a[href*='SignOutOptions']::before,
+html.simplify #gb div[href*='SignOutOptions']::before {
+  content: " ";
+  position: absolute;
+  top: 10px;
+  left: -16px;
+  height: 20px;
+  width: 20px;
+  background: no-repeat center/100% url("chrome-extension://__MSG_@@extension_id__/img/icons/more_vert_black.png");
+  opacity: 0.4 !important;
+  z-index: 9;
+}
+
+html.simplify #gb div[href*='SignOutOptions']::before {
+  top: 14px;
+  left: 32px;
+}
+
+html.simplify #gb div[href*='SignOutOptions'] {
+  width: 48px !important;
+  margin-left: 0px;
+  margin-right: 0px;
+  border: none !important;
+  background-color: transparent;
+  box-shadow: none !important;
+}
+
+html.simplify #gb .gsuiteLogo {
+  display: none;
+}
+
+html.simplify:not(.delegate) #gb .oneGoogleRing,
+html.simplify:not(.delegate) #gb a[href*='SignOutOptions'] svg {
+  display: none;
+}
+
+html.simplify.defaultTheme.vPane #gb {
+  background-color: var(--color-gray-vlight) !important;
+  border-bottom: 1px solid var(--color-gray-light);
+}
+
+html.simplify.loading .aiw,
+html.simplify.loading .G-atb {
+  opacity: 0;
+}
+
+html.simplify .G-atb {
+  position: fixed;
+  top: 22px;
+  left: max(max(72px, calc(var(--width-nav) + 8px)), calc( (100vw - 16px - var(--width-content) + var(--width-nav) - var(--width-rightPane)) / 2));
+  width: calc(var(--width-content) - 16px);
+  max-width: calc(100vw - 130px - var(--width-addOns) - max(0px, calc(var(--width-settings) - 48px)) - max(60px, var(--width-nav)));
+  height: 0px !important;
+  padding: 0 0 0 8px;
+  margin: 0px !important;
+  opacity: 1;
+  z-index: 6;
+}
+
+html.simplify .G-atb .aqK {
+  height: 0px;
+  margin-left: 7px;
+}
+
+html.simplify .G-atb .iH {
+  height: 0px;
+  margin-left: 0px;
+}
+
+html.simplify .G-atb .aqJ {
+  position: absolute;
+  right: 0px;
+  margin-right: 8px;
+}
+
+html.simplify .G-atb .adF {
+  align-self: flex-start;
+}
+
+html.simplify .G-atb .aqJ .T-I-JE {
+  display: none;
+}
+
+html.simplify .G-atb div[act='290'] .brW {
+  background-image: url("chrome-extension://__MSG_@@extension_id__/img/icons/snooze-black.png") !important;
+}
+
+html.simplify.newUI .G-atb div[act='290'] .brW {
+  background-image: url("chrome-extension://__MSG_@@extension_id__/img/icons/snooze-black-outlined.png") !important;
+}
+
+html.simplify.hideListCount .G-atb .amH {
+  display: none;
+}
+
+html.simplify.hideListCount .G-atb .ar5:hover .amH {
+  display: inline-flex;
+}
+
+html.simplify.hideMsgCount .adl {
+  display: none;
+}
+
+html.simplify.hideMsgCount .adF:hover .adl {
+  display: block;
+}
+
+@media only screen and (min-width: 1199.98px) {
+  html.simplify.navOpen.inMsg .G-atb {
+    transform: translateX(-30px);
+  }
+}
+
+html.simplify.searchFocused .G-atb {
+  z-index: 4 !important;
+}
+
+html.simplify.otherExtensions:not(.searchFocused) .G-atb {
+  z-index: 6 !important;
+}
+
+html.simplify.hideSelectRefresh:not(.inMsg):not(.msgSelected):not(.vPane):not(.hPane) .G-tF .T-Pm,
+html.simplify.hideSelectRefresh:not(.inMsg):not(.msgSelected):not(.vPane):not(.hPane) .G-tF div[act='20'][role='button'],
+html.simplify.hideSelectRefresh:not(.inMsg):not(.msgSelected):not(.vPane):not(.hPane) .G-tF div.nf[role='button'], html.simplify.hideSelectRefresh:not(.inMsg):not(.msgSelected):not(.vPane):not(.hPane) .G-tF div[aria-label='More'] {
+  transition: opacity 200ms ease-in-out;
+}
+
+html.simplify.hideSelectRefresh:not(.inMsg):not(.msgSelected):not(.vPane):not(.hPane) .G-tF:not(:hover) .T-Pm,
+html.simplify.hideSelectRefresh:not(.inMsg):not(.msgSelected):not(.vPane):not(.hPane) .G-tF:not(:hover) div[act='20'][role='button'],
+html.simplify.hideSelectRefresh:not(.inMsg):not(.msgSelected):not(.vPane):not(.hPane) .G-tF:not(:hover) div.nf[role='button'], html.simplify.hideSelectRefresh:not(.inMsg):not(.msgSelected):not(.vPane):not(.hPane) .G-tF:not(:hover) div[aria-label='More'] {
+  opacity: 0;
+}
+
+html.simplify #gbwa,
+html.simplify .FI,
+html.simplify .zo,
+html.simplify .aBS,
+html.simplify .bvE, html.simplify .bvD, html.simplify .bvI,
+html.simplify .readingPaneToggle {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(10px);
+  transition: all 150ms ease-out !important;
+}
+
+html.simplify .aBS,
+html.simplify .bvE, html.simplify .bvD, html.simplify .bvI,
+html.simplify .bvI,
+html.simplify .readingPaneToggle {
+  position: fixed;
+  height: 20px;
+  top: 10px;
+}
+
+html.simplify .readingPaneToggle {
+  top: 22px;
+  right: calc(192px + var(--width-addOns));
+}
+
+html.simplify .aBS {
+  top: 22px;
+  right: 240px;
+}
+
+html.simplify .bvE, html.simplify .bvD, html.simplify .bvI,
+html.simplify .bvI {
+  top: 22px;
+  right: 288px;
+  margin-right: 12px;
+}
+
+html.simplify:not(.appMenuOpen) .bvI {
+  right: 60px !important;
+}
+
+html.simplify .G-Ni:not(.readingPaneToggle) > div.apF, html.simplify .G-Ni:not(.readingPaneToggle) > div.apG {
+  opacity: 0;
+}
+
+html.simplify img[src*='help_outline'] {
+  display: none;
+}
+
+html.simplify .bvX {
+  margin-left: 0px !important;
+}
+
+html.simplify.appMenuOpen:not(.inSettings):not(.vPane) #gb form[role='search'] {
+  display: none;
+}
+
+html.simplify.appMenuOpen:not(.inSettings) #gbwa,
+html.simplify.appMenuOpen:not(.inSettings) .FI,
+html.simplify.appMenuOpen:not(.inSettings) .zo,
+html.simplify.appMenuOpen:not(.inSettings) .aBS,
+html.simplify.appMenuOpen:not(.inSettings) .bvE, html.simplify.appMenuOpen:not(.inSettings) .bvD, html.simplify.appMenuOpen:not(.inSettings) .bvI,
+html.simplify.appMenuOpen:not(.inSettings) .readingPaneToggle {
+  pointer-events: auto;
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+html.simplify.appMenuOpen:not(.inSettings) #gb a[href*='SignOutOptions']::before,
+html.simplify.appMenuOpen:not(.inSettings) #gb div[href*='SignOutOptions']::before {
+  display: none !important;
+}
+
+html.simplify.appMenuOpen:not(.inSettings) body > div[style*='visibility: visible'][style*='top: 52px'] {
+  display: none !important;
+}
+
+html.simplify.appMenuOpen:not(.inSettings):not(.vPane) .G-atb .ar5,
+html.simplify.appMenuOpen:not(.inSettings):not(.vPane) .G-atb .adF .iG {
+  display: none;
+}
+
+html.simplify.appMenuOpen:not(.inSettings) #closeAppMenu {
+  display: block;
+  background-color: transparent;
+  position: fixed;
+  top: 64px;
+  left: 0px;
+  height: calc(100vw - 64px);
+  width: calc(100vw - 100px - var(--width-addOns));
+  z-index: 4;
+}
+
+html.simplify.inSettings #gbwa,
+html.simplify.inSettings .FI,
+html.simplify.inSettings .zo {
+  display: none;
+}
+
+html.simplify #closeAppMenu {
+  display: none;
+  width: 0px;
+  height: 0px;
+}
+
+html.simplify.inSettings a[href*='SignOutOptions']::before,
+html.simplify.inSettings div[href*='SignOutOptions']::before {
+  display: none;
+}
+
+html.simplify.darkTheme #gb a[href*='SignOutOptions']::before,
+html.simplify.darkTheme #gb div[href*='SignOutOptions']::before, html.simplify.mediumTheme #gb a[href*='SignOutOptions']::before,
+html.simplify.mediumTheme #gb div[href*='SignOutOptions']::before {
+  background: no-repeat center/100% url("chrome-extension://__MSG_@@extension_id__/img/icons/more_vert_white.png");
+}
+
+html.simplify.darkTheme .G-atb div[act='290'] .brW, html.simplify.mediumTheme .G-atb div[act='290'] .brW {
+  background-image: url("chrome-extension://__MSG_@@extension_id__/img/icons/snooze-white.png") !important;
+}
+
+html.simplify.darkTheme.newUI .G-atb div[act='290'] .brW, html.simplify.mediumTheme.newUI .G-atb div[act='290'] .brW {
+  background-image: url("chrome-extension://__MSG_@@extension_id__/img/icons/snooze-white-outlined.png") !important;
+}
+
+html.simplify.vPane:not(.inMsg) .menuButton, html.simplify.vPane:not(.inMsg) div[aria-label='Main menu'] {
+  z-index: 6;
+}
+
+html.simplify.vPane:not(.inMsg) .T-Pm {
+  position: fixed;
+  left: calc(var(--width-readingPane) + var(--width-nav) - 38px);
+}
+
+html.simplify.vPane:not(.inMsg).inInbox form[role='search'] div[gh='sb'] {
+  margin-right: 49px;
+}
+
+html.simplify.vPane:not(.inMsg).inInbox form[role='search'] .closeSearch {
+  z-index: 6;
+}
+
+html.simplify.vPane:not(.inMsg):not(.navOpen):not(.inInbox) form[role='search'] button {
+  padding: 0px;
+}
+
+html.simplify.vPane:not(.inMsg):not(.navOpen):not(.inInbox) form[role='search'] .gb_of, html.simplify.vPane:not(.inMsg):not(.navOpen):not(.inInbox) form[role='search'] button[aria-label='Search mail'] {
+  display: none;
+}
+
+html.simplify.vPane:not(.inMsg):not(.navOpen):not(.inInbox) form[role='search'] div[gh='sb'] {
+  margin-left: 16px;
+  margin-right: 86px;
+}
+
+html.simplify.vPane:not(.inMsg):not(.darkTheme).izBgDefault.inboxZero .T-Pm span[role="checkbox"][aria-checked="false"], html.simplify.vPane:not(.inMsg):not(.darkTheme):not(.inboxZero) .T-Pm span[role="checkbox"][aria-checked="false"] {
+  background-image: url("https://www.gstatic.com/images/icons/material/system/2x/check_box_outline_blank_black_20dp.png");
+}
+
+html.simplify.vPane:not(.inMsg):not(.darkTheme).izBgDefault.inboxZero .T-Pm span[role="checkbox"][aria-checked="mixed"], html.simplify.vPane:not(.inMsg):not(.darkTheme):not(.inboxZero) .T-Pm span[role="checkbox"][aria-checked="mixed"] {
+  background-image: url("https://www.gstatic.com/images/icons/material/system/2x/indeterminate_check_box_black_20dp.png");
+}
+
+html.simplify.vPane:not(.inMsg):not(.darkTheme).izBgDefault.inboxZero .T-Pm span[role="checkbox"][aria-checked="true"], html.simplify.vPane:not(.inMsg):not(.darkTheme):not(.inboxZero) .T-Pm span[role="checkbox"][aria-checked="true"] {
+  background-image: url("https://www.gstatic.com/images/icons/material/system/2x/check_box_black_20dp.png");
+}
+
+html.simplify.vPane:not(.inMsg):not(.darkTheme).izBgDefault.inboxZero .T-Pm .G-asx, html.simplify.vPane:not(.inMsg):not(.darkTheme):not(.inboxZero) .T-Pm .G-asx {
+  background-image: url("https://www.gstatic.com/images/icons/material/system/2x/arrow_drop_down_black_20dp.png");
+}
+
+html.simplify.vPane:not(.inMsg).searchFocused .T-Pm {
+  display: none;
+}
+
+html.simplify.vPane:not(.inMsg) .G-atb {
+  width: calc(100vw - 16px - var(--width-readingPane));
+}
+
+html.simplify.vPane:not(.inMsg).hideSelectRefresh:not(.msgOpen):not(.msgSelected) .G-tF:not(:hover) div[act='20'][role='button'],
+html.simplify.vPane:not(.inMsg).hideSelectRefresh:not(.msgOpen):not(.msgSelected) .G-tF:not(:hover) div.nf[role='button'], html.simplify.vPane:not(.inMsg).hideSelectRefresh:not(.msgOpen):not(.msgSelected) .G-tF:not(:hover) div[aria-label='More'] {
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
+}
+
+html.simplify.vPane:not(.inMsg) .ar5 {
+  position: fixed;
+  left: calc(var(--width-nav) + 16px);
+  bottom: 24px;
+  opacity: 1 !important;
+  background-color: var(--color-themeGray);
+  border-radius: 32px;
+  padding: 8px 16px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px;
+}
+
+html.simplify.vPane:not(.inMsg) .ar5 .amH::before {
+  border-radius: 24px;
+}
+
+html.simplify.vPane:not(.inMsg).showChat:not(.navOpen):not(.newUI) .ar5 {
+  left: 96px;
+}
+
+html.simplify.vPane:not(.inMsg).showChat:not(.navOpen):not(.newUI).chatOpen .ar5 {
+  display: none;
+}
+
+html.simplify.vPane:not(.inMsg).mediumTheme .ar5 .Dj {
+  color: #5f6368 !important;
+  text-shadow: none;
+}
+
+html.simplify.vPane:not(.inMsg).mediumTheme .ar5 .amD {
+  filter: invert(1);
+}
+
+html.simplify.vPane:not(.inMsg).inboxZero .ar5 {
+  display: none;
+}
+
+html.simplify.vPane:not(.inMsg) .aqK {
+  position: fixed;
+  left: calc(var(--width-readingPane) + var(--width-nav) + 54px);
+  width: calc(100vw - var(--width-readingPane) - var(--width-nav) - 164px);
+}
+
+html.simplify.vPane:not(.inMsg) .aqK .aqJ {
+  position: fixed;
+  right: calc(72px + var(--width-addOns));
+}
+
+html.simplify.vPane:not(.inMsg) .aqK .aqJ .ar5 {
+  opacity: 0.4;
+  transition: opacity 150ms ease-out;
+}
+
+html.simplify.vPane:not(.inMsg) .aqK .aqJ:hover .ar5 {
+  opacity: 1;
+}
+
+html.simplify.vPane:not(.inMsg) .aqK .aqJ .amH {
+  display: inline-flex;
+}
+
+html.simplify.vPane:not(.inMsg).textButtons.appMenuOpen div[gh='mtb'] > div {
+  max-width: calc( 100vw - var(--width-readingPane) - var(--width-nav) - var(--width-addOns) - 400px);
+  overflow: hidden;
+}
+
+html.simplify.hPane.msgOpen:not(.msgSelected) .G-atb {
+  top: calc(100vh - var(--height-readingPane) - 40px);
+}
+
+html.simplify.hPane.msgOpen:not(.msgSelected) .G-atb .refreshButton,
+html.simplify.hPane.msgOpen:not(.msgSelected) .G-atb .T-Pm {
+  display: inline-flex !important;
+  position: fixed;
+  top: 22px;
+  height: 20px;
+}
+
+html.simplify.hPane.msgOpen:not(.msgSelected) .G-atb .refreshButton {
+  margin-left: 48px;
+  display: inline-block !important;
+}
+
+html.simplify.hPane.msgOpen:not(.msgSelected) .ar5 {
+  position: fixed;
+  top: 14px;
+  transform: translateX(-120px);
+}
+
+html.simplify.hPane.msgOpen:not(.msgSelected) .ar5 .amH {
+  display: inline-flex;
+}
+
+html.simplify.hPane.hideSelectRefresh:not(.msgSelected) .T-Pm:not(:hover),
+html.simplify.hPane.hideSelectRefresh:not(.msgSelected) div[act='20'][role='button']:not(:hover) {
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
+}
+
+html.simplify.hPane.hideSelectRefresh:not(.msgSelected):not(.msgOpen) div.nf[role='button'], html.simplify.hPane.hideSelectRefresh:not(.msgSelected):not(.msgOpen) div[aria-label='More'] {
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
+}
+
+html.simplify.hPane.inboxZero.inInbox .aqK {
+  display: none;
+}
+
+html.simplify.nPane .aqK {
+  margin-left: 8px;
+}
+
+@media only screen and (max-width: 1199.98px) {
+  html.simplify:not(.hPane) .G-atb,
+html.simplify.hPane.msgSelected .G-atb {
+    left: 64px !important;
+    width: calc(100vw - 152px - var(--width-addOns)) !important;
+    max-width: calc(100vw - 152px - var(--width-addOns)) !important;
+  }
+}
+
+
+/* Copyright (C) 2021 Michael Leggett, Made Simple LLC - All Rights Reserved
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential */
+/* ========================================================================== */
+html.simplify.minimizeChat:not(.rhsChat) .akc {
+  display: none;
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  width: 56px;
+  height: 56px !important;
+  border-radius: 30px;
+  background-color: green;
+  background-image: url("chrome-extension://__MSG_@@extension_id__/img/icons/hangouts-white.png");
+  background-size: cover;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px;
+}
+
+html.simplify.minimizeChat:not(.rhsChat) .akc > div {
+  display: none;
+}
+
+html.simplify.minimizeChat:not(.rhsChat) .akc .aND > div {
+  margin-left: 24px;
+}
+
+html.simplify.minimizeChat:not(.rhsChat).chatOff .akc {
+  background-image: url("chrome-extension://__MSG_@@extension_id__/img/icons/meet-white.png");
+}
+
+html.simplify.minimizeChat:not(.rhsChat).chatOff.meetOff .akc {
+  display: none;
+}
+
+html.simplify.minimizeChat:not(.rhsChat) .aeN .Kd {
+  display: none;
+}
+
+html.simplify.minimizeChat:not(.rhsChat).minimizeChat:not(.chatOpen) .akc div[tabid="chat"] {
+  display: none;
+}
+
+html.simplify.minimizeChat:not(.rhsChat).navOpen .akc, html.simplify.minimizeChat:not(.rhsChat).navPeek .akc, html.simplify.minimizeChat:not(.rhsChat).showChat .akc {
+  display: block;
+}
+
+html.simplify.minimizeChat:not(.rhsChat).chatOpen #closeChatPeek {
+  display: block;
+}
+
+html.simplify.minimizeChat:not(.rhsChat).chatOpen .akc {
+  display: block;
+  left: 0px;
+  bottom: 0px;
+  background-image: none;
+  background-color: white;
+  border-radius: 0 8px 0 0;
+  padding: 16px 0;
+  width: 254px;
+  z-index: 9;
+  overflow: hidden;
+  height: min(529px, calc(100vh - 97px)) !important;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 10px 30px 0px;
+}
+
+html.simplify.minimizeChat:not(.rhsChat).chatOpen .akc #talk_roster {
+  max-height: min(366px, calc(100vh - 260px)) !important;
+}
+
+html.simplify.minimizeChat:not(.rhsChat).chatOpen .akc > div {
+  display: initial !important;
+}
+
+html.simplify.minimizeChat:not(.rhsChat).chatOpen.mediumTheme .akc {
+  background-color: var(--color-black);
+  background-image: none;
+}
+
+html.simplify.minimizeChat:not(.rhsChat).chatOpen.darkTheme .akc {
+  background-color: var(--color-chatBg);
+  background-image: none;
+}
+
+html.simplify.minimizeChat:not(.rhsChat).chatOpen.chatOff .akc {
+  height: 96px !important;
+}
+
+html.simplify.minimizeChat:not(.rhsChat) #closeChatPeek {
+  position: fixed;
+  display: none;
+  top: 0px;
+  left: 0px;
+  height: 100vh;
+  width: 100vw;
+  background-color: transparent;
+  z-index: 2;
+}
+
+html.simplify.minimizeChat:not(.rhsChat).navOpen #closeChatPeek, html.simplify.minimizeChat:not(.rhsChat).navPeek #closeChatPeek {
+  z-index: 6;
+}
+
+html.simplify.minimizeChat:not(.rhsChat).loading .akc {
+  display: none;
+}
+
+html.simplify.minimizeChat:not(.rhsChat).mediumTheme .akc div[role="navigation"],
+html.simplify.minimizeChat:not(.rhsChat).mediumTheme .akc div[gh="gt"], html.simplify.minimizeChat:not(.rhsChat).darkTheme .akc div[role="navigation"],
+html.simplify.minimizeChat:not(.rhsChat).darkTheme .akc div[gh="gt"] {
+  background-color: var(--color-black) !important;
+}
+
+html.simplify.minimizeChat:not(.rhsChat).darkTheme .akc {
+  background-image: url("chrome-extension://__MSG_@@extension_id__/img/icons/hangouts-black.png");
+}
+
+html.simplify.minimizeChat:not(.rhsChat).darkTheme.chatOff .akc {
+  background-image: url("chrome-extension://__MSG_@@extension_id__/img/icons/meet-black.png");
+}
+
+html.simplify.minimizeChat:not(.rhsChat) .aeO {
+  display: none;
+}
+
+html.simplify.minimizeChat:not(.rhsChat) .Ls77Lb div[role='navigation'] {
+  height: calc(100vh - 64px) !important;
+}
+
+html.simplify.minimizeChat:not(.rhsChat) div[gh='gt'] {
+  bottom: 0px;
+}
+
+html.simplify .Yb {
+  position: fixed;
+  top: 14px;
+  margin-right: 0px;
+}
+
+html.simplify:not(.appMenuOpen) .Yb {
+  position: fixed;
+  right: calc(10px + var(--width-addOns));
+  top: 36px;
+  z-index: 9;
+  border: none;
+  padding: 0;
+  min-width: 16px;
+  min-height: 18px;
+  max-height: 18px;
+  margin: 0;
+}
+
+html.simplify:not(.appMenuOpen) .Yb .Yd {
+  bottom: 0px;
+}
+
+html.simplify:not(.appMenuOpen) .Yb .Ye,
+html.simplify:not(.appMenuOpen) .Yb .Yc {
+  display: none;
+}
+
+html.simplify div[gh='gt'] {
+  text-align: left !important;
+  padding-left: 18px !important;
+  border-top: 0px;
+}
+
+html.simplify.rhsChat div[gh='gt'] {
+  text-align: right;
+  border-top: 0px;
+  padding-left: 0px;
+}
+
+html.simplify.rhsChat .akj {
+  margin-top: 12px;
+  padding-right: 0px !important;
+  padding-bottom: 0px;
+}
+
+
+/* Copyright (C) 2021 Michael Leggett, Made Simple LLC - All Rights Reserved
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential */
+/* ========================================================================== */
+html.simplify.openMole.inMsg .G-atb {
+  left: calc(var(--width-nav) + 82px) !important;
+}
+
+html.simplify.openMole.inMsg .Bs {
+  margin-left: 60px !important;
+}
+
+html.simplify.vPane.openMole .Bs {
+  margin-left: 16px !important;
+}
+
+html.simplify.vPane .dw .nH.nn[style*='width: 66px'] {
+  width: 16px !important;
+}
+
+html.simplify.openMole.hPane .Bs {
+  margin-left: 78px !important;
+}
+
+html.simplify .aSs {
+  background: var(--color-themeBg) !important;
+}
+
+html.simplify .aSs::before {
+  content: "";
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0.9;
+  background: var(--img-themeBgPos)/cover no-repeat var(--img-themeBg) !important;
+  cursor: zoom-out;
+}
+
+html.simplify .aSs .aSt {
+  max-width: 810px;
+  min-width: 810px;
+  left: calc(50vw - 405px) !important;
+}
+
+@media screen and (max-width: 820px) {
+  html.simplify .aSs .aSt {
+    max-width: 600px;
+    min-width: 600px;
+    left: calc(50vw - 300px) !important;
+  }
+}
+
+html.simplify .aSs .aSt div[role='dialog'] {
+  box-shadow: 0 5px 30px rgba(32, 33, 36, 0.16) !important;
+}
+
+html.simplify .aSs .aSt div[role='dialog'],
+html.simplify .aSs .aSt .aaZ {
+  border-radius: 0 0 8px 8px;
+}
+
+@media screen and (min-height: 500px) {
+  html.simplify .dw .no .GP {
+    min-height: 250px !important;
+    height: auto !important;
+  }
+  html.simplify .dw .no .GP div[contenteditable] {
+    min-height: 200px !important;
+  }
+  html.simplify .dw .no .J-M-awS {
+    max-height: 320px;
+  }
+}
+
+html.simplify.sendLater .dw .no .dC,
+html.simplify.sendLater .aSs .dC {
+  margin-right: 38px;
+}
+
+html.simplify.sendLater .dw .no .dC .aoO,
+html.simplify.sendLater .aSs .dC .aoO {
+  border-radius: 4px;
+  min-width: 84px;
+  max-width: 84px;
+}
+
+html.simplify.sendLater .dw .no .dC .hG,
+html.simplify.sendLater .aSs .dC .hG {
+  display: none;
+}
+
+html.simplify.sendLater .dw .no #sbddm,
+html.simplify.sendLater .aSs #sbddm {
+  display: block !important;
+  position: absolute;
+  top: auto !important;
+  bottom: 14px;
+  left: 106px;
+  max-height: 26px;
+  width: 40px;
+  overflow: hidden;
+  box-shadow: none;
+  border-radius: 4px;
+  font-size: 0px !important;
+  filter: grayscale(1) brightness(1.2);
+  transition: all 150ms;
+}
+
+html.simplify.sendLater .dw .no #sbddm:hover,
+html.simplify.sendLater .aSs #sbddm:hover {
+  filter: none;
+}
+
+html.simplify.sendLater .dw .no #sbddm div[role='menuitem'],
+html.simplify.sendLater .aSs #sbddm div[role='menuitem'] {
+  background-color: transparent;
+  padding: 2px 16px 2px 44px;
+}
+
+html.simplify:not(.inSettings).composeFormat .iN.showActions .aX div.J-Z[role='toolbar'] {
+  display: none;
+}
+
+html.simplify:not(.inSettings) .a8X > .bAK {
+  opacity: 0.5;
+}
+
+html.simplify:not(.inSettings) .a8X > .bAK:hover {
+  opacity: 1;
+}
+
+html.simplify:not(.inSettings) .aX div.J-Z[role='toolbar'] {
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  border-top: 1px solid var(--color-gray-light);
+  top: 7px;
+}
+
+html.simplify:not(.inSettings) .aX div.J-Z[role='toolbar'] div[command] {
+  opacity: 0.5;
+}
+
+html.simplify:not(.inSettings) .aX div.J-Z[role='toolbar']:hover div[command] {
+  opacity: 1;
+}
+
+html.simplify .aoI[style*='height'] .GM {
+  transform: translateY(-29px);
+}
+
+html.simplify:not(.composeFormat):not(.inSettings) .Ur {
+  min-width: calc(100% - 16px);
+  margin-left: 0px;
+}
+
+html.simplify:not(.composeFormat):not(.inSettings) .aX div.J-Z[role='toolbar'] {
+  width: 100%;
+  border-radius: 0px;
+  padding-left: 16px;
+  padding-right: 0px;
+}
+
+html.simplify:not(.composeFormat):not(.inSettings) .dw .Ur {
+  min-width: calc(100% + 16px);
+  left: -16px;
+}
+
+html.simplify:not(.composeFormat):not(.inSettings) .aSt .Ur {
+  min-width: calc(100% + 14px);
+  left: -16px;
+}
+
+html.simplify.composeActions:not(.inSettings).ca1 .a8X > .bAK {
+  width: 28px;
+}
+
+html.simplify.composeActions:not(.inSettings).ca2 .a8X > .bAK {
+  width: 60px;
+}
+
+html.simplify.composeActions:not(.inSettings).ca3 .a8X > .bAK {
+  width: 92px;
+}
+
+html.simplify.composeActions:not(.inSettings).ca4 .a8X > .bAK {
+  width: 124px;
+}
+
+html.simplify.composeActions:not(.inSettings).ca5 .a8X > .bAK {
+  width: 152px;
+}
+
+html.simplify.composeActions:not(.inSettings).ca6 .a8X > .bAK {
+  width: 184px;
+}
+
+html.simplify.composeActions:not(.inSettings).ca7 .a8X > .bAK {
+  width: 220px;
+}
+
+html.simplify.composeActions:not(.inSettings) .a8X > .bAK {
+  flex-wrap: nowrap;
+  overflow: hidden;
+}
+
+html.simplify.composeActions:not(.inSettings) .a8X > .bAK div[command] {
+  display: inline-flex !important;
+  transform: translateX(50px);
+  order: 10;
+}
+
+html.simplify.composeActions:not(.inSettings) .a8X > .bAK div[command='Files'] {
+  transform: none;
+  order: 1;
+  margin-left: 4px;
+}
+
+html.simplify.composeActions:not(.inSettings) .a8X {
+  padding-left: 10px;
+}
+
+html.simplify.composeActions:not(.inSettings) .a8X,
+html.simplify.composeActions:not(.inSettings) .az5 {
+  margin-bottom: -3px;
+}
+
+html.simplify.composeActions:not(.inSettings).caI .a8X > .bAK div[command='image'] {
+  transform: none;
+  order: 2;
+}
+
+html.simplify.composeActions:not(.inSettings).caL .a8X > .bAK div[command='+link'] {
+  transform: none;
+  order: 3;
+}
+
+html.simplify.composeActions:not(.inSettings).caE .a8X > .bAK div[command='+emoticon'] {
+  transform: none;
+  order: 4;
+}
+
+html.simplify.composeActions:not(.inSettings).caD .a8X > .bAK div[command='docs'] {
+  transform: none;
+  order: 5;
+}
+
+html.simplify.composeActions:not(.inSettings).caC .a8X > .bAK div[command='locker'] {
+  transform: none;
+  order: 6;
+}
+
+html.simplify.composeActions:not(.inSettings).caS .a8X > .bAK div[command='signature'] {
+  transform: none;
+  order: 7;
+}
+
+html.simplify.composeActions:not(.inSettings) .showComposeActions {
+  width: 20px;
+  height: 20px;
+  margin: 4px 0;
+  cursor: pointer;
+  background: center/24px no-repeat url("chrome-extension://__MSG_@@extension_id__/img/icons/arrow_right-black-24dp.svg");
+  transform: none;
+  opacity: 0.4;
+  transition: opacity 200ms;
+}
+
+html.simplify.composeActions:not(.inSettings) .showComposeActions:hover {
+  opacity: 0.9;
+}
+
+html.simplify.composeActions:not(.inSettings) .showActions .a8X > .bAK {
+  width: auto !important;
+}
+
+html.simplify.composeActions:not(.inSettings) .showActions .a8X > .bAK div[command] {
+  transform: none;
+}
+
+html.simplify.composeActions:not(.inSettings) .showActions .showComposeActions {
+  transform: rotate(180deg) translateX(4px);
+}
+
+html.simplify:not(.inSettings) .aX div.J-Z[role='toolbar'] div[command='+fontName'] div[role='option'] {
+  font-size: 0px;
+  width: 20px;
+  background: center/20px no-repeat url("chrome-extension://__MSG_@@extension_id__/img/icons/font_face.png");
+  opacity: 0.55;
+}
+
+html.simplify:not(.inSettings) .aX div.J-Z[role='toolbar'] div[command='+fontName']:hover div[role='option'] {
+  opacity: 0.9;
+}
+
+html.simplify:not(.inSettings) .aX div.J-Z[role='toolbar'] .J-Z-axR {
+  display: none;
+}
+
+html.simplify:not(.inSettings) .aX div.J-Z[role='toolbar'] div[command='+redo'] + .J-Z-axR {
+  display: inline-block;
+}
+
+html.simplify:not(.inSettings) .aX div.J-Z[role='toolbar'] div[command='+undo'] {
+  margin-left: 0px;
+}
+
+html.simplify:not(.inSettings) .aX div.J-Z[role='toolbar'] div[command='+removeFormat'] {
+  margin-right: 0px;
+}
+
+html.simplify:not(.inSettings) .aX div.J-Z[role='toolbar'] .J-Z-I::before,
+html.simplify:not(.inSettings) .aX div.J-Z[role='toolbar'] .J-Z-M-I::before {
+  transition-duration: 0ms;
+}
+
+@media screen and (max-height: 779px) {
+  html.simplify:not(.inSettings) .aX div.J-Z[role='toolbar'] div[command='+undo'],
+html.simplify:not(.inSettings) .aX div.J-Z[role='toolbar'] div[command='+redo'],
+html.simplify:not(.inSettings) .aX div.J-Z[role='toolbar'] div[command='+redo'] + .J-Z-axR {
+    display: none;
+  }
+  html.simplify:not(.inSettings) .aX div.J-Z[role='toolbar'] div[command='+fontName'] {
+    margin-left: -3px;
+  }
+  html.simplify:not(.inSettings) .aX div.J-Z[role='toolbar'] .J-Z-I {
+    margin: 0 5px;
+  }
+}
+
+html.simplify.composeFormat:not(.inSettings) .aX div.J-Z[role='toolbar'] div[command='+bold'],
+html.simplify.composeFormat:not(.inSettings) .aX div.J-Z[role='toolbar'] div[command='+italic'],
+html.simplify.composeFormat:not(.inSettings) .aX div.J-Z[role='toolbar'] div[command='+underline'] {
+  display: none;
+}
+
+html.simplify.composeFormat:not(.inSettings):not(.cfZ) .aX div.J-Z[role='toolbar'] div[command='+undo'],
+html.simplify.composeFormat:not(.inSettings):not(.cfZ) .aX div.J-Z[role='toolbar'] div[command='+redo'],
+html.simplify.composeFormat:not(.inSettings):not(.cfZ) .aX div.J-Z[role='toolbar'] div[command='+redo'] + .J-Z-axR {
+  display: none;
+}
+
+html.simplify.composeFormat:not(.inSettings):not(.cfF) .aX div.J-Z[role='toolbar'] div[command='+fontName'], html.simplify.composeFormat:not(.inSettings):not(.cfC) .aX div.J-Z[role='toolbar'] div[command='+foreColor'], html.simplify.composeFormat:not(.inSettings):not(.cfS) .aX div.J-Z[role='toolbar'] div[command='+fontSize'], html.simplify.composeFormat:not(.inSettings):not(.cfA) .aX div.J-Z[role='toolbar'] div[command='alignMenu'], html.simplify.composeFormat:not(.inSettings):not(.cfO) .aX div.J-Z[role='toolbar'] div[command='+insertOrderedList'], html.simplify.composeFormat:not(.inSettings):not(.cfU) .aX div.J-Z[role='toolbar'] div[command='+insertUnorderedList'], html.simplify.composeFormat:not(.inSettings):not(.cfQ) .aX div.J-Z[role='toolbar'] div[command='+BLOCKQUOTE'], html.simplify.composeFormat:not(.inSettings):not(.cfK) .aX div.J-Z[role='toolbar'] div[command='+strikeThrough'], html.simplify.composeFormat:not(.inSettings):not(.cfR) .aX div.J-Z[role='toolbar'] div[command='+removeFormat'] {
+  display: none;
+}
+
+html.simplify.composeFormat:not(.inSettings):not(.cfI) .aX div.J-Z[role='toolbar'] div[command='+indent'],
+html.simplify.composeFormat:not(.inSettings):not(.cfI) .aX div.J-Z[role='toolbar'] div[command='+outdent'] {
+  display: none;
+}
+
+html.simplify.composeFormat:not(.inSettings) .aX {
+  display: block !important;
+  height: 0px;
+}
+
+html.simplify.composeFormat:not(.inSettings) .oc.gU {
+  display: none;
+}
+
+html.simplify.composeFormat:not(.inSettings) .bA3 > div[style*='height: 40px']:last-child, html.simplify.composeFormat:not(.inSettings) .et > div[style*='height: 40px']:last-child {
+  display: none;
+}
+
+html.simplify.composeFormat:not(.inSettings) .Ur {
+  width: calc(100% - 20px);
+}
+
+html.simplify.composeFormat:not(.inSettings) .aX div.J-Z[role='toolbar'] {
+  position: absolute;
+  top: 10px;
+  right: 44px;
+  width: auto;
+  border-top: none;
+}
+
+html.simplify.composeFormat:not(.inSettings) .Bs .aX div.J-Z[role='toolbar'] {
+  right: 72px;
+}
+
+html.simplify.composeFormat:not(.inSettings) div[command='+removeFormat'] + .J-Z-axR,
+html.simplify.composeFormat:not(.inSettings) div[command='moreMenu'] {
+  display: none;
+}
+
+html.simplify:not(.searchFocused):not(.appMenuOpen) .dw {
+  z-index: 6;
+}
+
+html.simplify.quickSettings .dw .no {
+  margin-right: var(--width-rightPane);
+}
+
+html.simplify.inSettings .dw .no {
+  display: none;
+}
+
+html.simplify.matchFontSize .Bs .Ar.Au {
+  padding-right: 8px;
+}
+
+html.simplify.darkTheme.invertCompose .dw .no .nH.Hd[role='dialog'],
+html.simplify.darkTheme.invertCompose .aSt .nH.Hd[role='dialog'] {
+  filter: invert(1) hue-rotate(180deg);
+  box-shadow: none !important;
+  border: 2px solid #ddd;
+  border-bottom-width: 0px;
+}
+
+html.simplify.darkTheme.invertCompose .dw .no .nH.Hd[role='dialog'] .l.m,
+html.simplify.darkTheme.invertCompose .aSt .nH.Hd[role='dialog'] .l.m {
+  filter: invert(1) hue-rotate(180deg);
+  background-color: #222;
+}
+
+html.simplify.darkTheme.invertCompose .dw .no .nH.Hd[role='dialog'] .aDj.aDi,
+html.simplify.darkTheme.invertCompose .aSt .nH.Hd[role='dialog'] .aDj.aDi {
+  position: fixed;
+  bottom: 0px !important;
+  left: 16px !important;
+}
+
+html.simplify.darkTheme.invertCompose .dw .no .nH.Hd[role='dialog'] div[contenteditable] img:not(svg):not([src*='cleardot']), html.simplify.darkTheme.invertCompose .dw .no .nH.Hd[role='dialog'] div[contenteditable] *[style*='url('], html.simplify.darkTheme.invertCompose .dw .no .nH.Hd[role='dialog'] div[contenteditable] video,
+html.simplify.darkTheme.invertCompose .aSt .nH.Hd[role='dialog'] div[contenteditable] img:not(svg):not([src*='cleardot']),
+html.simplify.darkTheme.invertCompose .aSt .nH.Hd[role='dialog'] div[contenteditable] *[style*='url('],
+html.simplify.darkTheme.invertCompose .aSt .nH.Hd[role='dialog'] div[contenteditable] video {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+html.simplify.darkTheme.invertCompose .aSt .nH.Hd[role='dialog'] {
+  border-radius: 12px;
+  border-bottom-width: 2px;
+}
+
+html.simplify.darkTheme.invertCompose.inMsg:not(.htmlEmail) .Bs .I5, html.simplify.darkTheme.invertCompose.msgOpen:not(.htmlEmail) .Bs .I5 {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+html.simplify.darkTheme.invertCompose.inMsg:not(.htmlEmail) .Bs form.bAs, html.simplify.darkTheme.invertCompose.msgOpen:not(.htmlEmail) .Bs form.bAs {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+html.simplify.darkTheme.invertCompose.inMsg:not(.htmlEmail) .Bs .azY, html.simplify.darkTheme.invertCompose.msgOpen:not(.htmlEmail) .Bs .azY {
+  position: absolute !important;
+  top: 0px !important;
+  left: 0px !important;
+}
+
+html.simplify.darkTheme.invertCompose.inMsg:not(.htmlEmail) .Bs .aC2, html.simplify.darkTheme.invertCompose.msgOpen:not(.htmlEmail) .Bs .aC2 {
+  display: none;
+}
+
+html.simplify.darkTheme.invertCompose.inMsg:not(.htmlEmail) .Bs .iN .GQ, html.simplify.darkTheme.invertCompose.msgOpen:not(.htmlEmail) .Bs .iN .GQ {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+html.simplify.darkTheme.invertCompose.inMsg:not(.htmlEmail) .Bs .iN .GQ img:not(svg):not([src*='cleardot']), html.simplify.darkTheme.invertCompose.inMsg:not(.htmlEmail) .Bs .iN .GQ *[style*='url('], html.simplify.darkTheme.invertCompose.inMsg:not(.htmlEmail) .Bs .iN .GQ video, html.simplify.darkTheme.invertCompose.msgOpen:not(.htmlEmail) .Bs .iN .GQ img:not(svg):not([src*='cleardot']), html.simplify.darkTheme.invertCompose.msgOpen:not(.htmlEmail) .Bs .iN .GQ *[style*='url('], html.simplify.darkTheme.invertCompose.msgOpen:not(.htmlEmail) .Bs .iN .GQ video {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+html.simplify.darkTheme.invertCompose.inMsg:not(.htmlEmail) .Bs .aDj, html.simplify.darkTheme.invertCompose.msgOpen:not(.htmlEmail) .Bs .aDj {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+html.simplify.darkTheme.invertCompose.inMsg:not(.htmlEmail) .Bs .azX,
+html.simplify.darkTheme.invertCompose.inMsg:not(.htmlEmail) .Bs .aDj::after,
+html.simplify.darkTheme.invertCompose.inMsg:not(.htmlEmail) .Bs .aC3, html.simplify.darkTheme.invertCompose.msgOpen:not(.htmlEmail) .Bs .azX,
+html.simplify.darkTheme.invertCompose.msgOpen:not(.htmlEmail) .Bs .aDj::after,
+html.simplify.darkTheme.invertCompose.msgOpen:not(.htmlEmail) .Bs .aC3 {
+  background-color: #eee !important;
+}
+
+html.simplify.darkTheme.invertCompose.inMsg:not(.htmlEmail) .Bs #sbddm, html.simplify.darkTheme.invertCompose.msgOpen:not(.htmlEmail) .Bs #sbddm {
+  filter: invert(1) hue-rotate(180deg) saturate(0);
+  transition: all 150ms;
+}
+
+html.simplify.darkTheme.invertCompose.inMsg:not(.htmlEmail) .Bs #sbddm:hover, html.simplify.darkTheme.invertCompose.msgOpen:not(.htmlEmail) .Bs #sbddm:hover {
+  filter: invert(1) hue-rotate(180deg) saturate(1);
+}
+
+
+/* Copyright (C) 2021 Michael Leggett, Made Simple LLC - All Rights Reserved
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential */
+/* ========================================================================== */
+html.simplify .Bs {
+  max-width: var(--width-msg);
+  margin: var(--padding-top) auto var(--padding-bottom) auto;
+  border-radius: 8px;
+}
+
+html.simplify .Bs .bAn {
+  border-radius: 8px;
+}
+
+html.simplify .Bs .bAn .if {
+  margin: 8px 24px 0 4px;
+  max-width: calc(var(--width-msg) - 30px);
+}
+
+html.simplify .Bs .bAn .if .qY {
+  margin-left: 32px;
+}
+
+html.simplify .Bs .ade {
+  opacity: 0.3;
+  transition: opacity 0.2s ease;
+}
+
+html.simplify .Bs .ade:hover {
+  opacity: 1;
+}
+
+html.simplify .Bs span[email] + .go {
+  opacity: 0.5;
+}
+
+html.simplify .Bs .Bu.yM, html.simplify .Bs .Bu.y3 {
+  display: none;
+}
+
+html.simplify .Bs .acZ {
+  padding-right: 10px;
+}
+
+html.simplify .Bs .gA.gt {
+  padding-bottom: 16px;
+}
+
+html.simplify .Bs .wR {
+  background: none;
+}
+
+html.simplify .Bs .aC3 {
+  min-height: 31px;
+}
+
+html.simplify .Bs .ajR {
+  width: 36px;
+  border-radius: 8px;
+}
+
+html.simplify .Bs .ajR .ajT {
+  background-size: 28px;
+  height: 16px;
+  width: 36px;
+}
+
+html.simplify .Bs .gs .a3s {
+  width: min(calc(var(--width-msg) - 124px), calc(100vw - var(--width-nav) - var(--width-rightPane) - 148px));
+  overflow-x: visible;
+  padding-right: 32px;
+}
+
+html.simplify .Bs .gs .a3s * {
+  max-width: calc(var(--width-msg) - 114px);
+  overflow-wrap: break-word !important;
+}
+
+html.simplify .Bs .gs .a3s ul > li:not([style*="padding"]),
+html.simplify .Bs .gs .a3s ol > li:not([style*="padding"]) {
+  padding-bottom: 0.6em;
+}
+
+html.simplify .Bs .gs img:not([width]) {
+  min-width: 1px;
+}
+
+html.simplify .Bs .gs img:not([height]) {
+  min-height: 1px;
+}
+
+html.simplify .Bs .gs img:not([src*='cleardot.gif']):not([usemap]) {
+  max-width: 100%;
+  object-fit: contain;
+  height: auto;
+}
+
+html.simplify .Bs .bAR {
+  border-radius: 6px;
+  margin-left: 16px;
+  margin-right: -4px;
+  margin-top: 16px;
+}
+
+html.simplify .Bs .bAR span {
+  padding-left: 56px;
+}
+
+html.simplify .Bs .aNR {
+  padding-left: 16px;
+}
+
+html.simplify .Bs .aNR .aNU {
+  margin-left: 12px;
+  border-radius: 6px;
+  padding: 12px 16px;
+}
+
+html.simplify .Bs .iS {
+  margin: 0 0 0 -4px;
+  padding: 16px 12px 16px 24px;
+  border: 0;
+  border-radius: 0 0 8px 8px;
+  width: calc(100% - 8px);
+}
+
+html.simplify .Bs .qQ .t1 {
+  white-space: normal;
+}
+
+html.simplify .Bs img[src$='icons/mail/profile_mask_2x.png'] {
+  width: 0px;
+  height: 0px;
+  padding: 20px;
+  background-image: url("chrome-extension://__MSG_@@extension_id__/img/icons/profile_mask.png");
+  background-size: cover;
+}
+
+html.simplify .Bs.darkTheme:not(.htmlEmail) img[src$='icons/mail/profile_mask_2x.png'] {
+  background-image: url("chrome-extension://__MSG_@@extension_id__/img/icons/profile_mask-dark.png");
+  background-position: center;
+  background-size: 110%;
+}
+
+@media only screen and (min-width: 1199.98px) {
+  html.simplify.navOpen.inMsg .Tm.aeJ {
+    padding-right: 60px;
+  }
+}
+
+html.simplify.hideSignatures .Bs .a3s div[id*='Signature'][id*='m_']:not(.show),
+html.simplify.hideSignatures .Bs .a3s div[data-smartmail='gmail_signature']:not(.show) {
+  width: 36px;
+  height: 24px;
+  overflow: hidden;
+}
+
+html.simplify.hideSignatures .Bs .a3s div[id*='Signature'][id*='m_']:not(.show) *,
+html.simplify.hideSignatures .Bs .a3s div[data-smartmail='gmail_signature']:not(.show) * {
+  display: none;
+}
+
+html.simplify.hideSignatures .Bs .a3s div[id*='Signature'][id*='m_']:not(.show)::before,
+html.simplify.hideSignatures .Bs .a3s div[data-smartmail='gmail_signature']:not(.show)::before {
+  content: "";
+  cursor: pointer;
+  display: block;
+  position: relative;
+  top: 0px;
+  background-color: #e8eaed;
+  border-radius: 8px;
+  width: 36px;
+  height: 16px;
+  background-image: url("https://www.gstatic.com/images/icons/material/system/2x/more_horiz_black_20dp.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28px;
+  opacity: 0.7;
+  padding: 0;
+  margin: 8px 0;
+}
+
+html.simplify.hideSignatures .Bs .a3s div[id*='Signature'][id*='m_']:not(.show):hover::before,
+html.simplify.hideSignatures .Bs .a3s div[data-smartmail='gmail_signature']:not(.show):hover::before {
+  background-color: #dadce0;
+  opacity: 1;
+}
+
+html.simplify .Bs .emailTracker {
+  display: none !important;
+}
+
+html.simplify .Bs .trackerBadge {
+  display: none;
+}
+
+html.simplify .Bs .hasTracker td.bAk {
+  display: flex;
+}
+
+html.simplify .Bs .hasTracker .trackerBadge {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-left: 16px;
+  cursor: pointer;
+  background: center/22px no-repeat url("chrome-extension://__MSG_@@extension_id__/img/icons/tracker-blocked.png");
+}
+
+html.simplify .Bs .hasTracker .trackerBadge:hover::before {
+  content: " ";
+  display: inline-block;
+  position: relative;
+  top: -10px;
+  left: -10px;
+  border-radius: 20px;
+  width: 40px;
+  height: 40px;
+  opacity: 1;
+  background-color: var(--color-gray-buttonBg);
+}
+
+html.simplify .Bs .hasTracker .trackerBadge:hover::after {
+  content: "Tracker blocked by Simplify";
+  display: inline-block;
+  height: fit-content;
+  height: -moz-fit-content;
+  width: 94px;
+  white-space: normal;
+  text-align: center;
+  position: relative;
+  z-index: 9;
+  top: 24px;
+  left: -85px;
+  opacity: 0.9;
+  background: #3c4043;
+  color: #fff;
+  cursor: default;
+  border-radius: 4px;
+  padding: 4px 8px 6px 8px;
+  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.3px;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 500;
+  line-height: 16px;
+  pointer-events: none;
+}
+
+html.simplify #trackerDetails {
+  display: none;
+}
+
+html.simplify #trackerDetails.show {
+  display: block;
+  z-index: 10;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.56);
+  cursor: default;
+}
+
+html.simplify #trackerDetails.show div {
+  display: block;
+  position: fixed;
+  z-index: 20;
+  width: 600px;
+  height: fit-content;
+  height: -moz-fit-content;
+  top: 250px;
+  left: calc(50% - 350px);
+  background: top 32px right 32px / 24px no-repeat url("chrome-extension://__MSG_@@extension_id__/img/icons/close-24px.svg") #fff;
+  padding: 60px 50px;
+  border-radius: 16px;
+  line-height: 1.7em;
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.12);
+  transform-style: preserve-3d;
+}
+
+html.simplify #trackerDetails.show div p:last-of-type {
+  margin-bottom: 0;
+}
+
+html.simplify.matchFontSize:not(.htmlEmail) div[role='listitem'] .a3s {
+  font-size: 0.87499rem;
+}
+
+html.simplify.matchFontSize:not(.htmlEmail) div[role='listitem'] .a3s [style*="font-size: small"],
+html.simplify.matchFontSize:not(.htmlEmail) div[role='listitem'] .a3s [style*="font-size:small"] {
+  font-size: 0.87499rem !important;
+}
+
+html.simplify.matchFontSize div[role='listitem'] .g6 h3.iw {
+  font-size: 0.87499rem;
+}
+
+html.simplify.matchFontSize div[contenteditable] {
+  font-size: 0.87499rem !important;
+}
+
+html.simplify.matchFontSize div[contenteditable] font[size="2"],
+html.simplify.matchFontSize div[contenteditable] *[style*="font-size:small"],
+html.simplify.matchFontSize div[contenteditable] *[style*="font-size: small"] {
+  font-size: 0.87499rem !important;
+}
+
+html.simplify.matchFontSize div[contenteditable] pre {
+  white-space: break-spaces !important;
+}
+
+html.simplify.debug div[role='listitem'] .a3s *[style*=".87499"],
+html.simplify.debug div[role='listitem'] .a3s *[style*="13.9998"] {
+  background-color: red;
+  color: white;
+}
+
+html.simplify.debug div[contenteditable] *[style*=".87499"],
+html.simplify.debug div[contenteditable] *[style*="13.9998"] {
+  background-color: red !important;
+  color: white !important;
+}
+
+html.simplify.reverseMsgs .Bs div[role='list'] {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+html.simplify.reverseMsgs .Bs div[role='list'] div[role='listitem'] {
+  flex: 0 0 auto;
+}
+
+html.simplify.reverseMsgs .Bs div[role='list'] div[role='listitem']:nth-child(2) {
+  border-bottom: 1px solid var(--color-itemBorder);
+}
+
+html.simplify.reverseMsgs .Bs div[role='list'] div[role='listitem'].ie .G2 {
+  border-top: 0px;
+  border-bottom: 1px solid var(--color-itemBorder);
+}
+
+html.simplify.reverseMsgs .Bs div[role='list'] div[role='listitem'].ie .G2 > div > div[id] {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+html.simplify.reverseMsgs .Bs div[role='list'] div[role='listitem'].ie .G2 > div > div[id] .gA.gt {
+  border-bottom: 1px solid var(--color-itemBorder);
+}
+
+html.simplify.reverseMsgs .Bs div[role='list'] div[role='listitem'].ie .brb {
+  float: right;
+  box-shadow: none;
+  margin: 2px 0 0 0;
+  padding-bottom: 0px;
+  border-bottom: none;
+}
+
+html.simplify.reverseMsgs .Bs div[role='list'] div[role='listitem'].ie .wR {
+  float: left;
+}
+
+html.simplify.darkTheme:not(.htmlEmail) .Bs {
+  background-color: #111;
+}
+
+html.simplify.darkTheme:not(.htmlEmail) .Bs .aC3,
+html.simplify.darkTheme:not(.htmlEmail) .Bs .bAn,
+html.simplify.darkTheme:not(.htmlEmail) .Bs .aDj.aDi::after,
+html.simplify.darkTheme:not(.htmlEmail) .Bs .azX {
+  background-color: #111;
+}
+
+html.simplify.darkTheme:not(.htmlEmail) .Bs .byY,
+html.simplify.darkTheme:not(.htmlEmail) .Bs .ads.adn,
+html.simplify.darkTheme:not(.htmlEmail) .Bs .ads.adf,
+html.simplify.darkTheme:not(.htmlEmail) .Bs .adv,
+html.simplify.darkTheme:not(.htmlEmail) .Bs .wR,
+html.simplify.darkTheme:not(.htmlEmail) .Bs .brb,
+html.simplify.darkTheme:not(.htmlEmail) .Bs .aNU,
+html.simplify.darkTheme:not(.htmlEmail) .Bs .bAR,
+html.simplify.darkTheme:not(.htmlEmail) .Bs .iS {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+html.simplify.darkTheme:not(.htmlEmail) .Bs .byY img:not(svg):not([src*='cleardot']), html.simplify.darkTheme:not(.htmlEmail) .Bs .byY *[style*='url('], html.simplify.darkTheme:not(.htmlEmail) .Bs .byY video,
+html.simplify.darkTheme:not(.htmlEmail) .Bs .byY .bi4[aria-checked='true'],
+html.simplify.darkTheme:not(.htmlEmail) .Bs .byY .aYy,
+html.simplify.darkTheme:not(.htmlEmail) .Bs .ads.adn img:not(svg):not([src*='cleardot']),
+html.simplify.darkTheme:not(.htmlEmail) .Bs .ads.adn *[style*='url('],
+html.simplify.darkTheme:not(.htmlEmail) .Bs .ads.adn video,
+html.simplify.darkTheme:not(.htmlEmail) .Bs .ads.adn .bi4[aria-checked='true'],
+html.simplify.darkTheme:not(.htmlEmail) .Bs .ads.adn .aYy,
+html.simplify.darkTheme:not(.htmlEmail) .Bs .ads.adf img:not(svg):not([src*='cleardot']),
+html.simplify.darkTheme:not(.htmlEmail) .Bs .ads.adf *[style*='url('],
+html.simplify.darkTheme:not(.htmlEmail) .Bs .ads.adf video,
+html.simplify.darkTheme:not(.htmlEmail) .Bs .ads.adf .bi4[aria-checked='true'],
+html.simplify.darkTheme:not(.htmlEmail) .Bs .ads.adf .aYy,
+html.simplify.darkTheme:not(.htmlEmail) .Bs .adv img:not(svg):not([src*='cleardot']),
+html.simplify.darkTheme:not(.htmlEmail) .Bs .adv *[style*='url('],
+html.simplify.darkTheme:not(.htmlEmail) .Bs .adv video,
+html.simplify.darkTheme:not(.htmlEmail) .Bs .adv .bi4[aria-checked='true'],
+html.simplify.darkTheme:not(.htmlEmail) .Bs .adv .aYy,
+html.simplify.darkTheme:not(.htmlEmail) .Bs .wR img:not(svg):not([src*='cleardot']),
+html.simplify.darkTheme:not(.htmlEmail) .Bs .wR *[style*='url('],
+html.simplify.darkTheme:not(.htmlEmail) .Bs .wR video,
+html.simplify.darkTheme:not(.htmlEmail) .Bs .wR .bi4[aria-checked='true'],
+html.simplify.darkTheme:not(.htmlEmail) .Bs .wR .aYy,
+html.simplify.darkTheme:not(.htmlEmail) .Bs .brb img:not(svg):not([src*='cleardot']),
+html.simplify.darkTheme:not(.htmlEmail) .Bs .brb *[style*='url('],
+html.simplify.darkTheme:not(.htmlEmail) .Bs .brb video,
+html.simplify.darkTheme:not(.htmlEmail) .Bs .brb .bi4[aria-checked='true'],
+html.simplify.darkTheme:not(.htmlEmail) .Bs .brb .aYy,
+html.simplify.darkTheme:not(.htmlEmail) .Bs .aNU img:not(svg):not([src*='cleardot']),
+html.simplify.darkTheme:not(.htmlEmail) .Bs .aNU *[style*='url('],
+html.simplify.darkTheme:not(.htmlEmail) .Bs .aNU video,
+html.simplify.darkTheme:not(.htmlEmail) .Bs .aNU .bi4[aria-checked='true'],
+html.simplify.darkTheme:not(.htmlEmail) .Bs .aNU .aYy,
+html.simplify.darkTheme:not(.htmlEmail) .Bs .bAR img:not(svg):not([src*='cleardot']),
+html.simplify.darkTheme:not(.htmlEmail) .Bs .bAR *[style*='url('],
+html.simplify.darkTheme:not(.htmlEmail) .Bs .bAR video,
+html.simplify.darkTheme:not(.htmlEmail) .Bs .bAR .bi4[aria-checked='true'],
+html.simplify.darkTheme:not(.htmlEmail) .Bs .bAR .aYy,
+html.simplify.darkTheme:not(.htmlEmail) .Bs .iS img:not(svg):not([src*='cleardot']),
+html.simplify.darkTheme:not(.htmlEmail) .Bs .iS *[style*='url('],
+html.simplify.darkTheme:not(.htmlEmail) .Bs .iS video,
+html.simplify.darkTheme:not(.htmlEmail) .Bs .iS .bi4[aria-checked='true'],
+html.simplify.darkTheme:not(.htmlEmail) .Bs .iS .aYy {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+html.simplify.darkTheme:not(.htmlEmail) .Bs .aDj.aDi {
+  bottom: 36px !important;
+}
+
+html.simplify.darkTheme:not(.htmlEmail) .Bs .aDj.aDi::before {
+  background-color: white;
+  border: none;
+  left: 0px;
+}
+
+html.simplify.darkTheme:not(.htmlEmail) .Bs .I5 {
+  border: none;
+}
+
+html.simplify.darkTheme:not(.htmlEmail) .Bs .qY {
+  filter: invert(1) hue-rotate(180deg);
+  box-shadow: none;
+  background-color: #eee;
+  border: 1px solid #ccc;
+}
+
+html.simplify.darkTheme:not(.htmlEmail) *[style*="background-color: #ffffff"],
+html.simplify.darkTheme:not(.htmlEmail) *[style*="background-color:#ffffff"],
+html.simplify.darkTheme:not(.htmlEmail) *[style*="background-color: #fff;"],
+html.simplify.darkTheme:not(.htmlEmail) *[style^="background-color: #fff"],
+html.simplify.darkTheme:not(.htmlEmail) *[style*="background-color:#fff;"],
+html.simplify.darkTheme:not(.htmlEmail) *[style^="background-color:#fff"],
+html.simplify.darkTheme:not(.htmlEmail) *[style*="background: #ffffff"],
+html.simplify.darkTheme:not(.htmlEmail) *[style*="background:#ffffff"],
+html.simplify.darkTheme:not(.htmlEmail) *[style*="background: #fff;"],
+html.simplify.darkTheme:not(.htmlEmail) *[style^="background: #fff;"],
+html.simplify.darkTheme:not(.htmlEmail) *[style*="background:#fff;"],
+html.simplify.darkTheme:not(.htmlEmail) *[style^="background:#fff"],
+html.simplify.darkTheme:not(.htmlEmail) .simplifyEeeBg {
+  background-color: #eee !important;
+}
+
+html.simplify.darkTheme:not(.htmlEmail).hPane:not(.msgOpen) .Bs, html.simplify.darkTheme:not(.htmlEmail).vPane:not(.msgOpen) .Bs {
+  background-color: transparent;
+}
+
+html.simplify.vPane.defaultTheme .Nu.S3 {
+  background-color: var(--color-gray-vlight);
+}
+
+html.simplify.vPane.defaultTheme.inboxZero.izBgDefault .BltHke {
+  background-color: var(--color-gray-vlight);
+}
+
+html.simplify.vPane .Bs {
+  margin-top: max(12px, min(var(--padding-top), calc(100vw - var(--width-nav) - var(--width-rightPane) - var(--width-readingPane) - var(--width-msg) - 56px)));
+}
+
+html.simplify.vPane:not(.inboxZero):not(.inMsg) .Nu.S3 {
+  border-left: 10px solid transparent;
+}
+
+html.simplify.vPane:not(.inboxZero):not(.inMsg) .Nu.S3 .ao8 {
+  height: auto;
+  border-bottom: 1px solid transparent;
+}
+
+html.simplify.vPane:not(.inboxZero):not(.inMsg) .Nu.S3 .ao8 .Bs {
+  height: auto !important;
+  margin-bottom: var(--padding-bottom);
+  border-radius: 8px;
+}
+
+html.simplify.vPane:not(.inboxZero):not(.inMsg) .Nu.S3 .a3s {
+  max-width: calc( 100vw - var(--width-nav) - var(--width-readingPane) - var(--width-rightPane) - 200px);
+}
+
+html.simplify.vPane:not(.inboxZero):not(.inMsg) .Nu.S3 .aC3 {
+  min-height: auto;
+}
+
+html.simplify.vPane:not(.inboxZero):not(.inMsg).contrastTheme.msgOpen .Bs {
+  border: 1px solid #aaa;
+  display: block;
+}
+
+html.simplify.nPane .if > div[class='nH']:last-child, html.simplify.vPane:not(.inMsg) .if > div[class='nH']:last-child, html.simplify.hPane:not(.inMsg) .if > div[class='nH']:last-child {
+  display: none;
+}
+
+html.simplify.nPane .Bs .apb, html.simplify.nPane .Bs .apf, html.simplify.vPane:not(.inMsg) .Bs .apb, html.simplify.vPane:not(.inMsg) .Bs .apf, html.simplify.hPane:not(.inMsg) .Bs .apb, html.simplify.hPane:not(.inMsg) .Bs .apf {
+  width: fit-content;
+  width: -moz-fit-content;
+  background: rgba(255, 255, 255, 0.65);
+  margin: 20vh auto 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+  color: var(--color-gray-vdark);
+}
+
+html.simplify.nPane .Bs .apb .apc, html.simplify.nPane .Bs .apf .apc, html.simplify.vPane:not(.inMsg) .Bs .apb .apc, html.simplify.vPane:not(.inMsg) .Bs .apf .apc, html.simplify.hPane:not(.inMsg) .Bs .apb .apc, html.simplify.hPane:not(.inMsg) .Bs .apf .apc {
+  display: none;
+}
+
+html.simplify.hPane .Bs {
+  margin: 0px auto;
+}
+
+html.simplify.hPane.msgSelected .Bs .apb, html.simplify.hPane.msgSelected .Bs .apf {
+  margin-top: 0px;
+  padding-top: 1em;
+}
+
+html.simplify.hPane.msgSelected .Bs,
+html.simplify.hPane.msgSelected .ao8 {
+  height: auto;
+}
+
+
+/* Copyright (C) 2021 Michael Leggett, Made Simple LLC - All Rights Reserved
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential */
+/* ========================================================================== */
+html.simplify.inboxZero:not(.izBgDefault):not(.appMenuOpen):not(.inSettings) .G-atb {
+  opacity: 0.1 !important;
+  transition: opacity 200ms ease-in-out;
+}
+
+html.simplify.inboxZero:not(.izBgDefault):not(.appMenuOpen):not(.inSettings) .G-atb:hover {
+  opacity: 1 !important;
+}
+
+html.simplify.inboxZero:not(.izBgDefault) #gb form[role='search']:not(.focused):not(:hover) {
+  background-color: rgba(241, 243, 244, 0.1);
+}
+
+html.simplify.inboxZero:not(.izBgDefault) .aKh {
+  opacity: 0.6;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: all 200ms ease-in-out;
+}
+
+html.simplify.inboxZero:not(.izBgDefault) .aKh:hover {
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+html.simplify.inboxZero:not(.izBgDefault).darkTheme .aKh {
+  opacity: 0.3;
+}
+
+html.simplify.inboxZero .UI .TB {
+  visibility: visible;
+  border-bottom: none;
+  margin-top: 80px;
+  background-color: transparent;
+}
+
+html.simplify.inboxZero .UI .TB .TD {
+  background-color: transparent;
+}
+
+html.simplify.inboxZero:not(.izBgDefault) .UI .TB {
+  display: block;
+  position: fixed;
+  left: calc(24px + var(--width-nav) + var(--width-chat));
+  bottom: 24px;
+  opacity: 0.7;
+  margin-top: 8px;
+}
+
+html.simplify.inboxZero:not(.izBgDefault) .UI .TB .TC {
+  padding: 12px 24px;
+  display: table-cell;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(32, 33, 36, 0.18);
+}
+
+html.simplify.inboxZero .BltHke .aKh {
+  border-radius: 8px;
+}
+
+html.simplify.inboxZero .BltHke .UI {
+  visibility: hidden;
+}
+
+html.simplify.inboxZero .BltHke .UI .aRv {
+  visibility: visible;
+  position: fixed;
+  bottom: 24px;
+  left: calc(24px + var(--width-nav));
+  padding: 12px 24px;
+  border-radius: 8px;
+  opacity: 0.7;
+  font-size: 0.875rem;
+}
+
+html.simplify.inboxZero .Nu.tf.W7 .ae4:not(.iR) {
+  display: none;
+}
+
+html.simplify.inboxZero.defaultTheme:not(.izBgOff) .yL .wl, html.simplify.inboxZero.darkTheme:not(.izBgOff) .yL .wl {
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+html.simplify.inboxZero.defaultTheme:not(.izBgOff) .Tm.aeJ, html.simplify.inboxZero.darkTheme:not(.izBgOff) .Tm.aeJ {
+  background: transparent;
+}
+
+html.simplify.inboxZero.defaultTheme.izBg1 .yL .wl, html.simplify.inboxZero.darkTheme.izBg1 .yL .wl {
+  background-image: url("chrome-extension://__MSG_@@extension_id__/img/bg/mountain-light.jpg");
+  background-position: bottom;
+}
+
+html.simplify.inboxZero.defaultTheme.izBg2 .yL .wl, html.simplify.inboxZero.darkTheme.izBg2 .yL .wl {
+  background-image: url("chrome-extension://__MSG_@@extension_id__/img/bg/mountain-dark.jpg");
+  background-position: top;
+}
+
+html.simplify.inboxZero.defaultTheme.izBg3 .yL .wl, html.simplify.inboxZero.darkTheme.izBg3 .yL .wl {
+  background-image: url("chrome-extension://__MSG_@@extension_id__/img/bg/beach.jpg");
+  background-position: bottom;
+}
+
+html.simplify.inboxZero.defaultTheme.izBg4 .yL .wl, html.simplify.inboxZero.darkTheme.izBg4 .yL .wl {
+  background-image: url("chrome-extension://__MSG_@@extension_id__/img/bg/cat.jpg");
+  background-position: center;
+}
+
+html.simplify.inboxZero.defaultTheme.izBg5 .yL .wl, html.simplify.inboxZero.darkTheme.izBg5 .yL .wl {
+  background-image: url("chrome-extension://__MSG_@@extension_id__/img/bg/dog.jpg");
+  background-position: center;
+}
+
+html.simplify.inboxZero.izBgDefault:not(.mediumTheme) .yL .wl {
+  background-image: url("chrome-extension://__MSG_@@extension_id__/img/bg/illustration-light.png") !important;
+  background-position: top 270px left calc( (100vw - 400px + var(--width-nav) - var(--width-rightPane)) / 2) !important;
+  background-size: 400px auto !important;
+  background-repeat: no-repeat;
+}
+
+html.simplify.inboxZero.izBgDefault:not(.mediumTheme).darkTheme .yL .wl {
+  background-image: url("chrome-extension://__MSG_@@extension_id__/img/bg/illustration-dark.png") !important;
+}
+
+html.simplify.inboxZero.izBgDefault.vPane .TC::after,
+html.simplify.inboxZero.izBgDefault.vPane .aRv::after {
+  content: "";
+  display: block;
+  max-width: 90%;
+  margin: 40px auto 0;
+  height: calc(100vh - 350px);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-image: url("chrome-extension://__MSG_@@extension_id__/img/bg/illustration-light.png") !important;
+  background-size: min(400px, calc(var(--width-readingPane) - 48px)) auto !important;;
+}
+
+html.simplify.inboxZero.izBgDefault.vPane .aRv {
+  opacity: 1;
+}
+
+html.simplify.inboxZero.izBgDefault.vPane.darkTheme .TC::after,
+html.simplify.inboxZero.izBgDefault.vPane.darkTheme .aRv::after {
+  background-image: url("chrome-extension://__MSG_@@extension_id__/img/bg/illustration-dark.png") !important;
+}
+
+html.simplify.inboxZero.izBgDefault .UI .TB,
+html.simplify.inboxZero.izBgDefault .BltHke .UI .aRv {
+  position: relative;
+  left: auto;
+  text-align: center;
+}
+
+html.simplify.inboxZero.izBgDefault.mediumTheme:not(.vPane) .UI .TB,
+html.simplify.inboxZero.izBgDefault.mediumTheme:not(.vPane) .BltHke .UI .aRv {
+  color: white;
+}
+
+html.simplify:not(.inboxZero) .TB {
+  border-bottom: none;
+  margin-top: 16px;
+}
+
+html.simplify:not(.inboxZero) .TB .TC {
+  display: table-cell;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+html.simplify:not(.inboxZero) .qd {
+  border-bottom: none;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+html.simplify.vPane:not(.inMsg):not(.inboxZero) .BltHke::before, html.simplify.vPane:not(.inMsg).inboxZero.izBgDefault .BltHke::before {
+  background-color: var(--color-themeAccent);
+}
+
+html.simplify.vPane:not(.inMsg).inboxZero:not(.izBgDefault) .aKh {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+html.simplify.vPane:not(.inMsg).inboxZero:not(.izBgDefault) .aKh .aRz {
+  background-color: transparent;
+}
+
+html.simplify.vPane:not(.inMsg).inboxZero:not(.izBgDefault).defaultTheme #gb {
+  background-color: transparent !important;
+}
+
+
+/* Copyright (C) 2021 Michael Leggett, Made Simple LLC - All Rights Reserved
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential */
+/* ========================================================================== */
+html.simplify .wa {
+  opacity: 1;
+  left: 0;
+  width: 100%;
+  top: 0;
+  height: 100%;
+  border-radius: 0;
+  background-color: #eee;
+  display: none;
+}
+
+html.simplify .wa[data-simplify="ready"] {
+  display: block !important;
+}
+
+html.simplify .wa .wc {
+  left: 0;
+  height: 100%;
+  width: 100vw;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+html.simplify .wa .wc table.wf td {
+  height: 72px;
+  padding: 0 5%;
+  vertical-align: middle;
+  background-color: #eee;
+  font-size: 16px;
+  border-bottom: 1px solid #ccc;
+  color: #222;
+}
+
+html.simplify .wa .wc table.wf td:first-child {
+  font-size: 22px;
+}
+
+html.simplify .wa .wc table.wf td .wi {
+  padding: 0 1em;
+  color: #36c;
+}
+
+html.simplify .wa .wc .aNP {
+  max-height: calc(100vh - 72px) !important;
+}
+
+html.simplify .wa .wc .aNP > table.wd {
+  border-top: 0px;
+  margin-top: 40px;
+}
+
+html.simplify .wa .wc .aNP > table.wd:last-child {
+  margin-bottom: 200px;
+}
+
+html.simplify .wa .wc .aNP > table.wd th.Do:first-child {
+  display: none;
+}
+
+html.simplify .wa .wc .aNP > table.wd th.Do:not(:empty) {
+  padding: 40px 0 20px 4px;
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #222;
+  max-width: 148px;
+}
+
+html.simplify .wa .wc .aNP > table.wd th.Do:not(:empty) > div {
+  width: 150%;
+  margin-top: -12px;
+}
+
+html.simplify .wa .wc .aNP > table.wd > tbody > tr > td.Dn:first-of-type {
+  padding-left: 10%;
+  width: 55%;
+}
+
+html.simplify .wa .wc .aNP > table.wd .wg {
+  padding: 4px;
+  border-radius: 8px 0 0 8px;
+  color: #222222;
+  white-space: nowrap;
+  font-size: 0px;
+  min-width: 136px;
+}
+
+html.simplify .wa .wc .aNP > table.wd .wg span.wh {
+  display: block;
+  background-color: #abd;
+  padding: 10px;
+  margin-right: 4px;
+  width: 20px;
+  text-align: center;
+  border-radius: 4px;
+  font-family: var(--system-fonts);
+  font-size: 17px;
+  font-weight: 600;
+  color: black;
+  float: left;
+  line-height: 12px;
+}
+
+html.simplify .wa .wc .aNP > table.wd .wg span.wh.escKey, html.simplify .wa .wc .aNP > table.wd .wg span.wh.ctlKey, html.simplify .wa .wc .aNP > table.wd .wg span.wh.altKey {
+  text-transform: uppercase;
+  font-size: 11px !important;
+  letter-spacing: -0.6px;
+}
+
+html.simplify .wa .wc .aNP > table.wd .wg span.wb {
+  display: block;
+  padding: 10px;
+  width: 20px;
+  text-align: center;
+  border-radius: 4px;
+  font-weight: normal;
+  float: left;
+  color: #222;
+  line-height: 12px;
+  font-size: 16px;
+}
+
+html.simplify .wa .wc .aNP > table.wd .wg span.wb.plus {
+  display: none;
+}
+
+html.simplify .wa .wc .aNP > table.wd .wg span.wb.then, html.simplify .wa .wc .aNP > table.wd .wg span.wb.slash {
+  font-family: var(--system-fonts);
+  font-size: 17px;
+}
+
+html.simplify .wa .wc .aNP > table.wd .wg span.wb.slash {
+  font-weight: 200;
+}
+
+html.simplify .wa .wc .aNP > table.wd td.we {
+  vertical-align: middle;
+  padding: 2px 20px 2px 4px;
+  border-radius: 0 8px 8px 0;
+  color: #222;
+}
+
+html.simplify .wa .wc .aNP > table.wd table tr:hover td {
+  background-color: #ddd;
+  cursor: default;
+}
+
+html.simplify .wa .wc .aNP > table.wd table tr:hover td.wg {
+  color: #444 !important;
+}
+
+html.simplify .wa .wc .aNP .aov {
+  margin: 60px 5% 20px;
+  border-top: 0px;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: red;
+  font-size: 21px;
+  color: white;
+}
+
+html.simplify .wa .wc .aNP .aov * {
+  background-color: inherit;
+  color: inherit;
+  outline: none;
+}
+
+html.simplify .wa .wc .aNP .aov:not(.aox) {
+  position: sticky;
+  top: 0px;
+  z-index: 1;
+}
+
+html.simplify .wa .wc .aNP .aov:not(.aox) ~ table {
+  opacity: 0.4;
+}
+
+html.simplify .wa .wc .aNP .aov.aox {
+  background-color: #456;
+}
+
+html.simplify.darkTheme .wa {
+  background-color: #222;
+}
+
+html.simplify.darkTheme .wa .wc table.wf td {
+  background-color: #222;
+  border-bottom: 1px solid #333;
+  color: #fff;
+}
+
+html.simplify.darkTheme .wa .wc table.wf td .wi {
+  color: #fff;
+}
+
+html.simplify.darkTheme .wa .wc .aNP > table.wd th.Do:not(:empty) {
+  color: #fff;
+}
+
+html.simplify.darkTheme .wa .wc .aNP > table.wd .wg {
+  color: #222222;
+}
+
+html.simplify.darkTheme .wa .wc .aNP > table.wd .wg span.wh {
+  background-color: #abd;
+  color: black;
+}
+
+html.simplify.darkTheme .wa .wc .aNP > table.wd .wg span.wb {
+  color: #fff;
+}
+
+html.simplify.darkTheme .wa .wc .aNP > table.wd td.we {
+  color: #fff;
+}
+
+html.simplify.darkTheme .wa .wc .aNP > table.wd table tr:hover td {
+  background-color: #444;
+}
+
+html.simplify.darkTheme .wa .wc .aNP > table.wd table tr:hover td.wg {
+  color: #444 !important;
+}
+
+
+/* Copyright (C) 2021 Michael Leggett, Made Simple LLC - All Rights Reserved
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential */
+/* ========================================================================== */
+html.simplify .Tm.aeJ .BltHke {
+  margin-top: var(--padding-top);
+}
+
+html.simplify.nPane .BltHke .ae4 {
+  margin-top: var(--padding-top);
+  width: 100%;
+}
+
+html.simplify.nPane .BltHke > div:not(.G-atb):not(.UI) {
+  transform: translateX(-8px);
+}
+
+@-moz-document url-prefix() {
+  html.simplify.nPane .BltHke > div:not(.G-atb):not(.UI) {
+    transform: translateX(-7.5px);
+  }
+}
+
+html.simplify .BltHke .ae4,
+html.simplify .BltHke .ya,
+html.simplify .BltHke .bX,
+html.simplify .BltHke .X3,
+html.simplify .BltHke .O6 {
+  max-width: min(var(--width-list), calc(100vw - 16px - var(--width-rightPane) - var(--width-nav)));
+  margin: 0px auto;
+}
+
+html.simplify .BltHke .Wz {
+  max-width: calc(var(--width-list) - 32px);
+  padding: 12px 16px;
+  margin: 0px auto;
+}
+
+html.simplify .BltHke .ya,
+html.simplify .BltHke .bX,
+html.simplify .BltHke .X3,
+html.simplify .BltHke .O6,
+html.simplify .BltHke .Wz {
+  margin-bottom: 8px;
+  border-radius: 8px;
+}
+
+html.simplify .BltHke .X3 {
+  margin-bottom: 0px;
+}
+
+html.simplify .BltHke .bX {
+  min-height: 80px;
+  padding: 16px 8px;
+  box-sizing: border-box;
+}
+
+html.simplify .BltHke .aDP {
+  margin-bottom: var(--padding-top);
+}
+
+html.simplify .BltHke .ae4.aDM {
+  margin-top: 0px;
+}
+
+html.simplify .BltHke .ae4.aDM tbody:not(:empty) {
+  margin-bottom: var(--padding-top);
+}
+
+html.simplify .BltHke .ae4:not(.aDM) {
+  margin-bottom: var(--padding-top);
+}
+
+html.simplify .BltHke .ae4 .Wg.aAr {
+  border-radius: 8px 8px 0 0;
+  box-shadow: none;
+}
+
+html.simplify .BltHke .iR .aw5 {
+  display: inline-block;
+  max-width: calc(min(var(--width-list), 90vw) - 200px);
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-left: 0.4em;
+  margin-bottom: -8px;
+}
+
+html.simplify .BltHke .Wg.aAr img[style*="hidden"] {
+  visibility: visible !important;
+}
+
+html.simplify .BltHke .Wg.aAr img.Wo, html.simplify .BltHke .Wg.aAr img.Wo-A8 {
+  transform: translateY(-2px) rotate(-90deg);
+}
+
+html.simplify .BltHke .Wg.aAr img.Wq, html.simplify .BltHke .Wg.aAr img.Wq-A8 {
+  transform: translateY(-2px) rotate(180deg);
+}
+
+@media only screen and (max-width: 1059.98px) {
+  html.simplify.listWidthMd:not(.navOpen) .BltHke {
+    margin-left: 16px;
+  }
+}
+
+@media only screen and (max-width: 1199.98px) {
+  html.simplify.listWidthLg:not(.navOpen) .BltHke {
+    margin-left: 16px;
+  }
+}
+
+@media only screen and (max-width: 1349.98px) {
+  html.simplify.listWidthXLg:not(.navOpen) .BltHke {
+    margin-left: 16px;
+  }
+}
+
+@media only screen and (max-width: 1499.98px) {
+  html.simplify.listWidthXXLg:not(.navOpen) .BltHke {
+    margin-left: 16px;
+  }
+}
+
+@media only screen and (max-width: 1299.98px) {
+  html.simplify.listWidthMd:not(.navOpen).addOnsOpen .BltHke, html.simplify.listWidthMd:not(.navOpen).quickSettings .BltHke, html.simplify.listWidthMd:not(.navOpen).rhsChat .BltHke {
+    margin-left: 16px;
+  }
+}
+
+@media only screen and (max-width: 1439.98px) {
+  html.simplify.listWidthLg:not(.navOpen).addOnsOpen .BltHke, html.simplify.listWidthLg:not(.navOpen).quickSettings .BltHke, html.simplify.listWidthLg:not(.navOpen).rhsChat .BltHke {
+    margin-left: 16px;
+  }
+}
+
+@media only screen and (max-width: 1589.98px) {
+  html.simplify.listWidthXLg:not(.navOpen).addOnsOpen .BltHke, html.simplify.listWidthXLg:not(.navOpen).quickSettings .BltHke, html.simplify.listWidthXLg:not(.navOpen).rhsChat .BltHke {
+    margin-left: 16px;
+  }
+}
+
+@media only screen and (max-width: 1739.98px) {
+  html.simplify.listWidthXXLg:not(.navOpen).addOnsOpen .BltHke, html.simplify.listWidthXXLg:not(.navOpen).quickSettings .BltHke, html.simplify.listWidthXXLg:not(.navOpen).rhsChat .BltHke {
+    margin-left: 16px;
+  }
+}
+
+html.simplify.listWidthFull:not(.navOpen) .BltHke {
+  margin-left: 16px;
+}
+
+html.simplify .aKh {
+  border-radius: 8px 8px 0 0;
+  margin: 0px auto;
+  max-width: min(var(--width-list), calc(100vw - var(--width-tabMargin) - var(--width-rightPane) - var(--width-nav)));
+}
+
+html.simplify .aKh .aRz {
+  padding-right: 5px;
+}
+
+html.simplify .aKh .aRz .aAy {
+  opacity: 0.5;
+}
+
+html.simplify .aKh .aRz .aAy.aE2[aria-selected='false'] {
+  opacity: 0.7;
+}
+
+html.simplify .aKh .aRz .aAy[aria-selected='true'], html.simplify .aKh .aRz .aAy:hover {
+  opacity: 1;
+}
+
+html.simplify .aKh .aRz .aAy:before {
+  background-color: transparent !important;
+}
+
+html.simplify .aKh .aRz .aAy .aDG {
+  filter: grayscale(100%);
+}
+
+html.simplify .aKh ~ .UI .zA:first-child {
+  border-radius: 0px !important;
+}
+
+html.simplify .aKh ~ .UI .zA:first-child::before {
+  border-radius: 0px !important;
+}
+
+html.simplify.contrastTheme .aKh .aRz .aAy {
+  opacity: 1 !important;
+}
+
+html.simplify.contrastTheme .ae4 table.F {
+  border: 0px;
+}
+
+html.simplify.contrastTheme .ae4 table.F tbody:not(:empty) {
+  border: 1px solid #aaa;
+  border-radius: 8px;
+}
+
+html.simplify.contrastTheme .aDP > .ae4 table.F tbody:not(:empty) {
+  border-radius: 0 0 8px 8px;
+}
+
+html.simplify.contrastTheme .ae4 .Cp.adverts tbody {
+  border: 0px;
+}
+
+html.simplify.contrastTheme .aKh {
+  box-shadow: none;
+  box-sizing: border-box;
+  border: 1px solid #aaa !important;
+  border-bottom: 0px !important;
+}
+
+html.simplify.contrastTheme .PE.PF {
+  border-left: none;
+}
+
+html.simplify.contrastTheme .PE.PF::before {
+  background-color: #4d90f0 !important;
+  width: 4px;
+}
+
+html.simplify.hideTabIcons:not(.vPane) .aKh .aRz .aAy {
+  padding-left: 16px;
+}
+
+html.simplify.hideTabIcons:not(.vPane) .aKh .aRz .aAy::after {
+  margin-left: -16px;
+}
+
+html.simplify.hideTabIcons:not(.vPane) .aKh .aRz .aAy .aKw .aKz {
+  text-transform: uppercase;
+  font-size: 0.815rem;
+  letter-spacing: 0.35px;
+}
+
+html.simplify.hideTabIcons:not(.vPane) .aKh .aRz .aAy .aKw .aDG[style*="display: none"] + .aKz {
+  margin-top: 2px;
+}
+
+html.simplify.hideTabIcons:not(.vPane) .aKh .aRz .aAy .aKp {
+  display: none;
+}
+
+html.simplify .BltHke.S4:not(.Wl):not(.aE3) .UI.WV {
+  padding-top: var(--padding-top);
+}
+
+html.simplify .BltHke.S4.Wl:not(.aE3) .Nt {
+  border-left: none;
+  border-right: none;
+  opacity: 0;
+}
+
+html.simplify .BltHke.S4.Wl:not(.aE3) .Nt:hover {
+  opacity: 1;
+}
+
+html.simplify.nPane .BltHke .aKh {
+  width: var(--width-list);
+}
+
+html.simplify .zA {
+  box-shadow: none;
+}
+
+html.simplify .zA:first-child {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+html.simplify .zA:last-child {
+  border-bottom-left-radius: 8px !important;
+  border-bottom-right-radius: 8px !important;
+}
+
+html.simplify .zA:hover {
+  box-shadow: inset 0 0 3px 0 rgba(100, 121, 143, 0.3);
+}
+
+html.simplify .zA .oZ-x3::before {
+  background-image: none !important;
+}
+
+html.simplify .zA .yf img {
+  opacity: 0.4;
+}
+
+html.simplify .zA.yO .yf img {
+  opacity: 0.3;
+}
+
+html.simplify .zA .brd {
+  margin: 12px 0 0 2px;
+}
+
+html.simplify .zA .by1.cL {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  opacity: 0.8;
+}
+
+html.simplify .zA.yO .by1.cL {
+  font-weight: 400;
+  opacity: 0.6;
+  filter: saturate(65%);
+}
+
+html.simplify .zA .by1.byT {
+  font-size: 0.75rem;
+  letter-spacing: 0.3px;
+}
+
+html.simplify.contrastTheme .by1.cL,
+html.simplify.contrastTheme .yf img {
+  opacity: 1 !important;
+}
+
+html.simplify .zA li.brv {
+  background-image: url("chrome-extension://__MSG_@@extension_id__/img/icons/snooze-black.png");
+}
+
+html.simplify.darkTheme .zA li.brv {
+  background-image: url("chrome-extension://__MSG_@@extension_id__/img/icons/snooze-white.png");
+}
+
+html.simplify.newUI .zA li.brv {
+  background-image: url("chrome-extension://__MSG_@@extension_id__/img/icons/snooze-black-outlined.png") !important;
+}
+
+html.simplify.darkTheme.newUI .zA li.brv {
+  background-image: url("chrome-extension://__MSG_@@extension_id__/img/icons/snooze-white-outlined.png") !important;
+}
+
+html.simplify.dateGroup .zA:first-child {
+  border-radius: 0;
+}
+
+html.simplify.dateGroup .zA:not[date]:first-child {
+  border-radius: 8px 8px 0 0;
+}
+
+html.simplify.dateGroup .zA[date="today"]:first-child, html.simplify.dateGroup .zA[date]:first-child::before {
+  border-radius: 8px 8px 0 0;
+}
+
+html.simplify.lowDensity:not(.readingPane) .zA {
+  padding: 14px 0 !important;
+}
+
+html.simplify .zA:not(.aps):not(.x7) {
+  background-color: var(--color-itemBg);
+  color: var(--color-itemFont);
+  border-bottom: var(--border-item);
+}
+
+html.simplify .zA:not(.aps):not(.x7).yO {
+  background-color: var(--color-readItemBg);
+  color: var(--color-readItemFont);
+}
+
+html.simplify.lightTheme .yO .y2, html.simplify.mediumTheme .yO .y2 {
+  opacity: 0.7;
+}
+
+html.simplify.darkTheme .yO.x7 {
+  color: white;
+  background: #174ea6;
+}
+
+html.simplify.darkTheme .aKh {
+  border-bottom: 1px solid var(--color-itemBorder) !important;
+  background-color: var(--color-themeAccent);
+}
+
+html.simplify.darkTheme .aKh .aRz,
+html.simplify.darkTheme .aKh .aRz:hover {
+  background: var(--color-themeAccent);
+}
+
+html.simplify.darkTheme.vPane .aAA {
+  border-bottom: 1px solid var(--color-itemBorder) !important;
+}
+
+html.simplify.darkTheme .zA .a4W .at[style*='#ddd'] {
+  background-color: #444 !important;
+  border-color: #444 !important;
+}
+
+html.simplify.darkTheme .zA .a4W .at[style*='#ddd'] .au {
+  border-color: #444 !important;
+}
+
+html.simplify.darkTheme .zA .a4W .at[style*='#ddd'] .au .av {
+  color: #bbb !important;
+}
+
+html.simplify .adverts {
+  display: none;
+}
+
+html.simplify:not(.contrastTheme) .zA.aps .PE.PF::before, html.simplify:not(.contrastTheme) .zA.btb .PE.PF::before {
+  background-color: transparent;
+}
+
+html.simplify:not(.contrastTheme) .zA.btb:not(.aps) {
+  background-color: var(--color-focused) !important;
+}
+
+html.simplify:not(.contrastTheme) .zA.btb.x7:not(.aps) {
+  background-color: var(--color-selected-focused) !important;
+}
+
+html.simplify.nPane .aKh {
+  margin: 16px auto 0 auto !important;
+  border-right: 16px transparent;
+  transform: translateX(-8px);
+}
+
+html.simplify.nPane .Tm:not(.aeJ) .BltHke .aKh ~ .UI .ae4 {
+  margin-top: 0px;
+}
+
+html.simplify.nPane .Tm.aeJ .ae4 {
+  margin-top: var(--padding-top);
+}
+
+html.simplify.nPane .Tm.aeJ .ya,
+html.simplify.nPane .Tm.aeJ .bX,
+html.simplify.nPane .Tm.aeJ .X3,
+html.simplify.nPane .Tm.aeJ .O6 {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  position: relative;
+  left: -16px;
+}
+
+html.simplify.nPane .ya {
+  transform: translateY(12px);
+}
+
+html.simplify.vPane:not(.inMsg) .BltHke {
+  margin-left: 0px;
+}
+
+html.simplify.vPane:not(.inMsg) .BltHke::before {
+  content: "";
+  width: calc(var(--width-readingPane) + 26px);
+  position: fixed;
+  top: 64px;
+  left: var(--width-nav);
+  height: calc(100vh - 64px);
+  z-index: 0;
+}
+
+@-moz-document url-prefix() {
+  html.simplify.vPane:not(.inMsg) .BltHke .Nu.tf {
+    padding-right: 16px;
+  }
+}
+
+html.simplify.vPane:not(.inMsg) .BltHke .aKh {
+  position: fixed;
+  top: 64px;
+  z-index: 2;
+  width: var(--width-readingPane);
+  max-width: var(--width-readingPane);
+  border-radius: 0px;
+  background-color: var(--color-themeAccent);
+}
+
+html.simplify.vPane:not(.inMsg) .BltHke .aKh .aRz {
+  width: auto !important;
+}
+
+html.simplify.vPane:not(.inMsg) .BltHke .aKh .aRz .aAy[aria-selected='true'] {
+  width: calc(var(--width-readingPane) - 236px) !important;
+  max-width: 200px;
+  text-overflow: ellipsis;
+}
+
+html.simplify.vPane:not(.inMsg) .BltHke .aKh .aRz .aAy[aria-selected='true'] .aKw {
+  margin-right: 4px;
+}
+
+html.simplify.vPane:not(.inMsg) .BltHke .aKh .aRz .aAy[aria-selected='false'] {
+  opacity: 0.8;
+  width: 54px !important;
+  padding: 0px;
+}
+
+html.simplify.vPane:not(.inMsg) .BltHke .aKh .aRz .aAy[aria-selected='false'] .aKw {
+  display: none;
+}
+
+html.simplify.vPane:not(.inMsg) .BltHke .aKh .aRz .aE2[aria-selected='false']::after {
+  content: "";
+  position: absolute;
+  top: 12px;
+  right: 10px;
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  border: 0px;
+  background-color: var(--color-red);
+}
+
+html.simplify.vPane:not(.inMsg) .BltHke .aDP {
+  margin-bottom: 0;
+}
+
+html.simplify.vPane:not(.inMsg) .BltHke .aDP ~ .ae4.aDM tbody:not(:empty) {
+  margin-bottom: calc(var(--padding-top) / 2);
+}
+
+html.simplify.vPane:not(.inMsg) .BltHke .aDP ~ .ae4.aDM + div:not([class]) {
+  min-height: calc(5 * var(--padding-top));
+}
+
+html.simplify.vPane:not(.inMsg) .BltHke .UI {
+  border-top: 0px;
+}
+
+html.simplify.vPane:not(.inMsg) .BltHke .iR .aw5 {
+  max-width: calc(var(--width-readingPane) - 200px);
+}
+
+html.simplify.vPane:not(.inMsg) .BltHke .X3 {
+  margin-bottom: 0px;
+}
+
+html.simplify.vPane:not(.inMsg) .BltHke .zA {
+  border-radius: 8px !important;
+  box-shadow: none;
+}
+
+html.simplify.vPane:not(.inMsg) .BltHke .zA:not(.aps):not(.x7) {
+  background-color: var(--color-itemBg);
+}
+
+html.simplify.vPane:not(.inMsg) .BltHke .zA.aps .PE.PF::before, html.simplify.vPane:not(.inMsg) .BltHke .zA.btb .PE.PF::before {
+  background-color: transparent;
+}
+
+html.simplify.vPane:not(.inMsg) .BltHke .zA.btb:not(.aps) {
+  background-color: var(--color-focused) !important;
+}
+
+html.simplify.vPane:not(.inMsg) .BltHke .zA.btb.x7 {
+  background-color: var(--color-selected-focused) !important;
+}
+
+html.simplify.vPane:not(.inMsg) .BltHke .ya,
+html.simplify.vPane:not(.inMsg) .BltHke .Wz {
+  position: fixed;
+  top: 104px !important;
+  margin: 0px;
+  border-radius: 0;
+  background-color: var(--color-themeGray);
+  max-width: var(--width-readingPane);
+  box-sizing: border-box;
+  z-index: 4;
+}
+
+html.simplify.vPane:not(.inMsg) .BltHke .ya {
+  padding: 12px 0 0 0;
+  z-index: 5;
+  border-radius: 8px;
+  top: 6px !important;
+  left: 72px;
+  max-width: calc(var(--width-readingPane) + var(--width-nav) - 116px);
+}
+
+html.simplify.vPane:not(.inMsg) .BltHke .ya:not(.yb) {
+  display: block;
+  transform: none;
+  top: auto !important;
+  bottom: 98px;
+  left: 28px;
+  z-index: 4;
+  text-align: left;
+  padding: 16px 24px 8px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.302), 0 4px 8px 3px rgba(60, 64, 67, 0.149);
+}
+
+html.simplify.vPane:not(.inMsg) .BltHke .ya:not(.yb) > span {
+  padding-left: 0px;
+  margin-left: 0px;
+}
+
+html.simplify.vPane:not(.inMsg) .BltHke .Wz {
+  margin-top: -36px;
+  opacity: 1;
+  z-index: 6;
+  border-radius: 8px;
+}
+
+html.simplify.vPane:not(.inMsg):not(.navOpen) .BltHke .ya {
+  max-width: none;
+  top: 76px !important;
+  left: calc(var(--width-readingPane) + var(--width-nav) + 44px);
+  box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.302), 0 4px 8px 3px rgba(60, 64, 67, 0.149);
+  display: flex;
+  flex-direction: column;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+html.simplify.vPane:not(.inMsg) .Nu.tf {
+  z-index: 1;
+  background-color: var(--color-themeAccent);
+}
+
+html.simplify.vPane:not(.inMsg) .Nu.tf::-webkit-scrollbar-thumb {
+  background-color: var(--color-scrollThumb);
+}
+
+html.simplify.vPane:not(.inMsg).searchFocused .BltHke .Wz {
+  z-index: 1;
+}
+
+html.simplify.vPane:not(.inMsg).listScrolled .BltHke .Wz {
+  display: none;
+}
+
+html.simplify.vPane:not(.inMsg) .aDP > .ae4,
+html.simplify.vPane:not(.inMsg) .ae4:not(.aDM) {
+  margin-bottom: calc(5 * var(--padding-top));
+}
+
+html.simplify.vPane:not(.inMsg) .Tm:not(.aeJ) .BltHke .ae4 {
+  padding-top: 12px;
+  width: var(--width-readingPane);
+}
+
+html.simplify.vPane:not(.inMsg) .Tm:not(.aeJ) .BltHke .ae4 .aRu {
+  padding: 40px 16px;
+}
+
+html.simplify.vPane:not(.inMsg) .Tm:not(.aeJ) .BltHke .aKh ~ .UI .ae4 {
+  margin-top: 56px;
+}
+
+html.simplify.vPane:not(.inMsg) .Tm:not(.aeJ) .BltHke .Nt {
+  border-right: 4px solid transparent;
+  background: transparent;
+}
+
+html.simplify.vPane:not(.inMsg).defaultTheme .Nt {
+  background-color: var(--color-gray-vlight) !important;
+}
+
+html.simplify.vPane:not(.inMsg).inSearch .Tm:not(.aeJ) .ae4 {
+  padding-top: var(--padding-top);
+}
+
+html.simplify.vPane:not(.inMsg).inSearch .Tm:not(.aeJ) .ya,
+html.simplify.vPane:not(.inMsg).inSearch .Tm:not(.aeJ) .Wz {
+  top: 40px;
+}
+
+html.simplify.vPane:not(.inMsg).inLabel .Tm:not(.aeJ) .ya,
+html.simplify.vPane:not(.inMsg).inLabel .Tm:not(.aeJ) .Wz {
+  top: 0px;
+}
+
+html.simplify.vPane:not(.inMsg) .Tm.aeJ .ae4 {
+  margin-top: var(--padding-top);
+}
+
+html.simplify.vPane:not(.inMsg).mediumTheme .Nt, html.simplify.vPane:not(.inMsg).darkTheme .Nt {
+  border-left: 1px solid transparent;
+}
+
+html.simplify.vPane:not(.inMsg).mediumTheme .Wg.aAr {
+  filter: invert(1);
+}
+
+html.simplify.hPane .aKh,
+html.simplify.hPane .ya,
+html.simplify.hPane .bX,
+html.simplify.hPane .X3,
+html.simplify.hPane .O6 {
+  width: 100%;
+  transform: translateX(-8px);
+}
+
+html.simplify.hPane .aKh {
+  margin-top: 8px;
+}
+
+html.simplify.hPane .ya {
+  transform: translateX(-8px) translateY(12px);
+}
+
+html.simplify.hPane .Wz {
+  transform: translateY(90px) translateX(-8px);
+}
+
+html.simplify.hPane .Nt {
+  max-width: var(--width-list);
+  margin-left: calc( ( 100vw - var(--width-list) - 32px - var(--width-nav) - var(--width-rightPane) ) / 2);
+  background-color: transparent !important;
+  box-shadow: none;
+  padding: 27px 0;
+}
+
+html.simplify.hPane .BltHke .aDP {
+  margin-bottom: 0;
+}
+
+html.simplify.hPane .BltHke .aDP ~ .ae4.aDM tbody:not(:empty) {
+  margin-bottom: 0px;
+}
+
+html.simplify.hPane.msgSelected .Nu.S3 {
+  max-height: 120px;
+}
+
+html.simplify.hPane.msgSelected .Nt {
+  padding: 0px;
+}
+
+html.simplify.hPane:not(.msgOpen) .Nt, html.simplify.hPane.msgSelected .Nt {
+  border-bottom-width: 0px;
+}
+
+html.simplify.hPane .BltHke .ae4 {
+  width: 100%;
+}
+
+html.simplify.hPane .BltHke:not(.aE3) .ae4 {
+  padding-top: 8px;
+}
+
+html.simplify.hPane.inSearch .ae4 {
+  padding-top: var(--padding-top) !important;
+}
+
+html.simplify.nPane .Wz {
+  transform: translateY(82px) translateX(0px);
+}
+
+
+/* Copyright (C) 2021 Michael Leggett, Made Simple LLC - All Rights Reserved
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential */
+/* ========================================================================== */
+html.simplify.dateGroup:not(.inInbox) .ae4 tr[date],
+html.simplify.dateGroup.inInbox:not(.inboxy) .ae4 tr[date] {
+  margin-top: 3em;
+}
+
+html.simplify.dateGroup:not(.inInbox) .ae4 tr[date]::before,
+html.simplify.dateGroup.inInbox:not(.inboxy) .ae4 tr[date]::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: calc(-3em / 0.7);
+  left: 0;
+  width: 100%;
+  height: calc(3em / 0.7);
+  box-sizing: border-box;
+  padding-left: 16px;
+  padding-top: 20px;
+  cursor: default;
+  pointer-events: none;
+  background-color: var(--color-readItemBg);
+  color: var(--color-groupFont);
+  font-size: 0.7em;
+  font-weight: bold;
+  letter-spacing: 1.3;
+  white-space: nowrap;
+  overflow: visible;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--color-itemBorder);
+}
+
+html.simplify.dateGroup:not(.inInbox) .ae4 tr[date="yesterday"]::before,
+html.simplify.dateGroup.inInbox:not(.inboxy) .ae4 tr[date="yesterday"]::before {
+  content: "__MSG_yesterday__";
+}
+
+html.simplify.dateGroup:not(.inInbox) .ae4 tr[date="week"]::before,
+html.simplify.dateGroup.inInbox:not(.inboxy) .ae4 tr[date="week"]::before {
+  content: "__MSG_thisWeek__";
+}
+
+html.simplify.dateGroup:not(.inInbox) .ae4 tr[date="month0"]::before,
+html.simplify.dateGroup.inInbox:not(.inboxy) .ae4 tr[date="month0"]::before {
+  content: "__MSG_thisMonth__";
+}
+
+html.simplify.dateGroup:not(.inInbox) .ae4 tr[date="month1"]::before,
+html.simplify.dateGroup.inInbox:not(.inboxy) .ae4 tr[date="month1"]::before {
+  content: "__MSG_lastMonth__";
+}
+
+html.simplify.dateGroup:not(.inInbox) .ae4 tr[date="earlier"]::before,
+html.simplify.dateGroup.inInbox:not(.inboxy) .ae4 tr[date="earlier"]::before {
+  content: "__MSG_earlier__";
+}
+
+html.simplify.dateGroup:not(.inInbox) .ae4 tr[date="today"],
+html.simplify.dateGroup:not(.inInbox) .ae4 tr[date="yesterday"] ~ tr[date="yesterday"],
+html.simplify.dateGroup:not(.inInbox) .ae4 tr[date="week"] ~ tr[date="week"],
+html.simplify.dateGroup:not(.inInbox) .ae4 tr[date="month0"] ~ tr[date="month0"],
+html.simplify.dateGroup:not(.inInbox) .ae4 tr[date="month1"] ~ tr[date="month1"],
+html.simplify.dateGroup:not(.inInbox) .ae4 tr[date="month2"] ~ tr[date="month2"],
+html.simplify.dateGroup:not(.inInbox) .ae4 tr[date="earlier"] ~ tr[date="earlier"],
+html.simplify.dateGroup.inInbox:not(.inboxy) .ae4 tr[date="today"],
+html.simplify.dateGroup.inInbox:not(.inboxy) .ae4 tr[date="yesterday"] ~ tr[date="yesterday"],
+html.simplify.dateGroup.inInbox:not(.inboxy) .ae4 tr[date="week"] ~ tr[date="week"],
+html.simplify.dateGroup.inInbox:not(.inboxy) .ae4 tr[date="month0"] ~ tr[date="month0"],
+html.simplify.dateGroup.inInbox:not(.inboxy) .ae4 tr[date="month1"] ~ tr[date="month1"],
+html.simplify.dateGroup.inInbox:not(.inboxy) .ae4 tr[date="month2"] ~ tr[date="month2"],
+html.simplify.dateGroup.inInbox:not(.inboxy) .ae4 tr[date="earlier"] ~ tr[date="earlier"] {
+  margin-top: initial;
+}
+
+html.simplify.dateGroup:not(.inInbox) .ae4 tr[date="today"]::before,
+html.simplify.dateGroup:not(.inInbox) .ae4 tr[date="yesterday"] ~ tr[date="yesterday"]::before,
+html.simplify.dateGroup:not(.inInbox) .ae4 tr[date="week"] ~ tr[date="week"]::before,
+html.simplify.dateGroup:not(.inInbox) .ae4 tr[date="month0"] ~ tr[date="month0"]::before,
+html.simplify.dateGroup:not(.inInbox) .ae4 tr[date="month1"] ~ tr[date="month1"]::before,
+html.simplify.dateGroup:not(.inInbox) .ae4 tr[date="month2"] ~ tr[date="month2"]::before,
+html.simplify.dateGroup:not(.inInbox) .ae4 tr[date="earlier"] ~ tr[date="earlier"]::before,
+html.simplify.dateGroup.inInbox:not(.inboxy) .ae4 tr[date="today"]::before,
+html.simplify.dateGroup.inInbox:not(.inboxy) .ae4 tr[date="yesterday"] ~ tr[date="yesterday"]::before,
+html.simplify.dateGroup.inInbox:not(.inboxy) .ae4 tr[date="week"] ~ tr[date="week"]::before,
+html.simplify.dateGroup.inInbox:not(.inboxy) .ae4 tr[date="month0"] ~ tr[date="month0"]::before,
+html.simplify.dateGroup.inInbox:not(.inboxy) .ae4 tr[date="month1"] ~ tr[date="month1"]::before,
+html.simplify.dateGroup.inInbox:not(.inboxy) .ae4 tr[date="month2"] ~ tr[date="month2"]::before,
+html.simplify.dateGroup.inInbox:not(.inboxy) .ae4 tr[date="earlier"] ~ tr[date="earlier"]::before {
+  content: "";
+  display: none;
+}
+
+
+/* Copyright (C) 2021 Michael Leggett, Made Simple LLC - All Rights Reserved
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential */
+/* ========================================================================== */
+html.simplify {
+  --var-menuPadding: 6px;
+}
+
+html.simplify.highDensity {
+  --var-menuPadding: 4px;
+}
+
+html.simplify div[role='menu']:not(#sbddm):not(.aLF-aPX-M) div[role='menuitem'],
+html.simplify div[role='menu']:not(#sbddm):not(.aLF-aPX-M) div[role='menuitemcheckbox'],
+html.simplify div[role='menu']:not(#sbddm):not(.aLF-aPX-M) div[role='menuitemradio'] {
+  margin: 0 6px;
+  border-radius: 4px;
+  padding: var(--var-menuPadding) 24px var(--var-menuPadding) 44px;
+}
+
+html.simplify div[role='menu']:not(#sbddm):not(.aLF-aPX-M) div[role='menuitemradio'] {
+  padding: var(--var-menuPadding) 24px var(--var-menuPadding) 36px;
+}
+
+html.simplify div[role='menu']:not(#sbddm):not(.aLF-aPX-M) div[role='menuitemcheckbox'] {
+  padding: var(--var-menuPadding) 24px var(--var-menuPadding) 42px;
+}
+
+html.simplify div[role='menu']:not(#sbddm):not(.aLF-aPX-M) .J-awr:not([role]) {
+  padding-left: 20px;
+}
+
+html.simplify div[class='J-M jQjAxd'][role='menu'] div[role='menuitem'],
+html.simplify div.aX0[role='menu'] div[role='menuitem'],
+html.simplify div.t9[role='menu'] div[role='menuitem'],
+html.simplify .aeN .aka[role='menu'] div[role='menuitem'],
+html.simplify div.gh[role='menu'] div[role='menuitem'],
+html.simplify div.brx[role='menu'] div[role='menuitem'],
+html.simplify div.J-M.apL[role='menu'] div[role='menuitem'] {
+  padding: var(--var-menuPadding) 24px var(--var-menuPadding) 14px !important;
+}
+
+html.simplify div.brx[role='menu'] .bry {
+  padding: 0;
+}
+
+html.simplify div.J-M.Gj[role='menu'] {
+  max-height: min(370px, 85vh);
+  overflow-y: auto;
+}
+
+html.simplify div.J-M.Gj[role='menu'] div[role='menuitem'] {
+  padding: var(--var-menuPadding) 24px var(--var-menuPadding) 40px !important;
+}
+
+html.simplify div.J-M.Gj[role='menu'] div[role='menuitemcheckbox'] {
+  padding: var(--var-menuPadding) 12px var(--var-menuPadding) 46px;
+}
+
+html.simplify div.J-M-ayU.Ft[role='menu'],
+html.simplify div[class='J-M J-M-ayU'][role='menu'],
+html.simplify div.b7[role='menu'] {
+  max-height: min(670px, calc(100vh - 72px));
+}
+
+html.simplify .aeN .aka[role='menu'] .J-awr:not([role]) {
+  white-space: nowrap;
+}
+
+html.simplify .aeN .aka[role='menu'] span .aH5 {
+  display: none;
+}
+
+html.simplify .aeN .aka[role='menu'] div[role='grid'] {
+  padding: 4px 20px 16px 20px !important;
+}
+
+html.simplify div.agd[role='menu'] {
+  max-height: min(670px, calc(100vh - 72px));
+}
+
+html.simplify div.agd[role='menu'] .asc {
+  display: none;
+}
+
+html.simplify div.agd[role='menu'] .asg {
+  margin: 0px;
+}
+
+html.simplify div.agd[role='menu'] .asg input {
+  padding: 7px 4px 12px 44px;
+  box-sizing: border-box;
+}
+
+html.simplify div.agd[role='menu'] .asg .A0 {
+  left: 14px;
+  top: 7px;
+}
+
+html.simplify div.agd[role='menu'] div[role='menuitem'] {
+  border-width: 0px !important;
+  padding: var(--var-menuPadding) 24px var(--var-menuPadding) 14px !important;
+}
+
+html.simplify div.agd[role='menu'] div[role='menuitem'][act='230'] .bi4 {
+  display: none;
+}
+
+html.simplify div.agd[role='menu'] div[role='menuitemcheckbox'] {
+  border-width: 0px !important;
+  padding: var(--var-menuPadding) 24px var(--var-menuPadding) 37px;
+  border-radius: 4px;
+  margin: 0px 8px;
+}
+
+html.simplify div.agd[role='menu'] .aXjCH {
+  padding: 6px 0;
+  max-height: min(410px, calc(100vh - 223px));
+}
+
+html.simplify div.agd[role='menu'] .aXjCH + div[role='separator'] {
+  margin-top: 0px;
+}
+
+html.simplify div.agd[role='menu'].aX2 .aiL {
+  padding-top: 6px;
+}
+
+html.simplify div.agd[role='menu'].aX2 .aXjCH {
+  max-height: min(280px, calc(100vh - 345px));
+}
+
+html.simplify.inList .aX2 div[role='menuitem'][act='8'] {
+  display: block !important;
+}
+
+
+/* Copyright (C) 2021 Michael Leggett, Made Simple LLC - All Rights Reserved
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential */
+/* ========================================================================== */
+html.simplify #loading .msg {
+  display: none;
+}
+
+html.simplify #loading #stb {
+  position: fixed;
+  left: 20px;
+  opacity: 0.3;
+  filter: grayscale(1);
+}
+
+html.simplify #loading #stb:hover {
+  opacity: 1;
+}
+
+html.simplify.darkTheme #loading {
+  background-color: #111 !important;
+}
+
+html.simplify.darkTheme #loading #nlpt {
+  background-color: #666;
+}
+
+html.simplify.darkTheme #loading #nlpt::before {
+  background-color: #fff;
+}
+
+html.simplify.darkTheme #loading .la-k .la-m {
+  background-color: #111;
+}
+
+html.simplify.darkTheme #loading .la-k .la-r, html.simplify.darkTheme #loading .la-k .la-l {
+  border-color: #111;
+}
+
+html.simplify.darkTheme #loading > div[style*='bottom:0'] {
+  display: none;
+}
+
+html.simplify .wl .ao0 {
+  min-width: 100%;
+  min-height: 100%;
+}
+
+html.simplify.lightTheme {
+  --color-icon: "black";
+}
+
+html.simplify #simplifyAlert[style*="none"] {
+  content: "light";
+}
+
+@media (prefers-color-scheme: dark) {
+  html.simplify #simplifyAlert[style*="none"] {
+    content: "dark";
+  }
+}
+
+html.simplify .aeG, html.simplify .pfiaof, html.simplify .apO {
+  margin-bottom: 0px !important;
+  padding-bottom: 0px !important;
+}
+
+html.simplify .aeG div, html.simplify .pfiaof div, html.simplify .apO div {
+  display: none;
+}
+
+html.simplify:not(.inMsg) .aeG, html.simplify:not(.inMsg) .pfiaof, html.simplify:not(.inMsg) .apO {
+  min-height: var(--padding-bottom);
+}
+
+html.simplify.vPane:not(.inboxZero):not(.inMsg) .md {
+  display: none;
+}
+
+html.simplify ::-webkit-scrollbar-thumb {
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+}
+
+html.simplify ::-webkit-scrollbar,
+html.simplify ::-webkit-scrollbar-track {
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+}
+
+@-moz-document url-prefix() {
+  html.simplify * {
+    scrollbar-color: rgba(180, 180, 180, 0.6) transparent !important;
+  }
+}
+
+@-moz-document url-prefix() {
+  html.simplify.lightTheme * {
+    scrollbar-color: rgba(60, 60, 60, 0.3) transparent !important;
+  }
+}
+
+@-moz-document url-prefix() {
+  html.simplify.darkTheme * {
+    scrollbar-color: #888 transparent !important;
+  }
+}
+
+
+/* Copyright (C) 2021 Michael Leggett, Made Simple LLC - All Rights Reserved
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential */
+/* ========================================================================== */
+html.simplify .aeN.bhZ {
+  position: relative;
+  z-index: 3 !important;
+  max-width: 0px !important;
+  min-width: 0px !important;
+}
+
+html.simplify .aeN.bhZ div[gh='ns'],
+html.simplify .aeN.bhZ div[gh='gt'] {
+  display: none;
+}
+
+html.simplify.darkTheme .aeN [role='navigation'] {
+  background-color: transparent;
+}
+
+html.simplify.navPeek:not(.navOpen) .aeN.bhZ.bym {
+  position: fixed;
+  box-shadow: -2px 8px 10px rgba(60, 64, 67, 0.3) !important;
+  max-width: 256px !important;
+  min-width: 256px !important;
+  z-index: 9 !important;
+  background-color: var(--color-navPeek);
+}
+
+html.simplify.navPeek:not(.navOpen).minimizeChat .aeN.bhZ {
+  min-height: calc(100vh - 64px);
+}
+
+html.simplify.navPeek:not(.navOpen):not(.minimizeChat) .aeN.bhZ div[gh='gt'],
+html.simplify.navPeek:not(.navOpen):not(.minimizeChat) .aeN.bhZ div[gh='ns'] {
+  display: flex !important;
+  max-width: 238px;
+}
+
+html.simplify #closeNavPeek {
+  position: fixed;
+  display: none;
+  top: 0px;
+  left: 96px;
+  height: 100vh;
+  width: calc(100vw - 96px);
+  background-color: transparent;
+  z-index: 7;
+}
+
+html.simplify.navPeek #closeNavPeek {
+  display: block;
+}
+
+html.simplify .wT {
+  padding-top: 20px;
+  transition: opacity 200ms ease-in-out;
+}
+
+html.simplify .wT:not(.Xa)::after {
+  content: " ";
+  display: block;
+  height: 100px;
+}
+
+html.simplify .wT .TO > .aHS-bu1 > .qj {
+  background-image: url("chrome-extension://__MSG_@@extension_id__/img/icons/snooze-black.png") !important;
+}
+
+html.simplify.newUI .wT .TO > .aHS-bu1 > .qj {
+  background-image: url("chrome-extension://__MSG_@@extension_id__/img/icons/snooze-black-outlined.png") !important;
+}
+
+html.simplify .aeN,
+html.simplify .aeN .TN,
+html.simplify .aeN .TK .TO {
+  transition: none;
+  transition-duration: 0s;
+}
+
+html.simplify .bhZ + .bkK {
+  margin-left: 0px;
+}
+
+html.simplify.vPane:not(.loading):not(.inMsg).navOpen .aeN {
+  margin-right: 10px;
+  outline: 10px solid transparent;
+}
+
+html.simplify.vPane:not(.loading):not(.inMsg) .bhZ + .bkK {
+  padding-left: 0px;
+  border-left: 10px solid transparent;
+}
+
+html.simplify.vPane:not(.inboxZero):not(.loading):not(.inMsg) .bhZ + .bkK, html.simplify.vPane.inboxZero.izBgDefault:not(.inMsg) .bhZ + .bkK {
+  border-color: var(--color-themeAccent);
+}
+
+html.simplify.inSettings .aeN {
+  min-width: 0px !important;
+  width: 0px !important;
+}
+
+html.simplify.inSettings .aeN {
+  overflow: hidden;
+}
+
+html.simplify.inMsg .aeN:not(:hover):not(.WR) .wT, html.simplify.inMsg .aeN:not(:hover) .Xa > div {
+  opacity: 0.5;
+}
+
+html.simplify.inMsg .aeN:not(:hover):not(.WR) .wT .TK .TO:active,
+html.simplify.inMsg .aeN:not(:hover):not(.WR) .wT .n6 span[gh='mll']:active,
+html.simplify.inMsg .aeN:not(:hover):not(.WR) .wT .CL:active,
+html.simplify.inMsg .aeN:not(:hover):not(.WR) .wT .nZ,
+html.simplify.inMsg .aeN:not(:hover):not(.WR) .wT .TO.ol, html.simplify.inMsg .aeN:not(:hover) .Xa > div .TK .TO:active,
+html.simplify.inMsg .aeN:not(:hover) .Xa > div .n6 span[gh='mll']:active,
+html.simplify.inMsg .aeN:not(:hover) .Xa > div .CL:active,
+html.simplify.inMsg .aeN:not(:hover) .Xa > div .nZ,
+html.simplify.inMsg .aeN:not(:hover) .Xa > div .TO.ol {
+  background-color: transparent;
+}
+
+html.simplify.inMsg .aeN:not(:hover):not(.WR) .wT .bsU, html.simplify.inMsg .aeN:not(:hover) .Xa > div .bsU {
+  display: none;
+}
+
+html.simplify .aeN .ajj::before {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+html.simplify.hideUnreads .bsU {
+  display: none !important;
+}
+
+html.simplify.mediumTheme .wT .TO > .aHS-bu1 > .qj, html.simplify.darkTheme .wT .TO > .aHS-bu1 > .qj {
+  background-image: url("chrome-extension://__MSG_@@extension_id__/img/icons/snooze-white.png") !important;
+}
+
+html.simplify.mediumTheme.newUI .wT .TO > .aHS-bu1 > .qj, html.simplify.darkTheme.newUI .wT .TO > .aHS-bu1 > .qj {
+  background-image: url("chrome-extension://__MSG_@@extension_id__/img/icons/snooze-white-outlined.png") !important;
+}
+
+html.simplify .z0 {
+  position: fixed;
+  bottom: 24px;
+  right: calc(24px + var(--width-rightPane));
+  z-index: 3 !important;
+  width: 54px;
+  height: 54px;
+  margin: 0;
+  padding: 0;
+}
+
+html.simplify .z0 div[gh='cm'] {
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3) !important;
+  border-radius: 28px;
+  padding: 0;
+  font-size: 0 !important;
+  height: 56px !important;
+  width: 56px !important;
+  min-width: 56px !important;
+}
+
+html.simplify .z0 div[gh='cm']::before {
+  background-size: 32px;
+  height: 56px;
+  min-width: 56px;
+}
+
+html.simplify.darkTheme .z0 > div[gh='cm'] {
+  background-color: var(--color-chatBg);
+}
+
+html.simplify.darkTheme.showChat .z0 > div[gh='cm'] {
+  background-color: rgba(51, 51, 51, 0.9);
+}
+
+html.simplify.inSettings .z0 {
+  display: none;
+}
+
+html.simplify .bym {
+  box-shadow: none !important;
+}
+
+html.simplify.vPane.inboxZero.izBgDefault:not(.inMsg).lightTheme .aeN[role='navigation'],
+html.simplify.vPane.inboxZero.izBgDefault:not(.inMsg).lightTheme .aeN [role='navigation'], html.simplify.vPane.inboxZero.izBgDefault:not(.inMsg).mediumTheme .aeN[role='navigation'],
+html.simplify.vPane.inboxZero.izBgDefault:not(.inMsg).mediumTheme .aeN [role='navigation'], html.simplify.vPane:not(.inboxZero):not(.inMsg).lightTheme .aeN[role='navigation'],
+html.simplify.vPane:not(.inboxZero):not(.inMsg).lightTheme .aeN [role='navigation'], html.simplify.vPane:not(.inboxZero):not(.inMsg).mediumTheme .aeN[role='navigation'],
+html.simplify.vPane:not(.inboxZero):not(.inMsg).mediumTheme .aeN [role='navigation'] {
+  background-color: white;
+  border-right: 1px solid var(--color-gray-light);
+}
+
+html.simplify.vPane.inboxZero.izBgDefault:not(.inMsg).darkTheme.navOpen .aeN[role='navigation'],
+html.simplify.vPane.inboxZero.izBgDefault:not(.inMsg).darkTheme.navOpen .aeN [role='navigation'], html.simplify.vPane:not(.inboxZero):not(.inMsg).darkTheme.navOpen .aeN[role='navigation'],
+html.simplify.vPane:not(.inboxZero):not(.inMsg).darkTheme.navOpen .aeN [role='navigation'] {
+  background-color: black;
+  border-right: 1px solid var(--color-gray-dark);
+}
+
+html.simplify.vPane.inboxZero.izBgDefault:not(.inMsg).mediumTheme .aeN .qj:not([style*='border-color']), html.simplify.vPane:not(.inboxZero):not(.inMsg).mediumTheme .aeN .qj:not([style*='border-color']) {
+  filter: invert(1) hue-rotate(180deg);
+  opacity: 0.65;
+}
+
+html.simplify.vPane.inboxZero.izBgDefault:not(.inMsg).mediumTheme .aeN .TO .nU > .n0,
+html.simplify.vPane.inboxZero.izBgDefault:not(.inMsg).mediumTheme .aeN .TO .bsU,
+html.simplify.vPane.inboxZero.izBgDefault:not(.inMsg).mediumTheme .aeN .n6 span[gh='mll'] .CJ,
+html.simplify.vPane.inboxZero.izBgDefault:not(.inMsg).mediumTheme .aeN .CL .CK, html.simplify.vPane.inboxZero.izBgDefault:not(.inMsg).mediumTheme .aeN .Z6, html.simplify.vPane:not(.inboxZero):not(.inMsg).mediumTheme .aeN .TO .nU > .n0,
+html.simplify.vPane:not(.inboxZero):not(.inMsg).mediumTheme .aeN .TO .bsU,
+html.simplify.vPane:not(.inboxZero):not(.inMsg).mediumTheme .aeN .n6 span[gh='mll'] .CJ,
+html.simplify.vPane:not(.inboxZero):not(.inMsg).mediumTheme .aeN .CL .CK, html.simplify.vPane:not(.inboxZero):not(.inMsg).mediumTheme .aeN .Z6 {
+  color: var(--color-gray-vdark);
+  text-shadow: none;
+}
+
+html.simplify.vPane.inboxZero.izBgDefault:not(.inMsg).mediumTheme .aeN .akc > div[role='navigation'][aria-label='Meet'] .qj:not([style*='border-color']), html.simplify.vPane:not(.inboxZero):not(.inMsg).mediumTheme .aeN .akc > div[role='navigation'][aria-label='Meet'] .qj:not([style*='border-color']) {
+  filter: none;
+  opacity: 1;
+}
+
+html.simplify.vPane.inboxZero.izBgDefault:not(.inMsg).mediumTheme .aeN .akc > div[role='navigation'][aria-label='Meet'] .TO .nU > .n0, html.simplify.vPane:not(.inboxZero):not(.inMsg).mediumTheme .aeN .akc > div[role='navigation'][aria-label='Meet'] .TO .nU > .n0 {
+  color: white;
+}
+
+html.simplify.vPane.inboxZero.izBgDefault:not(.inMsg).mediumTheme .aeN .TO.nZ, html.simplify.vPane:not(.inboxZero):not(.inMsg).mediumTheme .aeN .TO.nZ {
+  background-color: var(--color-focused);
+}
+
+html.simplify.vPane.inboxZero.izBgDefault:not(.inMsg).mediumTheme .aeN .TO .aih, html.simplify.vPane:not(.inboxZero):not(.inMsg).mediumTheme .aeN .TO .aih {
+  background-image: url("https://www.gstatic.com/images/icons/material/system/2x/arrow_drop_down_black_20dp.png");
+}
+
+html.simplify.vPane.inboxZero.izBgDefault:not(.inMsg).mediumTheme .aeN .TO .aii, html.simplify.vPane:not(.inboxZero):not(.inMsg).mediumTheme .aeN .TO .aii {
+  background-image: url("https://www.gstatic.com/images/icons/material/system/2x/arrow_right_black_20dp.png");
+}
+
+html.simplify.vPane.inboxZero.izBgDefault:not(.inMsg).mediumTheme .aeN .TO .aih:hover,
+html.simplify.vPane.inboxZero.izBgDefault:not(.inMsg).mediumTheme .aeN .TO .aii:hover, html.simplify.vPane:not(.inboxZero):not(.inMsg).mediumTheme .aeN .TO .aih:hover,
+html.simplify.vPane:not(.inboxZero):not(.inMsg).mediumTheme .aeN .TO .aii:hover {
+  background-color: rgba(34, 34, 34, 0.3) !important;
+  border-radius: 3px;
+}
+
+html.simplify.vPane.inboxZero.izBgDefault:not(.inMsg).mediumTheme .aeN .n6 span[gh='mll'] .G-asx, html.simplify.vPane:not(.inboxZero):not(.inMsg).mediumTheme .aeN .n6 span[gh='mll'] .G-asx {
+  background-image: url("https://www.gstatic.com/images/icons/material/system/2x/expand_more_black_20dp.png");
+}
+
+html.simplify.vPane.inboxZero.izBgDefault:not(.inMsg).mediumTheme .aeN .n6 span[gh='mll'].air .G-asx, html.simplify.vPane:not(.inboxZero):not(.inMsg).mediumTheme .aeN .n6 span[gh='mll'].air .G-asx {
+  background-image: url("https://www.gstatic.com/images/icons/material/system/2x/expand_less_black_20dp.png");
+}
+
+html.simplify.vPane.inboxZero.izBgDefault:not(.inMsg).mediumTheme.newUI .V3 .CL::before,
+html.simplify.vPane.inboxZero.izBgDefault:not(.inMsg).mediumTheme.newUI .V6 .XR,
+html.simplify.vPane.inboxZero.izBgDefault:not(.inMsg).mediumTheme.newUI .V6 .Yh,
+html.simplify.vPane.inboxZero.izBgDefault:not(.inMsg).mediumTheme.newUI .V3 iframe, html.simplify.vPane:not(.inboxZero):not(.inMsg).mediumTheme.newUI .V3 .CL::before,
+html.simplify.vPane:not(.inboxZero):not(.inMsg).mediumTheme.newUI .V6 .XR,
+html.simplify.vPane:not(.inboxZero):not(.inMsg).mediumTheme.newUI .V6 .Yh,
+html.simplify.vPane:not(.inboxZero):not(.inMsg).mediumTheme.newUI .V3 iframe {
+  filter: invert(1) hue-rotate(180deg);
+  opacity: 0.65;
+}
+
+html.simplify.vPane.inboxZero.izBgDefault:not(.inMsg).mediumTheme.newUI .TO div,
+html.simplify.vPane.inboxZero.izBgDefault:not(.inMsg).mediumTheme.newUI .CL > span,
+html.simplify.vPane.inboxZero.izBgDefault:not(.inMsg).mediumTheme.newUI .XS > span, html.simplify.vPane:not(.inboxZero):not(.inMsg).mediumTheme.newUI .TO div,
+html.simplify.vPane:not(.inboxZero):not(.inMsg).mediumTheme.newUI .CL > span,
+html.simplify.vPane:not(.inboxZero):not(.inMsg).mediumTheme.newUI .XS > span {
+  color: var(--color-gray-vdark);
+  text-shadow: none;
+}
+
+html.simplify.vPane.inboxZero.izBgDefault:not(.inMsg).mediumTheme.newUI .ahB, html.simplify.vPane:not(.inboxZero):not(.inMsg).mediumTheme.newUI .ahB {
+  background-color: var(--color-gray-vdark);
+}
+
+html.simplify.vPane.inboxZero.izBgDefault:not(.inMsg) .z0, html.simplify.vPane:not(.inboxZero):not(.inMsg) .z0 {
+  left: calc(var(--width-readingPane) + var(--width-nav) - 54px);
+  right: auto;
+}
+
+html.simplify.vPane.inboxZero.izBgDefault:not(.inMsg) .z0 div[gh='cm'], html.simplify.vPane:not(.inboxZero):not(.inMsg) .z0 div[gh='cm'] {
+  background-color: var(--color-blue);
+}
+
+html.simplify.vPane.inboxZero.izBgDefault:not(.inMsg) .z0 div[gh='cm']::before, html.simplify.vPane:not(.inboxZero):not(.inMsg) .z0 div[gh='cm']::before {
+  background-image: url("chrome-extension://__MSG_@@extension_id__/img/icons/create-white.svg");
+}
+
+html.simplify .aeN .TK .aim:first-child + .aim[data-category], html.simplify .aeN .TK .aim:first-child + .aim[data-category] ~ .aim[data-category] {
+  display: none;
+}
+
+html.simplify .aeN .aim[data-category] a {
+  outline: none;
+}
+
+html.simplify .aeN .aim[data-category] .bsU {
+  display: none;
+}
+
+html.simplify .aeN .aim[data-category] .nL {
+  display: none;
+}
+
+html.simplify .aeN .aim[data-category] .qj:not([style*='border-color']) {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 20px;
+}
+
+html.simplify .aeN .aim[data-category="Trips"] .qj:not([style*='border-color']) {
+  background-image: url("chrome-extension://__MSG_@@extension_id__/img/icons/category_trips_black.png") !important;
+}
+
+html.simplify .aeN .aim[data-category="Purchases"] .qj:not([style*='border-color']) {
+  background-image: url("chrome-extension://__MSG_@@extension_id__/img/icons/category_purchases_black.png") !important;
+}
+
+html.simplify .aeN .aim[data-category="Finance"] .qj:not([style*='border-color']) {
+  background-image: url("chrome-extension://__MSG_@@extension_id__/img/icons/category_finance_black.png") !important;
+}
+
+html.simplify.darkTheme .aeN .aim[data-category="Trips"] .qj:not([style*='border-color']), html.simplify.mediumTheme .aeN .aim[data-category="Trips"] .qj:not([style*='border-color']) {
+  background-image: url("chrome-extension://__MSG_@@extension_id__/img/icons/category_trips_white.png") !important;
+}
+
+html.simplify.darkTheme .aeN .aim[data-category="Purchases"] .qj:not([style*='border-color']), html.simplify.mediumTheme .aeN .aim[data-category="Purchases"] .qj:not([style*='border-color']) {
+  background-image: url("chrome-extension://__MSG_@@extension_id__/img/icons/category_purchases_white.png") !important;
+}
+
+html.simplify.darkTheme .aeN .aim[data-category="Finance"] .qj:not([style*='border-color']), html.simplify.mediumTheme .aeN .aim[data-category="Finance"] .qj:not([style*='border-color']) {
+  background-image: url("chrome-extension://__MSG_@@extension_id__/img/icons/category_finance_white.png") !important;
+}
+
+html.simplify .aeN .Xa .V3 .wT {
+  padding-top: 0px;
+}
+
+html.simplify .aeN .Xa.W8 .V3 {
+  max-height: none;
+}
+
+html.simplify .aeN .Xa.W8 [role='navigation'] {
+  height: auto !important;
+  border-right: none !important;
+}
+
+html.simplify .aeN .Xa:not(.W8.Xr) .wT:not(.Xa) {
+  padding-top: 0px;
+}
+
+html.simplify .aeN .Xa .wT:not(.Xa)::after {
+  height: 20px;
+}
+
+html.simplify .aeN .Xa.ZR:not(.Xr) .V3 {
+  position: relative;
+  top: -36px;
+  height: 0px;
+  visibility: visible;
+  overflow: visible;
+}
+
+html.simplify .aeN .Xa.ZR:not(.Xr) .V3 .CL {
+  display: inline-block;
+  position: relative;
+  top: 0px;
+  left: 182px;
+  width: 36px;
+  overflow: hidden;
+  padding-left: 8px;
+  padding-top: 6px;
+  border-radius: 8px;
+}
+
+html.simplify .aeN .Xa.ZR:not(.Xr) .V3 .CL .CK, html.simplify .aeN .Xa.ZR:not(.Xr) .V3 .CL .Z6 {
+  display: none;
+}
+
+html.simplify .aeN .Xa.ZR:not(.Xr) .V3 .CL.Z8 {
+  left: 170px;
+}
+
+html.simplify:not(.navPeek) .aeN.bhZ .Xa, html.simplify.navPeek .aeN:not(.bym).bhZ .Xa {
+  display: none;
+}
+
+html.simplify.vPane .aeN .Xa .V3,
+html.simplify.vPane .aeN .Xa .V6 {
+  background-color: white;
+}
+
+html.simplify.vPane.darkTheme .aeN .Xa .V3,
+html.simplify.vPane.darkTheme .aeN .Xa .V6 {
+  background-color: #000;
+}
+
+
+/* Copyright (C) 2021 Michael Leggett, Made Simple LLC - All Rights Reserved
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential */
+/* ========================================================================== */
+html.simplify {
+  --nudgePaginationOver: 8px;
+}
+
+html.simplify.appMenuOpen *[data-simplify="otherExtensions"] {
+  display: none !important;
+}
+
+html.simplify.otherExtensions .G-atb {
+  z-index: 6 !important;
+}
+
+html.simplify .cloudhq-pause-inbox-button .z0 {
+  bottom: 64px;
+}
+
+html.simplify .cloudHQ__pauseinbox_notification_bar {
+  position: fixed;
+  bottom: 24px;
+  left: calc(var(--width-nav) + 24px);
+}
+
+html.simplify.showChat .cloudHQ__pauseinbox_notification_bar {
+  left: calc(var(--width-nav) + 96px);
+}
+
+html.simplify div.z0[class*='_destroyable'] {
+  bottom: 96px;
+}
+
+html.simplify .app-level-toolbar-icon[data-ext-name="Hubspot"] {
+  top: 12px;
+}
+
+html.simplify.oeHubspot .app-level-toolbar-icon[data-ext-name="Hubspot"] {
+  right: 78px !important;
+}
+
+html.simplify.oeHubspot .sales-sidebar-container.hubspot {
+  top: 64px;
+  right: 0px !important;
+}
+
+html.simplify.oeHubspot.quickSettings .sales-sidebar-container.hubspot {
+  right: 300px !important;
+}
+
+html.simplify.inboxy:not(.vPane) .pinned-toggle {
+  position: fixed;
+  right: calc(var(--width-addOns) + 84px);
+}
+
+html.simplify.inboxy.vPane .pinned-toggle, html.simplify.inboxy.appMenuOpen .pinned-toggle {
+  display: none;
+}
+
+html.simplify .b4g_manage_dropdown {
+  left: auto !important;
+  right: 24px !important;
+}
+
+html.simplify #ibp-main {
+  position: fixed;
+  z-index: 1;
+  right: calc(var(--width-rightPane) + 24px);
+  bottom: 96px;
+  height: 56px;
+  width: 56px;
+  margin-bottom: 0;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px !important;
+}
+
+html.simplify #ibp-main #ibp-main-text {
+  display: none;
+}
+
+html.simplify.vPane #ibp-main {
+  z-index: 5;
+  bottom: 24px;
+  left: calc(var(--width-nav) + var(--width-readingPane) - 135px);
+}
+
+html.simplify div[data-ext-name='Gmass'] {
+  width: auto !important;
+}
+
+html.simplify div[data-simplify='Gmass'] {
+  max-width: 100% !important;
+}
+
+html.simplify.otherExtensions:not(.vPane) .G-atb .aqJ {
+  margin-right: var(--nudgePaginationOver) !important;
+}
+
+
+/* Copyright (C) 2021 Michael Leggett, Made Simple LLC - All Rights Reserved
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential */
+/* ========================================================================== */
+html.popout .aDc {
+  position: fixed;
+  top: 0;
+  min-width: 100vw;
+}
+
+html.popout .aDd {
+  min-width: 100vw;
+}
+
+html.popout .aDd,
+html.popout .G-atb {
+  background-color: #f7f7f7;
+}
+
+html.popout .G-atb {
+  max-width: calc(var(--width-popout-msg) - 30px);
+  margin: 0 auto !important;
+  padding-right: 16px;
+}
+
+html.popout .G-atb div[gh='mtb'] {
+  margin-left: 80px;
+}
+
+html.popout .aeJ {
+  margin-top: 48px;
+}
+
+html.popout .aeF {
+  padding-right: 16px !important;
+  margin-bottom: 0px !important;
+  max-width: calc(100% - 40px);
+}
+
+html.popout .aeF > div {
+  box-shadow: none !important;
+}
+
+html.popout .a3s,
+html.popout .g6 {
+  font-size: 0.87499rem;
+}
+
+html.popout div[role='listitem'] .a3s,
+html.popout div[role='listitem'] .a3s font[size="2"],
+html.popout div[role='listitem'] .g6,
+html.popout div[role='listitem'] div:not(.ajA) h3.iw {
+  font-size: 0.87499rem;
+}
+
+html.popout div[role='listitem'] .a3s [style*="font-size: small"],
+html.popout div[role='listitem'] .a3s [style*="font-size:small"] {
+  font-size: 0.87499rem !important;
+}
+
+html.popout .Tm::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+html.popout .wl, html.popout .wl div, html.popout .wq, html.popout .wp {
+  background-image: none !important;
+  background-color: #fff !important;
+}
+
+
+/* Copyright (C) 2021 Michael Leggett, Made Simple LLC - All Rights Reserved
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential */
+/* ========================================================================== */
+html.simplify {
+  --width-chipIndent: 16px;
+}
+
+html.simplify #gb form[role='search'] {
+  position: fixed;
+  left: max(220px, calc(50vw - ( (var(--width-search) - var(--width-nav) + var(--width-rightPane)) / 2 )));
+  width: var(--width-search);
+}
+
+html.simplify #gb form[role='search'].focused {
+  box-shadow: 0 10px 30px rgba(32, 33, 36, 0.18);
+}
+
+html.simplify #gb form[role='search']:not(.focused) button[gh='sda'] {
+  opacity: 0.5;
+}
+
+html.simplify #gb form[role='search']:not(.focused) input[name='q']::placeholder {
+  opacity: 0;
+}
+
+html.simplify #gb form[role='search']:not(.focused) button {
+  opacity: 0.5;
+}
+
+html.simplify #gb form[role='search'] tbody[role='listbox'] tr[role='separator'] {
+  display: none;
+}
+
+html.simplify #gb form[role='search'] tbody[role='listbox'] tr[role='option'] .gsaq_a, html.simplify #gb form[role='search'] tbody[role='listbox'] tr[role='option'] .gsar_a {
+  margin-top: 6px;
+  margin-bottom: 6px;
+  border-left-color: transparent !important;
+}
+
+html.simplify #gb form[role='search'] tbody[role='listbox'] tr[role='option'] .gsfs, html.simplify #gb form[role='search'] tbody[role='listbox'] tr[role='option'] .gsar_b {
+  border-left-color: transparent !important;
+}
+
+html.simplify #gb form[role='search'] tbody[role='listbox'] td {
+  max-width: calc(var(--width-search) - 14px);
+}
+
+html.simplify.inMsg:not(.searchFocused) #gb form[role='search'], html.simplify.msgSelected:not(.searchFocused):not(.vPane) #gb form[role='search'] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+html.simplify.inMsg:not(.searchFocused) #gb form[role='search'] div[gh='sb'], html.simplify.msgSelected:not(.searchFocused):not(.vPane) #gb form[role='search'] div[gh='sb'] {
+  margin: 0;
+}
+
+html.simplify.inMsg:not(.searchFocused) .searchMinimized, html.simplify.msgSelected:not(.searchFocused):not(.vPane) .searchMinimized {
+  display: inline-flex;
+  width: 24px;
+  height: 24px;
+  border-radius: 24px;
+  padding: 8px;
+  margin-left: 20px;
+  background: no-repeat center/24px url("chrome-extension://__MSG_@@extension_id__/img/icons/search-white-2x.png") transparent;
+  opacity: 0.7;
+  transition: background-color 100ms, opacity 100ms;
+  cursor: pointer;
+}
+
+html.simplify.inMsg:not(.searchFocused) .searchMinimized:hover, html.simplify.msgSelected:not(.searchFocused):not(.vPane) .searchMinimized:hover {
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+html.simplify.lightTheme.inMsg:not(.searchFocused) .searchMinimized, html.simplify.defaultTheme.inMsg:not(.searchFocused) .searchMinimized, html.simplify.lightTheme.msgSelected:not(.searchFocused) .searchMinimized, html.simplify.defaultTheme.msgSelected:not(.searchFocused) .searchMinimized {
+  opacity: 0.54;
+  background: no-repeat center/24px url("chrome-extension://__MSG_@@extension_id__/img/icons/search-black-2x.png") transparent;
+}
+
+html.simplify.lightTheme.inMsg:not(.searchFocused) .searchMinimized:hover, html.simplify.defaultTheme.inMsg:not(.searchFocused) .searchMinimized:hover, html.simplify.lightTheme.msgSelected:not(.searchFocused) .searchMinimized:hover, html.simplify.defaultTheme.msgSelected:not(.searchFocused) .searchMinimized:hover {
+  opacity: 1;
+  background-color: var(--color-gray-buttonBg);
+}
+
+html.simplify.contrastTheme:not(.searchFocused) #gb form[role='search'], html.simplify.grayTheme:not(.searchFocused) #gb form[role='search'] {
+  background-color: var(--color-searchBg);
+}
+
+html.simplify.searchFocused.msgSelected .G-atb, html.simplify.searchFocused.inMsg .G-atb {
+  display: none;
+}
+
+html.simplify.searchFocused.msgSelected #gb form[role='search'], html.simplify.searchFocused.inMsg #gb form[role='search'] {
+  opacity: 1;
+}
+
+html.simplify.searchFocused.inMsg.openMole:not(.vPane) #gb form[role='search'] {
+  left: calc(var(--width-nav) + 78px);
+}
+
+html.simplify .ZF-Av {
+  width: 500px;
+  top: 52px !important;
+  left: calc( (100vw - var(--width-rightPane) + var(--width-nav) - var(--width-search)) / 2) !important;
+}
+
+html.simplify .ZF-Av .ZF-zT {
+  box-shadow: 0 10px 30px rgba(32, 33, 36, 0.18);
+  border-radius: 8px;
+  border: 0px;
+}
+
+html.simplify.vPane .ZF-Av {
+  width: calc(var(--width-readingPane) + var(--width-nav));
+  left: 10px !important;
+}
+
+html.simplify.mediumTheme #gb form[role='search'] {
+  background-color: rgba(241, 243, 244, 0.3);
+}
+
+html.simplify.mediumTheme #gb form[role='search'].focused {
+  background-color: white;
+}
+
+html.simplify.darkTheme #gb form[role='search'] {
+  background-color: rgba(241, 243, 244, 0.1);
+}
+
+html.simplify.darkTheme #gb form[role='search'].focused {
+  background-color: white;
+}
+
+html.simplify.defaultTheme, html.simplify.darkTheme {
+  --width-chipIndent: 0px;
+}
+
+html.simplify .G6 {
+  position: fixed;
+  top: 94px;
+  left: max(max(16px, calc(var(--width-nav) + var(--width-chipIndent))), calc((100vw - var(--width-chipIndent) - var(--width-content) + var(--width-nav) - var(--width-rightPane)) / 2));
+  min-width: min(var(--width-list), calc(100vw - 16px - var(--width-chipIndent) - var(--width-rightPane) - var(--width-nav)));
+  max-width: min(var(--width-list), calc(100vw - 16px - var(--width-chipIndent) - var(--width-rightPane) - var(--width-nav)));
+  margin-bottom: 8px;
+  margin-left: 0px;
+  opacity: 0.6;
+  transition: opacity 200ms;
+}
+
+html.simplify .G6:hover {
+  opacity: 1;
+}
+
+html.simplify .G6 .Ii {
+  border-radius: 0 16px 16px 0;
+  max-width: min(var(--width-list), calc(100vw - 32px - var(--width-rightPane) - var(--width-nav)));
+}
+
+html.simplify .G6 .Ij.Yn {
+  left: min(calc(var(--width-list) - 32px), calc(100vw - 64px - var(--width-rightPane) - var(--width-nav)));
+}
+
+html.simplify.appMenuOpen .G6 div[role='button']:nth-of-type(4) ~ div[role='button'],
+html.simplify.appMenuOpen .G6 .Ij.Yn {
+  display: none;
+}
+
+html.simplify.mediumTheme .G6 div[role='button'] {
+  border-color: transparent;
+}
+
+html.simplify .aeI .G6 {
+  display: none;
+}
+
+html.simplify:not(.inSearch) .G6 {
+  display: none;
+}
+
+html.simplify .G-atb[gh='tm'] .G6 div[data-impression-suffix='ADVANCED_SEARCH_LINK'] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+html.simplify.vPane:not(.inMsg) #gb::before {
+  content: "";
+  width: calc(var(--width-readingPane) + calc(var(--width-nav) + 26px));
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 64px;
+  z-index: -1;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: var(--color-themeAccent);
+}
+
+html.simplify.vPane:not(.inMsg) #gb form[role='search'] {
+  position: fixed;
+  left: 72px;
+  width: calc(var(--width-readingPane) + var(--width-nav) - 120px);
+  max-width: calc(var(--width-readingPane) + var(--width-nav));
+  background-color: var(--color-searchBg);
+}
+
+html.simplify.vPane:not(.inMsg) #gb form[role='search'].focused {
+  background-color: #fff;
+  left: 10px;
+  width: calc(var(--width-readingPane) + var(--width-nav));
+  z-index: 9;
+  box-shadow: 0 5px 20px rgba(32, 33, 36, 0.28);
+  transition: all 0s;
+}
+
+html.simplify.vPane:not(.inMsg).defaultTheme #gb::before {
+  border-right: 1px solid var(--color-gray-light);
+}
+
+html.simplify.vPane:not(.inMsg).inboxZero:not(.izBgDefault) #gb::before {
+  background-color: transparent !important;
+  border-right-color: transparent !important;
+}
+
+html.simplify.vPane:not(.inMsg) .G6 {
+  top: 60px;
+  left: calc(var(--width-nav) + 10px);
+  max-width: calc(var(--width-readingPane) - 4px);
+  min-width: calc(var(--width-readingPane) - 4px);
+}
+
+html.simplify.vPane:not(.inMsg) .G6 .Ii {
+  max-width: calc(var(--width-readingPane) - 4px);
+}
+
+html.simplify.vPane:not(.inMsg) .G6 .Ij.Yn {
+  left: calc(var(--width-readingPane) - 36px);
+}
+
+html.simplify.vPane:not(.inMsg).mediumTheme:not(.inboxZero) #gb form[role='search'] input, html.simplify.vPane:not(.inMsg).mediumTheme.izBgDefault.inboxZero #gb form[role='search'] input {
+  color: black;
+}
+
+html.simplify.vPane:not(.inMsg).mediumTheme:not(.inboxZero) #gb form[role='search'] svg,
+html.simplify.vPane:not(.inMsg).mediumTheme:not(.inboxZero) #gb .topLeftButtons svg, html.simplify.vPane:not(.inMsg).mediumTheme:not(.inboxZero) #gb div[style*='238px'] svg, html.simplify.vPane:not(.inMsg).mediumTheme.izBgDefault.inboxZero #gb form[role='search'] svg,
+html.simplify.vPane:not(.inMsg).mediumTheme.izBgDefault.inboxZero #gb .topLeftButtons svg, html.simplify.vPane:not(.inMsg).mediumTheme.izBgDefault.inboxZero #gb div[style*='238px'] svg {
+  color: var(--color-gray) !important;
+  fill: var(--color-gray) !important;
+}
+
+html.simplify.vPane:not(.inMsg).mediumTheme:not(.inboxZero) .G6 div[role='button'], html.simplify.vPane:not(.inMsg).mediumTheme.izBgDefault.inboxZero .G6 div[role='button'] {
+  border-color: rgba(32, 33, 36, 0.12);
+}
+
+html.simplify.vPane.listScrolled.inSearch .G6, html.simplify.hPane.listScrolled.inSearch .G6, html.simplify.nPane.listScrolled.inSearch .G6 {
+  display: none;
+}
+
+@media only screen and (max-width: 1199.98px) {
+  html.simplify #gb form[role='search'] {
+    left: max(220px, calc(50vw - ( (var(--width-search) + var(--width-addOns)) / 2 )));
+  }
+}
+
+
+/* Copyright (C) 2021 Michael Leggett, Made Simple LLC - All Rights Reserved
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential */
+/* ========================================================================== */
+html.simplify.inSettings #gb {
+  height: 0px !important;
+}
+
+html.simplify.inSettings #gb form[role='search'] {
+  display: none;
+}
+
+html.simplify.inSettings #gb .closeButton, html.simplify.inSettings #gb div[aria-label='Close'] {
+  display: block !important;
+  position: fixed;
+  top: 8px;
+  right: 54px;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+html.simplify.inSettings #gb .closeButton:hover, html.simplify.inSettings #gb div[aria-label='Close']:hover {
+  background-color: rgba(60, 64, 67, 0.1);
+}
+
+html.simplify.inSettings #gb .closeButton svg, html.simplify.inSettings #gb div[aria-label='Close'] svg {
+  color: #5f6368;
+}
+
+html.simplify.inSettings .v {
+  background-color: #fff;
+}
+
+html.simplify.inSettings .v .Tm.aeJ {
+  height: 100vh !important;
+}
+
+html.simplify.inSettings .v .Tm.aeJ::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+html.simplify.inSettings .v .du {
+  background: #f7f7f7;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  box-sizing: border-box;
+  height: 88px;
+  width: 300px;
+  padding: 24px 0 0 40px;
+}
+
+html.simplify.inSettings .v .fY {
+  background-color: #f7f7f7;
+  position: fixed;
+  top: 88px;
+  left: 0px;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
+  height: calc(100vh - 88px);
+  width: 300px;
+  box-sizing: border-box;
+  margin: 0px !important;
+  padding: 16px 0 48px 24px !important;
+  border-radius: 0px;
+  scrollbar-width: thin;
+  scrollbar-color: #ccc transparent;
+}
+
+html.simplify.inSettings .v .fY:hover {
+  overflow-y: auto;
+}
+
+html.simplify.inSettings .v .fY::-webkit-scrollbar {
+  width: 8px;
+}
+
+html.simplify.inSettings .v .fY::-webkit-scrollbar-track {
+  background-color: transparent !important;
+}
+
+html.simplify.inSettings .v .fY::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.12);
+  border-radius: 20px;
+}
+
+html.simplify.inSettings .v .fY .f1 {
+  padding: 4px 24px 4px 16px !important;
+}
+
+html.simplify.inSettings .v .fY .fZ {
+  background-color: #fff;
+  box-shadow: none;
+  border-radius: 24px 0 0 24px;
+  padding: 4px 24px 4px 16px !important;
+}
+
+html.simplify.inSettings .v .aeF > .nH {
+  background-color: #fff;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html.simplify.inSettings .v .aeF > .nH .v9, html.simplify.inSettings .v .aeF > .nH div[role='main'] {
+  padding-top: 88px;
+  padding-right: 64px;
+  margin: 0 0 150px 350px;
+}
+
+html.simplify.inSettings .v .aeF > .nH .v9 table.cf, html.simplify.inSettings .v .aeF > .nH div[role='main'] table.cf {
+  max-width: 960px;
+}
+
+html.simplify.inSettings .v .aeF > .nH .v9 td.r8,
+html.simplify.inSettings .v .aeF > .nH .v9 td.r9, html.simplify.inSettings .v .aeF > .nH div[role='main'] td.r8,
+html.simplify.inSettings .v .aeF > .nH div[role='main'] td.r9 {
+  padding: 24px 24px 24px 0;
+}
+
+html.simplify.inSettings .v .aeF > .nH .v9 td.r8, html.simplify.inSettings .v .aeF > .nH div[role='main'] td.r8 {
+  min-width: 175px;
+}
+
+html.simplify.inSettings .v .aeF > .nH .v9 td.r9,
+html.simplify.inSettings .v .aeF > .nH .v9 td.r9 > table,
+html.simplify.inSettings .v .aeF > .nH .v9 td.r9 > div, html.simplify.inSettings .v .aeF > .nH div[role='main'] td.r9,
+html.simplify.inSettings .v .aeF > .nH div[role='main'] td.r9 > table,
+html.simplify.inSettings .v .aeF > .nH div[role='main'] td.r9 > div {
+  max-width: 600px;
+}
+
+html.simplify.inSettings .v .aeF > .nH .v9 .ra, html.simplify.inSettings .v .aeF > .nH div[role='main'] .ra {
+  display: inline-block;
+  padding-right: 8px;
+}
+
+html.simplify.inSettings .v .aeF > .nH .v9 .rU[role='navigation'], html.simplify.inSettings .v .aeF > .nH div[role='main'] .rU[role='navigation'] {
+  position: fixed;
+  bottom: 32px;
+  right: 36px;
+  width: auto;
+  text-align: center;
+  padding: 24px;
+  background: rgba(227, 240, 255, 0.7);
+  border-radius: 8px;
+  box-sizing: border-box;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 5px;
+}
+
+html.simplify.inSettings .v .aeF > .nH .v9 .rU[role='navigation'] button, html.simplify.inSettings .v .aeF > .nH div[role='main'] .rU[role='navigation'] button {
+  padding: 8px 16px;
+  margin-right: 16px;
+  min-width: 80px;
+  height: 36px;
+  border-radius: 4px;
+  border: none;
+  background-color: #fff;
+  box-shadow: inset 0 0 0 1px #dadce0;
+  font-family: "Google Sans", Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+  font-size: 0.875rem;
+  letter-spacing: 0.25px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+html.simplify.inSettings .v .aeF > .nH .v9 .rU[role='navigation'] button:focus:not(:focus-visible), html.simplify.inSettings .v .aeF > .nH div[role='main'] .rU[role='navigation'] button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+html.simplify.inSettings .v .aeF > .nH .v9 .rU[role='navigation'] button:not(.Gm), html.simplify.inSettings .v .aeF > .nH div[role='main'] .rU[role='navigation'] button:not(.Gm) {
+  font-weight: bold;
+  cursor: not-allowed;
+}
+
+html.simplify.inSettings .v .aeF > .nH .v9 .rU[role='navigation'] button:not(.Gm):not([disabled]), html.simplify.inSettings .v .aeF > .nH div[role='main'] .rU[role='navigation'] button:not(.Gm):not([disabled]) {
+  cursor: pointer;
+  box-shadow: 0 1px 2px 0 rgba(26, 115, 232, 0.451), 0 1px 3px 1px rgba(26, 115, 232, 0.302);
+  background-color: #1a73e8;
+  color: #fff;
+}
+
+html.simplify.inSettings .v .aeF > .nH .v9 .rU[role='navigation'] button:last-child, html.simplify.inSettings .v .aeF > .nH div[role='main'] .rU[role='navigation'] button:last-child {
+  margin-right: 0px;
+}
+
+html.simplify.inSettings.mediumTheme .du, html.simplify.inSettings.darkTheme .du {
+  background-color: #333;
+}
+
+html.simplify.inSettings.mediumTheme .fY, html.simplify.inSettings.darkTheme .fY {
+  background: #333;
+  scrollbar-color: #999 transparent;
+}
+
+html.simplify.inSettings.mediumTheme .fY::-webkit-scrollbar-thumb, html.simplify.inSettings.darkTheme .fY::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.22);
+}
+
+html.simplify.inSettings.mediumTheme .fY .f1, html.simplify.inSettings.darkTheme .fY .f1 {
+  background-color: #333;
+}
+
+html.simplify.inSettings.mediumTheme .fY .f1 a, html.simplify.inSettings.darkTheme .fY .f1 a {
+  color: #ccc !important;
+}
+
+html.simplify.inSettings.darkTheme {
+  --color-black-a: #222;
+  --color-black-b: #111;
+}
+
+html.simplify.inSettings.darkTheme a, html.simplify.inSettings.darkTheme span[role='link'] {
+  color: #47f !important;
+}
+
+html.simplify.inSettings.darkTheme .fZ a {
+  color: #fff !important;
+  font-weight: bold;
+}
+
+html.simplify.inSettings.darkTheme .du,
+html.simplify.inSettings.darkTheme .fY,
+html.simplify.inSettings.darkTheme .f1,
+html.simplify.inSettings.darkTheme .To.Ze {
+  background-color: var(--color-black-a) !important;
+}
+
+html.simplify.inSettings.darkTheme .AO,
+html.simplify.inSettings.darkTheme .fZ,
+html.simplify.inSettings.darkTheme .aeF > .nH,
+html.simplify.inSettings.darkTheme .alO,
+html.simplify.inSettings.darkTheme .closeButton,
+html.simplify.inSettings.darkTheme .closeButton:hover {
+  background-color: var(--color-black-b) !important;
+}
+
+html.simplify.inSettings.darkTheme .closeButton svg {
+  color: #ccc !important;
+}
+
+html.simplify.inSettings.darkTheme .closeButton:hover svg {
+  color: #fff !important;
+}
+
+html.simplify.inSettings.darkTheme td.r8,
+html.simplify.inSettings.darkTheme td.r9,
+html.simplify.inSettings.darkTheme .r7 > td,
+html.simplify.inSettings.darkTheme .Jb .J0:not(:last-child) {
+  border-bottom-color: #444;
+}
+
+html.simplify.inSettings.darkTheme .rZ {
+  background-color: #444;
+}
+
+html.simplify.inSettings.darkTheme .r4 {
+  color: #fff;
+  background-color: var(--color-black-b);
+}
+
+html.simplify.inSettings.darkTheme .rU[role='navigation'] {
+  background: rgba(50, 50, 50, 0.6) !important;
+}
+
+html.simplify.inSettings.darkTheme .rU[role='navigation'] button {
+  background-color: #36c !important;
+  box-shadow: none !important;
+  color: #fff;
+}
+
+html.simplify.inSettings.darkTheme .rU[role='navigation'] button[disabled] {
+  background-color: var(--color-black-b) !important;
+  color: #999;
+}
+
+html.simplify.inSettings.darkTheme .rU[role='navigation'] button:last-child {
+  background-color: #ddd !important;
+  color: #222;
+}
+
+html.simplify.inSettings.contrastTheme .du,
+html.simplify.inSettings.contrastTheme .fY {
+  border: none;
+  border-right: 1px solid #aaa;
+}
+
+html.simplify.inSettings.contrastTheme .fZ {
+  border-radius: 24px !important;
+  margin-right: 16px;
+  border: 1px solid #aaa;
+}
+
+html.simplify.inSettings.contrastTheme .v9, html.simplify.inSettings.contrastTheme div[role='main'] {
+  border: none;
+}
+
+html.simplify:not(.inSettings) .v {
+  display: none;
+}
+
+html.simplify .rightPane[style*="width: 356"] {
+  width: 300px !important;
+  min-width: 300px !important;
+}
+
+html.simplify .rightPane[style*="width: 256"] {
+  width: 200px !important;
+  min-width: 200px !important;
+}
+
+html.simplify .rightPane[style*="width: 312"] {
+  width: 256px !important;
+  min-width: 256px !important;
+}
+
+html.simplify .rightPane[style*="width: 556"] {
+  width: 500px !important;
+  min-width: 500px !important;
+}
+
+html.simplify.newUI.rhsChat.addOnsOpen .rightPane[style*="width: 612"] {
+  width: 557px !important;
+  min-width: 557px !important;
+}
+
+html.simplify.darkTheme .IU {
+  filter: invert(1) hue-rotate(180deg);
+  background-color: #eee;
+  border-left: 1px solid #ccc;
+}
+
+html.simplify.darkTheme .IU img:not(svg):not([src*="cleardot"]) {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+html.simplify.inSettings .rightPane {
+  display: none;
+}
+
+html.simplify #openSimplifySettings {
+  width: 90%;
+}
+
+
+/* Copyright (C) 2021 Michael Leggett, Made Simple LLC - All Rights Reserved
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential */
+/* ========================================================================== */
+html.simplify #simplifyAlert {
+  position: absolute;
+  z-index: 999;
+  top: 100px;
+  right: 48px;
+  max-width: 300px;
+  line-height: 1.7em;
+  border-radius: 8px;
+  padding: 20px 24px 24px 24px;
+  background-color: white;
+  box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.151), 0 4px 8px 3px rgba(60, 64, 67, 0.091);
+}
+
+html.simplify #simplifyAlert p.alertMsg {
+  margin: 0;
+  white-space: pre-line;
+}
+
+html.simplify #simplifyAlert button {
+  user-select: none;
+  font-size: 0.87em;
+  font-weight: bold;
+  color: white;
+  padding: 8px 16px;
+  background: #0a6cdd;
+  border-radius: 4px;
+  text-decoration: none;
+  margin: 24px 16px 0 0;
+  border-color: rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  float: left;
+  appearance: none;
+}
+
+html.simplify #simplifyAlert button.close {
+  color: #0a6cdd;
+  background-color: #f5f5f5;
+}
+
+html.simplify #simplifyAlert button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+html.simplify #welcomeToSimplify {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999999;
+  display: none;
+  background: radial-gradient(#fff, rgba(255, 255, 255, 0.9) 70%, rgba(255, 255, 255, 0.75));
+}
+
+html.simplify #welcomeToSimplify.wtsShow {
+  display: block;
+}
+
+html.simplify #welcomeToSimplify.wtsS2 {
+  background: radial-gradient(ellipse at top right, transparent, rgba(255, 255, 255, 0.9) 10%, #fff);
+}
+
+html.simplify #welcomeToSimplify.wtsS4 {
+  background: radial-gradient(ellipse at top right, rgba(255, 255, 255, 0.9) 10%, #fff);
+}
+
+html.simplify #welcomeToSimplify.wtsS1 .wtsContent.screen1, html.simplify #welcomeToSimplify.wtsS2 .wtsContent.screen2, html.simplify #welcomeToSimplify.wtsS3 .wtsContent.screen3, html.simplify #welcomeToSimplify.wtsS4 .wtsContent.screen4 {
+  display: flex;
+}
+
+html.simplify #welcomeToSimplify .wtsContent {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+}
+
+html.simplify #welcomeToSimplify .wtsContent .simplifyLogo {
+  width: 411px;
+  height: 135px;
+  background-image: url("chrome-extension://__MSG_@@extension_id__/img/app/logo_v2.png") !important;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+html.simplify #welcomeToSimplify .wtsContent p.wtsTitle {
+  font-weight: bold;
+  font-size: 24px;
+  text-align: center;
+  margin: 36px 0;
+  line-height: 1.2em;
+  max-width: 450px;
+}
+
+html.simplify #welcomeToSimplify .wtsContent button {
+  appearance: none;
+  display: block;
+  background: #0267dd;
+  border-radius: 8px;
+  padding: 16px 24px;
+  border: 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+html.simplify #welcomeToSimplify .wtsContent p.wtsDisclaimer,
+html.simplify #welcomeToSimplify .wtsContent p.wtsUninstall {
+  color: #999;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px !important;
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+html.simplify #welcomeToSimplify .wtsContent p.wtsUninstall {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+html.simplify #welcomeToSimplify .wtsContent .profileArrow {
+  background-image: url("chrome-extension://__MSG_@@extension_id__/img/app/welcome_arrow.png") !important;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: top right;
+  width: 400px;
+  height: 170px;
+  position: fixed;
+  top: 58px;
+  right: 0px;
+  text-align: left;
+}
+
+html.simplify #welcomeToSimplify .wtsContent .profileArrow p {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1.2em;
+  max-width: 270px;
+}
+
+html.simplify #welcomeToSimplify .wtsContent .profileArrow button {
+  font-size: 16px;
+  padding: 12px 24px;
+}
+
+html.simplify #welcomeToSimplify .wtsContent .wtsKeyShortcuts .wtsTitle {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+html.simplify #welcomeToSimplify .wtsContent .wtsKeyShortcuts .wtsKeys {
+  min-height: 300px;
+  margin: 50px auto 50px;
+}
+
+html.simplify #welcomeToSimplify .wtsContent .wtsKeyShortcuts .wtsKey {
+  background-color: #aabbdd;
+  width: 20px;
+  text-align: center;
+  font-family: var(--system-fonts);
+  font-size: 17px;
+  font-weight: 600;
+  color: black;
+  float: left;
+  clear: left;
+  margin-top: 20px;
+  line-height: 16px;
+  padding: 10px;
+  border-radius: 4px;
+  margin-right: 12px;
+}
+
+html.simplify #welcomeToSimplify .wtsContent .wtsKeyShortcuts .wtsKey.wtsEscKey {
+  text-transform: uppercase;
+  letter-spacing: -0.6px;
+  font-size: 11px !important;
+}
+
+html.simplify #welcomeToSimplify .wtsContent .wtsKeyShortcuts .wtsLabel {
+  height: 20px;
+  font-size: 18px;
+  float: left;
+  line-height: 18px;
+  padding: 8px 50px 0 0;
+  margin-top: 20px;
+}
+
+html.simplify #welcomeToSimplify .wtsContent .wtsKeyShortcuts button {
+  margin-top: 30px;
+}
+
+html.simplify #welcomeToSimplify .wtsContent.screen4 .profileArrow {
+  top: 0px;
+  right: 90px;
+  width: 460px;
+}
+
+html.simplify #welcomeToSimplify .wtsContent.screen4 .profileArrow p {
+  max-width: 350px;
+  margin-bottom: 0px;
+}
+
+html.simplify #welcomeToSimplify .wtsContent.screen4 .profileArrow p.wtsDisclaimer {
+  margin-top: 12px;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+html:not(.simplify) #welcomeToSimplify {
+  display: none;
+}
+
+

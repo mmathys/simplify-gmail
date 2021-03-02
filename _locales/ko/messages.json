@@ -1,0 +1,20 @@
+{
+  "today": {
+    "message": "오늘"
+  },
+  "yesterday": {
+    "message": "어제"
+  },
+  "thisWeek": {
+    "message": "이번 주"
+  },
+  "thisMonth": {
+    "message": "이번 달"
+  },
+  "lastMonth": {
+    "message": "지난 달"
+  },
+  "earlier": {
+    "message": "일찍이"
+  }
+}

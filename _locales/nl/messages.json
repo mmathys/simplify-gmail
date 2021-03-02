@@ -1,0 +1,20 @@
+{
+  "today": {
+    "message": "vandaag"
+  },
+  "yesterday": {
+    "message": "gisteren"
+  },
+  "thisWeek": {
+    "message": "deze week"
+  },
+  "thisMonth": {
+    "message": "deze maand"
+  },
+  "lastMonth": {
+    "message": "vorige maand"
+  },
+  "earlier": {
+    "message": "eerder"
+  }
+}

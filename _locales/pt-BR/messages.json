@@ -1,0 +1,20 @@
+{
+  "today": {
+    "message": "hoje"
+  },
+  "yesterday": {
+    "message": "ontem"
+  },
+  "thisWeek": {
+    "message": "esta semana"
+  },
+  "thisMonth": {
+    "message": "este mês"
+  },
+  "lastMonth": {
+    "message": "mês passado"
+  },
+  "earlier": {
+    "message": "mais velho"
+  }
+}

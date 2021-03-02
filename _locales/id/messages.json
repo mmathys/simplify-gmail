@@ -1,0 +1,20 @@
+{
+  "today": {
+    "message": "hari ini"
+  },
+  "yesterday": {
+    "message": "kemarin"
+  },
+  "thisWeek": {
+    "message": "minggu ini"
+  },
+  "thisMonth": {
+    "message": "bulan ini"
+  },
+  "lastMonth": {
+    "message": "bulan lalu"
+  },
+  "earlier": {
+    "message": "lebih tua"
+  }
+}

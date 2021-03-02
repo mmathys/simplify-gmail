@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simplify Preferences</title>
+    <link rel="stylesheet" href="prefs.css" />
+    <script type="text/javascript" src="prefs.js"></script>
+  </head>
+  <body>
+    <div id="simplifyOptions">
+      <img src="../img/app/icon128.png" /><br />
+      <h1>Simplify Gmail Options</h1>
+      <a
+        href="https://on.simpl.fyi/?sort=top&no_cover=true"
+        target="_new"
+        class="newsletter"
+        >Read about Simplify v2 including pricing options...</a
+      >
+      <br /><br /><br />
+
+      <!-- CONVERSATION LIST -->
+      <table>
+        <tr class="label">
+          <td colspan="2">Conversation list</td>
+        </tr>
+        <tr>
+          <td>List width (large recommended)</td>
+          <td class="option">
+            <select id="listWidth">
+              <option value="960">Medium (960px)</option>
+              <option value="1100" selected>Large (1100px)</option>
+              <option value="1250">X-Large (1250px)</option>
+              <option value="1400">XX-Large (1400px)</option>
+              <option value="full">Full screen (no limit)</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Inbox zero background<br />
+            <span class="gray">(For default and dark themes)</span>
+          </td>
+          <td class="option">
+            <select id="inboxZeroBg">
+              <option value="default" selected>Gmail illustration</option>
+              <option value="light-mountain">Mountain (light)</option>
+              <option value="dark-mountain">Mountain (dark)</option>
+              <option value="aqua-beach">Aqua beach</option>
+              <option value="cat">Cat</option>
+              <option value="dog">Dog</option>
+              <option value="none">No background</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="dateGroup" id="dgLabel">Group emails by date</label>
+          </td>
+          <td class="option">
+            <button class="toggle" id="dateGroup" aria-labelledby="dgLabel">
+              <span></span>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="hideTabIcons" id="htiLabel"
+              >Hide inbox tab icons (on default inbox)</label
+            >
+          </td>
+          <td class="option">
+            <button class="toggle" id="hideTabIcons" aria-labelledby="htiLabel">
+              <span></span>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="hideSelectRefresh" id="hsrLabel"
+              >Hide select & refresh until hover</label
+            >
+          </td>
+          <td class="option">
+            <button
+              class="toggle"
+              id="hideSelectRefresh"
+              aria-labelledby="hsrLabel"
+            >
+              <span></span>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="hideListCount" id="hlcLabel"
+              >Hide message count (1-100 of n) until hover</label
+            >
+          </td>
+          <td class="option">
+            <button
+              class="toggle"
+              id="hideListCount"
+              aria-labelledby="hlcLabel"
+            >
+              <span></span>
+            </button>
+          </td>
+        </tr>
+      </table>
+      <br /><br />
+
+      <!-- MESSAGE VIEW -->
+      <table>
+        <tr class="label">
+          <td colspan="2">Message view</td>
+        </tr>
+        <tr>
+          <td>Message width (small recommended)</td>
+          <td class="option">
+            <select id="msgWidth">
+              <option value="850" selected>Small (850px)</option>
+              <option value="960">Medium (960px)</option>
+              <option value="1100">Large (1100px)</option>
+              <option value="1250">X-Large (1250px)</option>
+              <option value="1400">XX-Large (1400px)</option>
+              <option value="full">Full screen (no limit)</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="hideMsgCount" id="hmcLabel"
+              >Hide message number (1 of n) until hover</label
+            >
+          </td>
+          <td class="option">
+            <button class="toggle" id="hideMsgCount" aria-labelledby="hmcLabel">
+              <span></span>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="hideSignatures" id="hsLabel"
+              >Minimize email signatures</label
+            >
+          </td>
+          <td class="option">
+            <button
+              class="toggle"
+              id="hideSignatures"
+              aria-labelledby="hsLabel"
+            >
+              <span></span>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="reverseMsgs" id="rmLabel"
+              >Reverse order of messages in all conversations</label
+            >
+          </td>
+          <td class="option">
+            <button class="toggle" id="reverseMsgs" aria-labelledby="rmLabel">
+              <span></span>
+            </button>
+          </td>
+        </tr>
+      </table>
+      <br /><br />
+
+      <!-- COMPOSE -->
+      <table>
+        <tr class="label">
+          <td colspan="2">Compose</td>
+        </tr>
+        <tr>
+          <td class="hasOptions">
+            <label for="composeActions" id="caLabel" class="inline">
+              Only show some compose actions
+            </label>
+            <a class="shown">Hide options</a>
+            <a class="hidden">Show options</a>
+            <div class="options actions">
+              <input type="checkbox" id="caImage" />
+              <label for="caImage">Insert image</label><br />
+
+              <input type="checkbox" id="caLink" />
+              <label for="caLink">Insert link</label><br />
+
+              <input type="checkbox" id="caDrive" />
+              <label for="caDrive">Insert files using Drive</label><br />
+
+              <input type="checkbox" id="caEmoji" />
+              <label for="caEmoji">Insert emoji</label><br />
+
+              <input type="checkbox" id="caSig" />
+              <label for="caSig">Insert signature</label><br />
+
+              <input type="checkbox" id="caConfid" />
+              <label for="caConfid">Toggle confidential mode</label><br />
+            </div>
+          </td>
+          <td class="option">
+            <button
+              class="toggle"
+              id="composeActions"
+              aria-labelledby="caLabel"
+            >
+              <span></span>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td class="hasOptions">
+            <label for="composeFormat" id="cfLabel" class="inline">
+              Only show some formatting options
+            </label>
+            <a class="shown">Hide options</a>
+            <a class="hidden">Show options</a>
+            <div class="options formatting">
+              <input type="checkbox" id="cfUndo" />
+              <label for="cfUndo">Undo / redo</label><br />
+
+              <input type="checkbox" id="cfFont" />
+              <label for="cfFont">Font</label><br />
+
+              <input type="checkbox" id="cfSize" />
+              <label for="cfSize">Font size</label><br />
+
+              <input type="checkbox" id="cfColor" />
+              <label for="cfColor">Font color/highlight</label><br />
+
+              <input type="checkbox" id="cfAlign" />
+              <label for="cfAlign">Alignment</label><br />
+
+              <input type="checkbox" id="cfOrdered" />
+              <label for="cfOrdered">Ordered list</label><br />
+
+              <input type="checkbox" id="cfUnordered" />
+              <label for="cfUnordered">Unordered list</label><br />
+
+              <input type="checkbox" id="cfIndent" />
+              <label for="cfIndent">Indent more / less</label><br />
+
+              <input type="checkbox" id="cfQuote" />
+              <label for="cfQuote">Quote block</label><br />
+
+              <input type="checkbox" id="cfStrike" />
+              <label for="cfStrike">Strike through</label><br />
+
+              <input type="checkbox" id="cfRemove" />
+              <label for="cfRemove">Remove formatting</label><br />
+            </div>
+          </td>
+          <td class="option">
+            <button class="toggle" id="composeFormat" aria-labelledby="cfLabel">
+              <span></span>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="matchFontSize" id="mfsLabel">
+              Match default font size to sender & subject<br />
+              <span class="gray"> (In compose body and message view)</span>
+            </label>
+          </td>
+          <td class="option">
+            <button
+              class="toggle"
+              id="matchFontSize"
+              aria-labelledby="mfsLabel"
+            >
+              <span></span>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="sendLater" id="slLabel">
+              Show schedule send button inline
+            </label>
+          </td>
+          <td class="option">
+            <button class="toggle" id="sendLater" aria-labelledby="slLabel">
+              <span></span>
+            </button>
+          </td>
+        </tr>
+      </table>
+      <br /><br />
+
+      <!-- NAVIGATION -->
+      <table>
+        <tr class="label">
+          <td colspan="2">Navigation</td>
+        </tr>
+        <tr>
+          <td>
+            <label for="hideUnreadCount" id="unreadsLabel">
+              Hide unread count in nav
+            </label>
+          </td>
+          <td class="option">
+            <button
+              class="toggle"
+              id="hideUnreadCount"
+              aria-labelledby="unreadsLabel"
+            >
+              <span></span>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="hideTitleUnreadCount" id="unreadsTitleLabel">
+              Hide unread count in browser tab
+            </label>
+          </td>
+          <td class="option">
+            <button
+              class="toggle"
+              id="hideTitleUnreadCount"
+              aria-labelledby="unreadsTitleLabel"
+            >
+              <span></span>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="addCategories" id="addCatsLabel"
+              >Add Purchases, Finance, and Trips categories</label
+            >
+          </td>
+          <td class="option">
+            <button
+              class="toggle"
+              id="addCategories"
+              aria-labelledby="addCatsLabel"
+            >
+              <span></span>
+            </button>
+          </td>
+        </tr>
+      </table>
+      <br /><br />
+
+      <!-- CHAT -->
+      <table>
+        <tr class="label">
+          <td colspan="2">Chat</td>
+        </tr>
+        <tr>
+          <td>
+            <label for="minimizeChat" id="mcLabel"
+              >Minimize chat roster to a floating button</label
+            >
+          </td>
+          <td class="option">
+            <button class="toggle" id="minimizeChat" aria-labelledby="mcLabel">
+              <span></span>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="showChat" id="scLabel"
+              >Show chat button when nav is closed</label
+            >
+          </td>
+          <td class="option">
+            <button class="toggle" id="showChat" aria-labelledby="scLabel">
+              <span></span>
+            </button>
+          </td>
+        </tr>
+      </table>
+      <br /><br />
+
+      <!-- DARK THEME -->
+      <table>
+        <tr class="label">
+          <td colspan="2">When using Gmail's dark theme...</td>
+        </tr>
+        <tr class="select">
+          <td>Make messages dark</td>
+          <td class="option">
+            <select id="invertMessages">
+              <option value="none">Disable</option>
+              <option value="text-only" selected>Text emails only</option>
+              <option value="all">All emails</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="invertAddons" id="iaLabel"
+              >Make the add-ons pane dark</label
+            >
+          </td>
+          <td class="option">
+            <button class="toggle" id="invertAddons" aria-labelledby="iaLabel">
+              <span></span>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="invertCompose" id="icLabel">Make compose dark</label>
+          </td>
+          <td class="option">
+            <button class="toggle" id="invertCompose" aria-labelledby="icLabel">
+              <span></span>
+            </button>
+          </td>
+        </tr>
+      </table>
+      <br /><br />
+
+      <!-- KEYBOARD SHORTCUTS -->
+      <table>
+        <tr class="label">
+          <td colspan="2">Keyboard shortcuts</td>
+        </tr>
+        <tr>
+          <td>
+            <label for="kbsEnter" id="kbsenLabel">
+              <kbd>ENTER</kbd> - Drill in (open message &#8594; focus message
+              &#8594; reply)
+            </label>
+          </td>
+          <td class="option">
+            <button class="toggle" id="kbsEnter" aria-labelledby="kbsenLabel">
+              <span></span>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="kbsEscape" id="kbseLabel">
+              <kbd>ESC</kbd> - Drill out (close reply &#8594; message &#8594;
+              search &#8594; inbox)
+            </label>
+          </td>
+          <td class="option">
+            <button class="toggle" id="kbsEscape" aria-labelledby="kbseLabel">
+              <span></span>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="kbsBackspace" id="kbsbLabel">
+              <kbd>BACKSPACE</kbd> - Delete message
+            </label>
+          </td>
+          <td class="option">
+            <button
+              class="toggle"
+              id="kbsBackspace"
+              aria-labelledby="kbsbLabel"
+            >
+              <span></span>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="kbsSelectAll" id="kbsaLabel">
+              <kbd class="cmdKey">Ctrl</kbd><kbd>A</kbd> - Select all / no
+              messages (on current page)
+            </label>
+          </td>
+          <td class="option">
+            <button
+              class="toggle"
+              id="kbsSelectAll"
+              aria-labelledby="kbsaLabel"
+            >
+              <span></span>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="kbsSelectAllAll" id="kbsaaLabel">
+              <kbd class="cmdKey">Ctrl</kbd><kbd>&#8679;</kbd><kbd>A</kbd> -
+              Select all (including beyond current page)
+            </label>
+          </td>
+          <td class="option">
+            <button
+              class="toggle"
+              id="kbsSelectAllAll"
+              aria-labelledby="kbsaaLabel"
+            >
+              <span></span>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="kbsRefresh" id="kbsrLabel">
+              <kbd class="cmdKey">Ctrl</kbd><kbd>R</kbd> - Refresh list
+            </label>
+          </td>
+          <td class="option">
+            <button class="toggle" id="kbsRefresh" aria-labelledby="kbsrLabel">
+              <span></span>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="kbsUndo" id="kbsuLabel">
+              <kbd class="cmdKey">Ctrl</kbd><kbd>Z</kbd> - Undo last action
+            </label>
+          </td>
+          <td class="option">
+            <button class="toggle" id="kbsUndo" aria-labelledby="kbsuLabel">
+              <span></span>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="kbsMenu" id="kbsmLabel">
+              <kbd class="altKey">Alt</kbd><kbd>M</kbd> - Open/close navigation
+              menu
+            </label>
+          </td>
+          <td class="option">
+            <button class="toggle" id="kbsMenu" aria-labelledby="kbsmLabel">
+              <span></span>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="kbsInfo" id="kbsiLabel">
+              <kbd class="altKey">Alt</kbd><kbd>I</kbd> - Simplify version &
+              info pop-up
+            </label>
+          </td>
+          <td class="option">
+            <button class="toggle" id="kbsInfo" aria-labelledby="kbsiLabel">
+              <span></span>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="kbsOrder" id="kbsoLabel">
+              <kbd class="altKey">Alt</kbd><kbd>D</kbd> - Reverse a conversation
+              temporarily
+            </label>
+          </td>
+          <td class="option">
+            <button class="toggle" id="kbsOrder" aria-labelledby="kbsoLabel">
+              <span></span>
+            </button>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <label for="kbsToggle" id="kbssLabel">
+              <kbd class="altKey">Alt</kbd><kbd>S</kbd> - Toggle Simplify on/off
+            </label>
+          </td>
+          <td class="option">
+            <button class="toggle" id="kbsToggle" aria-labelledby="kbssLabel">
+              <span></span>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="kbsAutoSelect" id="kbsxLabel">
+              Auto-select message in list for one-key shortcuts<br />
+              <span class="gray">(Does not work with custom shortcuts)</span>
+            </label>
+          </td>
+          <td class="option">
+            <button
+              class="toggle"
+              id="kbsAutoSelect"
+              aria-labelledby="kbsxLabel"
+            >
+              <span></span>
+            </button>
+          </td>
+        </tr>
+      </table>
+      <br /><br />
+
+      <!-- ADVANCED -->
+      <table>
+        <tr class="label">
+          <td colspan="2">Advanced</td>
+        </tr>
+        <tr>
+          <td>
+            <label for="favicon" id="fvLabel">Use old Gmail favicon</label>
+          </td>
+          <td class="option">
+            <button class="toggle" id="favicon" aria-labelledby="fvLabel">
+              <span></span>
+            </button>
+          </td>
+        </tr>
+        <tr class="">
+          <td><label for="debug" id="debugLabel">Debug mode</label></td>
+          <td class="option">
+            <button class="toggle" id="debug" aria-labelledby="debugLabel">
+              <span></span>
+            </button>
+          </td>
+        </tr>
+      </table>
+      <br /><br />
+
+      <br />
+      <a href="https://simpl.fyi/support">Report issue</a> -
+      <a href="https://simpl.fyi/#privacy">Privacy Policy</a> -
+      <a href="https://simpl.fyi/#about">About</a><br />
+      <span class="footer">
+        Simplify v2.3.3 - Copyright (c) 2021
+        <a href="https://leggett.org" target="_new">Michael Leggett</a> -
+        <a href="https://twitter.com/leggett" target="_new"
+          >@leggett on Twitter</a
+        ></span
+      ><br />
+    </div>
+
+    <div id="alertMsg"></div>
+  </body>
+</html>

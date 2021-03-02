@@ -1,0 +1,53 @@
+{
+"update_url": "https://clients2.google.com/service/update2/crx",
+
+  "name": "Simplify Gmail",
+  "version": "2.3.3",
+  "manifest_version": 2,
+  "description": "Make Gmail more simple, capable, and respectful",
+  "homepage_url": "https://simpl.fyi",
+  "icons": {
+    "48": "img/app/icon48.png",
+    "128": "img/app/icon128.png",
+    "512": "img/app/icon512.png"
+  },
+  "default_locale": "en",
+  "content_scripts": [
+    {
+      "matches": ["https://mail.google.com/*"],
+      "css": ["css/images.css", "css/styles.css"],
+      "js": ["js/main.js"],
+      "run_at": "document_start",
+      "all_frames": false
+    }
+  ],
+  "page_action": {
+    "default_icon": {
+      "48": "img/app/icon48.png",
+      "128": "img/app/icon128.png"
+    },
+    "default_title": "Simplify Gmail",
+    "default_popup": "prefs/popup.html"
+  },
+  "background": {
+    "scripts": ["js/background.js", "js/trackers.js"]
+  },
+  "options_ui": {
+    "page": "prefs/edit.html",
+    "open_in_tab": true
+  },
+  "web_accessible_resources": [
+    "prefs/*",
+    "img/app/*",
+    "img/bg/*",
+    "img/icons/*"
+  ],
+  "permissions": [
+    "storage",
+    "webRequest",
+    "webRequestBlocking",
+    "*://mail.google.com/*",
+    "*://*.googleusercontent.com/proxy/*"
+  ],
+  "content_security_policy": "default-src 'self'; style-src 'self'; script-src 'self'; img-src 'self'"
+}

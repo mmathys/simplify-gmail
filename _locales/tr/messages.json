@@ -1,0 +1,20 @@
+{
+  "today": {
+    "message": "bugün"
+  },
+  "yesterday": {
+    "message": "dün"
+  },
+  "thisWeek": {
+    "message": "Bu hafta"
+  },
+  "thisMonth": {
+    "message": "bu ay"
+  },
+  "lastMonth": {
+    "message": "geçen ay"
+  },
+  "earlier": {
+    "message": "daha eski"
+  }
+}

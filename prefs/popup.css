@@ -1,0 +1,48 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#menu {
+  font-family: system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 2em;
+  white-space: nowrap;
+  min-width: 200px;
+}
+
+#menu img {
+  max-width: 170px;
+  margin: 24px 28px 16px 24px;
+  padding: 0;
+}
+
+#menu header {
+  padding: 24px 36px 12px;
+  font-weight: bold;
+}
+
+#menu div {
+  padding: 4px 16px;
+  margin: 0 8px;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+#menu div[id]:hover {
+  cursor: pointer;
+  background-color: #36c;
+  color: white;
+}
+
+#menu footer {
+  border-top: 1px solid #ddd;
+  padding: 12px 0px;
+  margin-top: 12px;
+}
+
+#menu footer div {
+  font-weight: normal;
+  color: #555;
+}

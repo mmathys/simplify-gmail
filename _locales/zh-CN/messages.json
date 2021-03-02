@@ -1,0 +1,20 @@
+{
+  "today": {
+    "message": "今天"
+  },
+  "yesterday": {
+    "message": "昨天"
+  },
+  "thisWeek": {
+    "message": "本星期"
+  },
+  "thisMonth": {
+    "message": "这个月"
+  },
+  "lastMonth": {
+    "message": "上个月"
+  },
+  "earlier": {
+    "message": "年长的"
+  }
+}
